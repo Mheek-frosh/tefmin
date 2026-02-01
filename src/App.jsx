@@ -1,22 +1,36 @@
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { Navbar } from "./components/Navbar";
-import { Hero } from "./components/Hero";
-import { Services } from "./components/Services";
-import { VideoSection } from "./components/VideoSection";
-import { Projects } from "./components/Projects";
-import { About } from "./components/About";
 import { Footer } from "./components/Footer";
+import Home from "./pages/Home";
+import ProjectsPage from "./pages/Projects";
+import AboutPage from "./pages/About";
+import ContactPage from "./pages/Contact";
+
+// Scroll to top on navigation
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 function App() {
   return (
-    <main className="min-h-screen font-sans selection:bg-secondary selection:text-primary scroll-smooth">
-      <Navbar />
-      <Hero />
-      <Services />
-      <VideoSection />
-      <Projects />
-      <About />
-      <Footer />
-    </main>
+    <Router>
+      <ScrollToTop />
+      <main className="min-h-screen font-sans selection:bg-secondary selection:text-primary scroll-smooth">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+        <Footer />
+      </main>
+    </Router>
   );
 }
 
