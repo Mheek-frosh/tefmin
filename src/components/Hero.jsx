@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Button } from "./ui/Button";
 import { ArrowRight, Star } from "lucide-react";
 
@@ -92,12 +93,14 @@ export const Hero = () => {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-6">
-                            <Button className="text-lg px-12 py-5 shadow-2xl shadow-primary/40 group">
-                                <span className="flex items-center gap-3">
-                                    Join the Project
-                                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                                </span>
-                            </Button>
+                            <Link to="/contact">
+                                <Button className="text-lg px-12 py-5 shadow-2xl shadow-primary/40 group">
+                                    <span className="flex items-center gap-3">
+                                        Join the Project
+                                        <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                                    </span>
+                                </Button>
+                            </Link>
                             <Button variant="outline" className="text-lg px-12 py-5 border-white/20 text-white backdrop-blur-sm hover:bg-white hover:text-primary transition-all">
                                 Download Brochure
                             </Button>

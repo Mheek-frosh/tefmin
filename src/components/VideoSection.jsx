@@ -93,7 +93,7 @@ export const VideoSection = () => {
                                 loop
                                 muted
                             >
-                                <source src="https://assets.mixkit.co/videos/preview/mixkit-working-overtime-in-a-modern-office-4840-large.mp4" type="video/mp4" />
+                                <source src="https://assets.mixkit.co/videos/preview/mixkit-heavy-machinery-in-a-factory-industrial-setting-4561-large.mp4" type="video/mp4" />
                             </video>
 
                             {/* Play Button Overlay */}
@@ -148,7 +148,7 @@ export const VideoSection = () => {
                                     controls
                                     className="w-full h-full object-contain bg-black"
                                 >
-                                    <source src="https://assets.mixkit.co/videos/preview/mixkit-working-overtime-in-a-modern-office-4840-large.mp4" type="video/mp4" />
+                                    <source src="https://assets.mixkit.co/videos/preview/mixkit-heavy-machinery-in-a-factory-industrial-setting-4561-large.mp4" type="video/mp4" />
                                 </video>
 
                                 {/* Close Button */}

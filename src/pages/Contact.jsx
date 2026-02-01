@@ -1,8 +1,17 @@
-import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, MessageSquare, Globe, Clock, CheckCircle2, Award } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Mail, Phone, MapPin, Send, MessageSquare, Globe, Clock, CheckCircle2, Award, Sparkles, ShieldCheck } from "lucide-react";
 import { Button } from "../components/ui/Button";
 
 export default function ContactPage() {
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setIsSubmitted(true);
+        setTimeout(() => setIsSubmitted(false), 5000);
+    };
+
     return (
         <div className="pt-32 pb-24 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
@@ -26,7 +35,10 @@ export default function ContactPage() {
                             </p>
 
                             <div className="space-y-8">
-                                <div className="group flex items-start gap-6 p-6 rounded-[2rem] hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100">
+                                <motion.div
+                                    whileHover={{ x: 10 }}
+                                    className="group flex items-start gap-6 p-6 rounded-[2rem] hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100"
+                                >
                                     <div className="h-14 w-14 rounded-2xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
                                         <MapPin size={24} />
                                     </div>
@@ -34,9 +46,12 @@ export default function ContactPage() {
                                         <h4 className="text-lg font-bold text-gray-900 mb-1">Headquarters</h4>
                                         <p className="text-gray-500">Suite 402, TEFMIN Plaza, Lekki Phase 1, Lagos, Nigeria</p>
                                     </div>
-                                </div>
+                                </motion.div>
 
-                                <div className="group flex items-start gap-6 p-6 rounded-[2rem] hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100">
+                                <motion.div
+                                    whileHover={{ x: 10 }}
+                                    className="group flex items-start gap-6 p-6 rounded-[2rem] hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100"
+                                >
                                     <div className="h-14 w-14 rounded-2xl bg-secondary/10 flex items-center justify-center text-primary group-hover:bg-secondary group-hover:text-primary transition-all">
                                         <Phone size={24} />
                                     </div>
@@ -45,9 +60,12 @@ export default function ContactPage() {
                                         <p className="text-gray-500">+234 (0) 800-TEFMIN-PRO</p>
                                         <p className="text-xs font-bold text-primary mt-1 uppercase tracking-widest">Available 9AM - 6PM WAT</p>
                                     </div>
-                                </div>
+                                </motion.div>
 
-                                <div className="group flex items-start gap-6 p-6 rounded-[2rem] hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100">
+                                <motion.div
+                                    whileHover={{ x: 10 }}
+                                    className="group flex items-start gap-6 p-6 rounded-[2rem] hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100"
+                                >
                                     <div className="h-14 w-14 rounded-2xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
                                         <Mail size={24} />
                                     </div>
@@ -56,7 +74,7 @@ export default function ContactPage() {
                                         <p className="text-gray-500">info@tefmin.com</p>
                                         <p className="text-gray-500">projects@tefmin.com</p>
                                     </div>
-                                </div>
+                                </motion.div>
                             </div>
                         </motion.div>
                     </div>
@@ -71,62 +89,98 @@ export default function ContactPage() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="bg-white rounded-[3rem] p-10 md:p-16 shadow-[0_48px_80px_-16px_rgba(0,0,0,0.1)] border border-gray-100"
+                            className="bg-white rounded-[3rem] p-10 md:p-16 shadow-[0_48px_80px_-16px_rgba(0,0,0,0.1)] border border-gray-100 min-h-[600px] flex flex-col justify-center"
                         >
-                            <div className="mb-10 flex items-center justify-between">
-                                <h3 className="text-3xl font-black text-gray-900 uppercase tracking-tighter">Inquiry Form</h3>
-                                <MessageSquare className="text-primary/20" size={40} />
-                            </div>
+                            <AnimatePresence mode="wait">
+                                {!isSubmitted ? (
+                                    <motion.div
+                                        key="form"
+                                        initial={{ opacity: 0, scale: 0.95 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.95 }}
+                                    >
+                                        <div className="mb-10 flex items-center justify-between">
+                                            <h3 className="text-3xl font-black text-gray-900 uppercase tracking-tighter">Inquiry Form</h3>
+                                            <MessageSquare className="text-primary/20" size={40} />
+                                        </div>
 
-                            <form className="space-y-8">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                    <div className="space-y-4">
-                                        <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2">Full Name</label>
-                                        <input
-                                            type="text"
-                                            placeholder="John Doe"
-                                            className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all"
-                                        />
-                                    </div>
-                                    <div className="space-y-4">
-                                        <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2">Email Address</label>
-                                        <input
-                                            type="email"
-                                            placeholder="john@example.com"
-                                            className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all"
-                                        />
-                                    </div>
-                                </div>
+                                        <form className="space-y-8" onSubmit={handleSubmit}>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                                <div className="space-y-4">
+                                                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2">Full Name</label>
+                                                    <input
+                                                        required
+                                                        type="text"
+                                                        placeholder="John Doe"
+                                                        className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all font-bold text-gray-900"
+                                                    />
+                                                </div>
+                                                <div className="space-y-4">
+                                                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2">Email Address</label>
+                                                    <input
+                                                        required
+                                                        type="email"
+                                                        placeholder="john@example.com"
+                                                        className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all font-bold text-gray-900"
+                                                    />
+                                                </div>
+                                            </div>
 
-                                <div className="space-y-4">
-                                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2">Nature of Inquiry</label>
-                                    <select className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all appearance-none">
-                                        <option>Industrial Project Partner</option>
-                                        <option>Training & Recruitment</option>
-                                        <option>Corporate Partnership</option>
-                                        <option>Artisan Empowerment</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
+                                            <div className="space-y-4">
+                                                <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2">Nature of Inquiry</label>
+                                                <select className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all appearance-none font-bold text-gray-900">
+                                                    <option>Industrial Project Partner</option>
+                                                    <option>Training & Recruitment</option>
+                                                    <option>Corporate Partnership</option>
+                                                    <option>Artisan Empowerment</option>
+                                                    <option>Other</option>
+                                                </select>
+                                            </div>
 
-                                <div className="space-y-4">
-                                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2">Your Message</label>
-                                    <textarea
-                                        rows="5"
-                                        placeholder="Tell us about your project or vision..."
-                                        className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all resize-none"
-                                    ></textarea>
-                                </div>
+                                            <div className="space-y-4">
+                                                <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2">Your Message</label>
+                                                <textarea
+                                                    required
+                                                    rows="5"
+                                                    placeholder="Tell us about your project or vision..."
+                                                    className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all resize-none font-bold text-gray-900"
+                                                ></textarea>
+                                            </div>
 
-                                <Button className="w-full py-5 text-lg shadow-2xl flex items-center justify-center gap-3">
-                                    Send Message <Send size={20} />
-                                </Button>
+                                            <Button type="submit" className="w-full py-5 text-lg shadow-2xl flex items-center justify-center gap-3 active:scale-95">
+                                                Send Message <Send size={20} />
+                                            </Button>
 
-                                <div className="flex items-center gap-4 text-xs font-bold text-gray-400">
-                                    <CheckCircle2 size={16} className="text-primary" />
-                                    <span>Your data is protected by TEFMIN Privacy Policy.</span>
-                                </div>
-                            </form>
+                                            <div className="flex items-center gap-4 text-xs font-bold text-gray-400">
+                                                <CheckCircle2 size={16} className="text-primary" />
+                                                <span>Your data is protected by TEFMIN Privacy Policy.</span>
+                                            </div>
+                                        </form>
+                                    </motion.div>
+                                ) : (
+                                    <motion.div
+                                        key="success"
+                                        initial={{ opacity: 0, scale: 0.95 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        className="text-center"
+                                    >
+                                        <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-primary/20">
+                                            <Sparkles className="text-primary" size={48} />
+                                        </div>
+                                        <h3 className="text-4xl font-black text-gray-900 mb-4 tracking-tighter">Inquiry Received!</h3>
+                                        <p className="text-gray-500 text-lg mb-8 leading-relaxed max-w-sm mx-auto">
+                                            Thank you for reaching out. A TEFMIN representative will contact you via email within 24 hours.
+                                        </p>
+                                        <Button
+                                            variant="outline"
+                                            onClick={() => setIsSubmitted(false)}
+                                            className="px-10"
+                                        >
+                                            Send Another Message
+                                        </Button>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
                         </motion.div>
                     </div>
                 </div>

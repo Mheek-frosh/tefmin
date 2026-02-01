@@ -13,7 +13,7 @@ export const Footer = () => {
     ];
 
     return (
-        <footer id="contact" className="bg-primary text-white pt-24 pb-12">
+        <footer id="main-footer" className="bg-primary text-white pt-24 pb-12">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
                     {/* Brand Info */}
