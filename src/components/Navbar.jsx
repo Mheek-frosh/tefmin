@@ -5,15 +5,15 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/Button";
 
 const navLinks = [
-    { name: "Services", href: "/#services" },
+    { name: "Home", href: "/" },
     { name: "Projects", href: "/projects" },
     {
         name: "About Us",
         href: "/about",
         dropdown: [
             { name: "The Project", href: "/about" },
-            { name: "Our Services", href: "/#services" },
-            { name: "Empowerment", href: "/#empowerment" },
+            { name: "Empowerment", href: "/empowerment" },
+            { name: "Services", href: "/#services" },
         ]
     },
 ];
@@ -33,11 +33,24 @@ export const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Close mobile menu on route change
     useEffect(() => {
         setIsMobileMenuOpen(false);
         setActiveDropdown(false);
     }, [location]);
+
+    // Handle smooth scroll for anchor links
+    const handleAnchorClick = (e, href) => {
+        if (href.startsWith("/#")) {
+            if (location.pathname === "/") {
+                e.preventDefault();
+                const id = href.replace("/#", "");
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+        }
+    };
 
     return (
         <nav
@@ -66,6 +79,7 @@ export const Navbar = () => {
                         >
                             <Link
                                 to={link.href}
+                                onClick={(e) => handleAnchorClick(e, link.href)}
                                 className={`text-sm font-bold uppercase tracking-widest transition-colors hover:text-secondary flex items-center gap-1 ${isScrolled ? "text-gray-700" : "text-white"
                                     }`}
                             >
@@ -88,7 +102,8 @@ export const Navbar = () => {
                                                     <Link
                                                         key={sub.name}
                                                         to={sub.href}
-                                                        className="text-xs font-bold text-gray-500 hover:text-primary transition-colors uppercase tracking-widest px-2 py-1"
+                                                        onClick={(e) => handleAnchorClick(e, sub.href)}
+                                                        className="text-xs font-bold text-gray-400 hover:text-primary transition-colors uppercase tracking-widest px-2 py-1"
                                                     >
                                                         {sub.name}
                                                     </Link>
@@ -135,7 +150,10 @@ export const Navbar = () => {
                                     <Link
                                         to={link.href}
                                         className="text-2xl font-black text-gray-800 hover:text-primary transition-colors tracking-tighter"
-                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        onClick={(e) => {
+                                            handleAnchorClick(e, link.href);
+                                            if (!link.dropdown) setIsMobileMenuOpen(false);
+                                        }}
                                     >
                                         {link.name}
                                     </Link>
@@ -146,7 +164,10 @@ export const Navbar = () => {
                                                     key={sub.name}
                                                     to={sub.href}
                                                     className="text-sm font-bold text-gray-400 uppercase tracking-widest"
-                                                    onClick={() => setIsMobileMenuOpen(false)}
+                                                    onClick={(e) => {
+                                                        handleAnchorClick(e, sub.href);
+                                                        setIsMobileMenuOpen(false);
+                                                    }}
                                                 >
                                                     {sub.name}
                                                 </Link>
