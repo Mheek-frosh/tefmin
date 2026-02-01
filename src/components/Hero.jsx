@@ -80,7 +80,7 @@ export const Hero = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: -20 }}
                                     transition={{ duration: 0.6 }}
-                                    className="text-6xl md:text-8xl font-black text-white leading-[0.95] mb-10 tracking-tighter"
+                                    className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.95] mb-10 tracking-tighter"
                                 >
                                     {phrases[index].prefix} <br />
                                     <span className="text-secondary italic">{phrases[index].suffix}</span>

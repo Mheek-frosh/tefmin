@@ -26,7 +26,7 @@ export default function ContactPage() {
                             <span className="text-primary font-black tracking-widest uppercase text-xs mb-6 inline-block bg-primary/5 px-4 py-2 rounded-full">
                                 Get in Touch
                             </span>
-                            <h1 className="text-6xl md:text-8xl font-black text-gray-900 mb-10 leading-[0.9] tracking-tighter">
+                            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-10 leading-[0.9] tracking-tighter">
                                 Let's Build the <br />
                                 <span className="text-primary underline decoration-secondary decoration-8 underline-offset-8">Future.</span>
                             </h1>

@@ -15,7 +15,7 @@ export default function AboutPage() {
                     <span className="text-primary font-black tracking-widest uppercase text-xs mb-6 inline-block bg-primary/5 px-4 py-2 rounded-full">
                         Founded 2024
                     </span>
-                    <h1 className="text-6xl md:text-8xl font-black text-gray-900 mb-10 leading-[0.9] tracking-tighter">
+                    <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-10 leading-[0.9] tracking-tighter">
                         Pioneering the <br />
                         <span className="text-primary italic">Industrial</span> Renaissance.
                     </h1>

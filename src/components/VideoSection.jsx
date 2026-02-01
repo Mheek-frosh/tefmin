@@ -56,7 +56,7 @@ export const VideoSection = () => {
                             <ShieldCheck size={16} />
                             <span>THE TEFMIN STORY</span>
                         </motion.div>
-                        <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
+                        <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
                             Watch How We're <span className="text-secondary">Shaping</span> the Future.
                         </h2>
                         <p className="text-xl text-white/70 mb-10 leading-relaxed">
@@ -93,7 +93,7 @@ export const VideoSection = () => {
                                 loop
                                 muted
                             >
-                                <source src="https://assets.mixkit.co/videos/preview/mixkit-heavy-machinery-in-a-factory-industrial-setting-4561-large.mp4" type="video/mp4" />
+                                <source src="https://assets.mixkit.co/videos/preview/mixkit-conveyor-belt-in-a-large-factory-4491-large.mp4" type="video/mp4" />
                             </video>
 
                             {/* Play Button Overlay */}
@@ -148,7 +148,7 @@ export const VideoSection = () => {
                                     controls
                                     className="w-full h-full object-contain bg-black"
                                 >
-                                    <source src="https://assets.mixkit.co/videos/preview/mixkit-heavy-machinery-in-a-factory-industrial-setting-4561-large.mp4" type="video/mp4" />
+                                    <source src="https://assets.mixkit.co/videos/preview/mixkit-conveyor-belt-in-a-large-factory-4491-large.mp4" type="video/mp4" />
                                 </video>
 
                                 {/* Close Button */}
