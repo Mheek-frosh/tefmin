@@ -6,16 +6,15 @@ import { Button } from "./ui/Button";
 
 const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Projects", href: "/projects" },
     {
         name: "About Us",
         href: "/about",
         dropdown: [
-            { name: "The Project", href: "/about" },
+            { name: "Our Company", href: "/about" },
             { name: "Empowerment", href: "/empowerment" },
-            { name: "Services", href: "/#services" },
         ]
     },
+    { name: "Projects", href: "/projects" },
 ];
 
 export const Navbar = () => {
@@ -52,18 +51,21 @@ export const Navbar = () => {
         }
     };
 
+    const isAlwaysScrolled = location.pathname !== "/";
+    const showScrolledStyle = isScrolled || isAlwaysScrolled;
+
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 py-4 ${isScrolled ? "mt-4" : "mt-0"
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 py-4 ${showScrolledStyle ? "mt-4" : "mt-0"
                 }`}
         >
             <div
-                className={`max-w-7xl mx-auto rounded-full transition-all duration-500 flex items-center justify-between px-8 py-3 ${isScrolled ? "glass shadow-2xl" : "bg-transparent"
+                className={`max-w-7xl mx-auto rounded-full transition-all duration-500 flex items-center justify-between px-8 py-3 ${showScrolledStyle ? "glass shadow-2xl border border-white/20" : "bg-transparent"
                     }`}
             >
                 <Link to="/" className="flex items-center gap-2">
                     <img src="/logo.png" alt="TEFMIN Logo" className="h-10 w-auto" />
-                    <span className={`font-black text-xl tracking-tighter ${isScrolled ? "text-primary" : "text-white"}`}>
+                    <span className={`font-black text-xl tracking-tighter transition-colors duration-500 ${showScrolledStyle ? "text-primary" : "text-white"}`}>
                         TEFMIN
                     </span>
                 </Link>
@@ -80,7 +82,7 @@ export const Navbar = () => {
                             <Link
                                 to={link.href}
                                 onClick={(e) => handleAnchorClick(e, link.href)}
-                                className={`text-sm font-bold uppercase tracking-widest transition-colors hover:text-secondary flex items-center gap-1 ${isScrolled ? "text-gray-700" : "text-white"
+                                className={`text-sm font-bold uppercase tracking-widest transition-colors duration-500 hover:text-secondary flex items-center gap-1 ${showScrolledStyle ? "text-gray-700" : "text-white"
                                     }`}
                             >
                                 {link.name}
@@ -115,10 +117,14 @@ export const Navbar = () => {
                             )}
                         </div>
                     ))}
-                    <Link to="/contact">
-                        <Button variant={isScrolled ? "primary" : "secondary"} className="py-2.5 px-8 text-xs lowercase">
-                            contact us
-                        </Button>
+                    <Link
+                        to="/contact"
+                        className={`py-2.5 px-8 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 active:scale-95 ${showScrolledStyle
+                            ? "bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20"
+                            : "bg-secondary text-primary hover:bg-secondary/90 shadow-lg shadow-secondary/20"
+                            }`}
+                    >
+                        contact us
                     </Link>
                 </div>
 
@@ -128,9 +134,9 @@ export const Navbar = () => {
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? (
-                        <X className={isScrolled ? "text-primary" : "text-white"} />
+                        <X className={showScrolledStyle ? "text-primary" : "text-white"} />
                     ) : (
-                        <Menu className={isScrolled ? "text-primary" : "text-white"} />
+                        <Menu className={showScrolledStyle ? "text-primary" : "text-white"} />
                     )}
                 </button>
             </div>
@@ -176,8 +182,12 @@ export const Navbar = () => {
                                     )}
                                 </div>
                             ))}
-                            <Link to="/contact">
-                                <Button className="w-full py-4 text-lg" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Button>
+                            <Link
+                                to="/contact"
+                                className="w-full py-4 rounded-full bg-primary text-white text-center text-lg font-black shadow-xl"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                Contact Us
                             </Link>
                         </div>
                     </motion.div>

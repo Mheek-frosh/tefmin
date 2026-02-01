@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, MessageSquare, Globe, Clock, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageSquare, Globe, Clock, CheckCircle2, Award } from "lucide-react";
 import { Button } from "../components/ui/Button";
 
 export default function ContactPage() {
@@ -151,7 +151,7 @@ export default function ContactPage() {
                         <p className="text-xs text-gray-400 uppercase tracking-widest">Verified Partners</p>
                     </div>
                     <div>
-                        < अवार्ड className="mx-auto mb-4 text-primary/20" size={32} />
+                        <Award className="mx-auto mb-4 text-primary/20" size={32} />
                         <h5 className="font-bold text-gray-900 mb-1">Impact First</h5>
                         <p className="text-xs text-gray-400 uppercase tracking-widest">Certified Projects</p>
                     </div>

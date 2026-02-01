@@ -1,8 +1,17 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import { Button } from "./ui/Button";
 
 export const Footer = () => {
+    const navLinks = [
+        { name: "Home", href: "/" },
+        { name: "About", href: "/about" },
+        { name: "Empowerment", href: "/empowerment" },
+        { name: "Projects", href: "/projects" },
+        { name: "Contact", href: "/contact" },
+    ];
+
     return (
         <footer id="contact" className="bg-primary text-white pt-24 pb-12">
             <div className="max-w-7xl mx-auto px-6">
@@ -52,11 +61,11 @@ export const Footer = () => {
                     <div>
                         <h4 className="text-xl font-bold mb-8">Navigation</h4>
                         <ul className="space-y-4">
-                            {["Services", "About", "Empowerment", "Portfolio", "Careers"].map((link) => (
-                                <li key={link}>
-                                    <a href="#" className="text-white/70 hover:text-secondary transition-colors underline-offset-4 hover:underline">
-                                        {link}
-                                    </a>
+                            {navLinks.map((link) => (
+                                <li key={link.name}>
+                                    <Link to={link.href} className="text-white/70 hover:text-secondary transition-colors underline-offset-4 hover:underline">
+                                        {link.name}
+                                    </Link>
                                 </li>
                             ))}
                         </ul>

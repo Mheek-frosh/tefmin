@@ -1,8 +1,24 @@
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "./ui/Button";
 import { ArrowRight, Star } from "lucide-react";
 
+const phrases = [
+    { prefix: "The Future", suffix: "is Made in Nigeria." },
+    { prefix: "The Quality", suffix: "is Made in Nigeria." },
+    { prefix: "The Progress", suffix: "is Made in Nigeria." },
+];
+
 export const Hero = () => {
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setIndex((prev) => (prev + 1) % phrases.length);
+        }, 4000);
+        return () => clearInterval(timer);
+    }, []);
+
     return (
         <section className="relative min-h-[90vh] flex items-center justify-center pt-28 pb-20 overflow-hidden">
             {/* Dynamic Background */}
@@ -42,7 +58,7 @@ export const Hero = () => {
             </div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-                <div className="max-w-3xl">
+                <div className="max-w-4xl">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -55,10 +71,21 @@ export const Hero = () => {
                             </span>
                         </div>
 
-                        <h1 className="text-6xl md:text-8xl font-black text-white leading-[0.95] mb-10 tracking-tighter">
-                            The <span className="text-secondary">Future</span> <br />
-                            is <span className="underline decoration-secondary/30 underline-offset-8">Made in Nigeria.</span>
-                        </h1>
+                        <div className="min-h-[180px] md:min-h-[220px]">
+                            <AnimatePresence mode="wait">
+                                <motion.h1
+                                    key={index}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -20 }}
+                                    transition={{ duration: 0.6 }}
+                                    className="text-6xl md:text-8xl font-black text-white leading-[0.95] mb-10 tracking-tighter"
+                                >
+                                    {phrases[index].prefix} <br />
+                                    <span className="text-secondary italic">{phrases[index].suffix}</span>
+                                </motion.h1>
+                            </AnimatePresence>
+                        </div>
 
                         <p className="text-xl md:text-2xl text-white/70 mb-12 leading-relaxed max-w-2xl font-medium">
                             We're not just building industries; we're architecting the economic backbone of Africa's largest nation through strategic innovation and local excellence.

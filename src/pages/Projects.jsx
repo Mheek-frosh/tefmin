@@ -53,18 +53,89 @@ const projectItems = [
         image: "https://images.unsplash.com/photo-1509391366360-feaf9fa44852?auto=format&fit=crop&q=80&w=800",
         tags: ["Solar", "CleanEnergy", "Industrial"],
         stats: { capacity: "50MW", savings: "60%" }
+    },
+    {
+        id: 6,
+        title: "Smart Textiles Factory",
+        category: "Manufacturing",
+        description: "Modernizing Nigeria's textile industry with automated weaving and eco-friendly dye techniques.",
+        longDescription: "The Smart Textiles Factory uses high-precision looms and AI-driven quality control to produce premium African fabrics for global export. This facility revitalizes the local cotton supply chain while employing over 800 specialized textile workers.",
+        image: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?auto=format&fit=crop&q=80&w=800",
+        tags: ["Textiles", "Automation", "Jobs"],
+        stats: { workers: "800+", output: "2M Meters" }
+    },
+    // Additional Dummy Projects for Pagination
+    {
+        id: 7,
+        title: "Digital Literacy Program",
+        category: "Education",
+        description: "Equipping young Nigerians with coding and data analysis skills for the future industrial economy.",
+        longDescription: "A nationwide initiative to train 50,000 students in modern digital tools. We partner with schools to integrate industrial software training into their curriculum.",
+        image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800",
+        tags: ["Education", "Digital", "Youth"],
+        stats: { students: "50,000", centers: "120" }
+    },
+    {
+        id: 8,
+        title: "Waste-to-Energy Plant",
+        category: "Sustainability",
+        description: "Converting urban municipal waste into clean synthetic gas and electricity for industrial use.",
+        longDescription: "Our first pilot plant in Kano processes 500 tons of waste daily, generating 10MW of power. This project solves waste management issues while providing cheap energy.",
+        image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=800",
+        tags: ["Recycle", "Energy", "Kano"],
+        stats: { waste: "500t/day", power: "10MW" }
+    },
+    {
+        id: 9,
+        title: "Local Pharma Research",
+        category: "Health",
+        description: "Developing specialized laboratories for the production of essential vaccines and medications within Nigeria.",
+        longDescription: "TEFMIN Pharma Lab focuses on reducing Nigeria's dependence on imported drugs. We research local herbal efficacy and translate it into standardized pharmaceutical products.",
+        image: "https://images.unsplash.com/photo-1582719471384-894fbb16e024?auto=format&fit=crop&q=80&w=800",
+        tags: ["Health", "Pharma", "Research"],
+        stats: { vaccines: "3 types", labs: "5" }
+    },
+    {
+        id: 10,
+        title: "Bio-Fertilizer Project",
+        category: "Agriculture",
+        description: "Producing organic fertilizers from agricultural waste to boost soil health and crop yields.",
+        longDescription: "Our bio-fertilizer initiative reduces chemical dependence in Nigerian farming. By using organic waste, we produce high-nutrient fertilizers that have increased average yields by 25%.",
+        image: "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&q=80&w=800",
+        tags: ["Organic", "Farming", "Bio"],
+        stats: { yield: "+25%", waste_used: "1000t" }
+    },
+    {
+        id: 11,
+        title: "Metal Recycling Hub",
+        category: "Industrial",
+        description: "Advanced smelting facilities focused on recovering high-grade steel and aluminum from scrap metal.",
+        longDescription: "The Metal Recycling Hub in Port Harcourt recovers thousands of tons of metal yearly. This reduces the need for primary mining and provides cheap raw materials for construction.",
+        image: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=800",
+        tags: ["Steel", "Recycle", "Construction"],
+        stats: { steel: "10k tons", jobs: "300" }
+    },
+    {
+        id: 12,
+        title: "Data Sovereignty Center",
+        category: "Tech",
+        description: "Establishing Tier-4 data centers to host Nigerian industrial and governmental data locally.",
+        longDescription: "Hosting our own data ensures security and high-speed access for local industries. Our centers are powered by 100% renewable energy and follow global safety standards.",
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800",
+        tags: ["Data", "Cloud", "Sovereignty"],
+        stats: { uptime: "99.99%", capacity: "100PB" }
     }
 ];
 
 export default function ProjectsPage() {
     const [selectedProject, setSelectedProject] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 2; // Showing 2 projects per page to demonstrate pagination
+    const itemsPerPage = 6;
 
-    const totalPages = 5; // User specifically asked for 1, 2, 3, 4, 5
+    const totalPages = Math.ceil(projectItems.length / itemsPerPage);
 
-    // Slice projects for current page (simulating more data)
-    const displayedProjects = projectItems.slice((currentPage - 1) % projectItems.length, ((currentPage - 1) % projectItems.length) + itemsPerPage);
+    // Slice projects for current page
+    const displayedProjects = projectItems.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
     const goToPage = (page) => {
         if (page >= 1 && page <= totalPages) {
@@ -90,10 +161,10 @@ export default function ProjectsPage() {
                     </motion.div>
                 </header>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 mb-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
                     {displayedProjects.map((project, index) => (
                         <motion.div
-                            key={project.id + '-' + currentPage}
+                            key={project.id}
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
@@ -102,7 +173,7 @@ export default function ProjectsPage() {
                             onClick={() => setSelectedProject(project)}
                         >
                             <div className="bg-white rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 h-full flex flex-col">
-                                <div className="relative h-[300px] overflow-hidden">
+                                <div className="relative h-[240px] overflow-hidden">
                                     <img
                                         src={project.image}
                                         alt={project.title}
@@ -114,9 +185,9 @@ export default function ProjectsPage() {
                                         </span>
                                     </div>
                                 </div>
-                                <div className="p-10 flex flex-col flex-grow">
-                                    <h3 className="text-3xl font-bold text-gray-900 mb-4">{project.title}</h3>
-                                    <p className="text-gray-600 mb-8 line-clamp-2 leading-relaxed">
+                                <div className="p-8 flex flex-col flex-grow">
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{project.title}</h3>
+                                    <p className="text-gray-500 text-sm mb-6 line-clamp-2 leading-relaxed">
                                         {project.description}
                                     </p>
                                     <div className="mt-auto flex items-center justify-between">
@@ -125,8 +196,8 @@ export default function ProjectsPage() {
                                                 <span key={tag} className="text-[10px] font-black uppercase text-gray-400">#{tag}</span>
                                             ))}
                                         </div>
-                                        <Button variant="ghost" className="p-0 flex items-center gap-2 group-hover:text-primary">
-                                            View Details <ArrowRight size={18} />
+                                        <Button variant="ghost" className="p-0 flex items-center gap-2 group-hover:text-primary text-xs">
+                                            Details <ArrowRight size={14} />
                                         </Button>
                                     </div>
                                 </div>
@@ -146,16 +217,16 @@ export default function ProjectsPage() {
                     </button>
 
                     <div className="flex gap-2">
-                        {[1, 2, 3, 4, 5].map(page => (
+                        {[...Array(totalPages)].map((_, i) => (
                             <button
-                                key={page}
-                                onClick={() => goToPage(page)}
-                                className={`h-12 w-12 rounded-2xl font-black text-sm transition-all border ${currentPage === page
+                                key={i + 1}
+                                onClick={() => goToPage(i + 1)}
+                                className={`h-12 w-12 rounded-2xl font-black text-sm transition-all border ${currentPage === (i + 1)
                                         ? "bg-primary text-secondary border-primary shadow-xl shadow-primary/20 scale-110"
                                         : "bg-white text-gray-400 border-gray-100 hover:border-primary hover:text-primary"
                                     }`}
                             >
-                                {page}
+                                {i + 1}
                             </button>
                         ))}
                     </div>
