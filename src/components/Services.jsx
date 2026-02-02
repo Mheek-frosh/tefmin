@@ -7,26 +7,31 @@ const services = [
         title: "Consultancy",
         description: "Expert guidance for navigating the complex Nigerian business landscape.",
         icon: <Briefcase className="w-8 h-8 text-secondary" />,
+        image: "/consultancy_service.png",
     },
     {
         title: "Training",
         description: "Equipping the next generation with future-ready skills and technical expertise.",
         icon: <GraduationCap className="w-8 h-8 text-secondary" />,
+        image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800",
     },
     {
         title: "CSR Advisory",
         description: "Aligning business objectives with impactful social responsibility projects.",
         icon: <Heart className="w-8 h-8 text-secondary" />,
+        image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800",
     },
     {
         title: "Empowerment",
         description: "Driving growth through specialized programs for SME development.",
         icon: <Users className="w-8 h-8 text-secondary" />,
+        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
     },
     {
         title: "Business Development",
         description: "Strategic partnerships and expansion strategies tailored for local success.",
         icon: <LineChart className="w-8 h-8 text-secondary" />,
+        image: "https://images.unsplash.com/photo-1454165833767-027ffea9e77b?auto=format&fit=crop&q=80&w=800",
     },
 ];
 
@@ -58,14 +63,23 @@ export const Services = () => {
                     {services.map((service, index) => (
                         <GlassContainer
                             key={service.title}
-                            className="hover:border-secondary transition-colors duration-500 group"
+                            className="hover:border-secondary transition-colors duration-500 group relative overflow-hidden"
                             transition={{ delay: index * 0.1 }}
                         >
-                            <div className="mb-6 p-4 rounded-2xl bg-primary/5 inline-block group-hover:bg-primary/10 transition-colors">
-                                {service.icon}
+                            <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500">
+                                <img
+                                    src={service.image}
+                                    alt=""
+                                    className="w-full h-full object-cover scale-150 blur-xl"
+                                />
                             </div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                            <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                            <div className="relative z-10">
+                                <div className="mb-6 p-4 rounded-2xl bg-primary/5 inline-block group-hover:bg-primary/10 transition-colors">
+                                    {service.icon}
+                                </div>
+                                <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
+                                <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                            </div>
                         </GlassContainer>
                     ))}
                 </div>

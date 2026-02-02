@@ -10,10 +10,28 @@ const projects = [
         image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800",
     },
     {
+        title: "Lagos Innovation Hub",
+        category: "Innovation",
+        description: "A state-of-the-art startup incubator fostering the next generation of Nigerian tech leaders.",
+        image: "/lagos_startup_hub.png",
+    },
+    {
+        title: "Sustainable Energy Initiative",
+        category: "Energy",
+        description: "Implementing large-scale solar solutions to power rural Nigerian communities.",
+        image: "/sustainable_energy.png",
+    },
+    {
         title: "Eco-Friendly Logistics",
         category: "Supply Chain",
         description: "Revolutionizing distribution with zero-emission delivery solutions.",
         image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
+    },
+    {
+        title: "Textile Excellence Center",
+        category: "Manufacturing",
+        description: "Modernizing Nigerian textile production with high-tech automated machinery.",
+        image: "/textile_excellence.png",
     },
     {
         title: "Nigerian Artisans Export",
