@@ -14,7 +14,9 @@ const navLinks = [
             { name: "Empowerment", href: "/empowerment" },
         ]
     },
+    { name: "Services", href: "/services" },
     { name: "Projects", href: "/projects" },
+    { name: "Blog", href: "/blog" },
 ];
 
 export const Navbar = () => {

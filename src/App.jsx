@@ -2,11 +2,14 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import { useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
+import { Chatbot } from "./components/Chatbot";
 import Home from "./pages/Home";
 import ProjectsPage from "./pages/Projects";
 import AboutPage from "./pages/About";
 import EmpowermentPage from "./pages/Empowerment";
 import ContactPage from "./pages/Contact";
+import BlogPage from "./pages/Blog";
+import ServicesPage from "./pages/Services";
 
 // Scroll to top on navigation
 function ScrollToTop() {
@@ -29,11 +32,15 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/empowerment" element={<EmpowermentPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/services" element={<ServicesPage />} />
         </Routes>
         <Footer />
+        <Chatbot />
       </main>
     </Router>
   );
 }
 
 export default App;
+
