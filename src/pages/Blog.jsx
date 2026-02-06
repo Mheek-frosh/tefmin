@@ -140,6 +140,63 @@ The future isn't something we wait for. It's something these young leaders are b
         featured: false,
         author: "Chidi Emeka",
     },
+    {
+        id: 7,
+        title: "Digital Transformation in Rural Agriculture",
+        excerpt: "Bridging the digital divide for smallholder farmers through mobile-first solutions.",
+        fullContent: `Rural agriculture remains the backbone of Nigeria's economy, yet many farmers are disconnected from modern markets and data-driven insights. TEFMIN's 'Digital Farm' initiative is changing this by bringing mobile technology to the heart of our rural communities.
+
+Through a simple USSD interface, farmers can now access real-time weather forecasts, market prices, and expert advice on pest control. This information, previously unavailable or delayed, allows them to make informed decisions that directly impact their yields and income.
+
+We've deployed solar-powered digital centers in over 50 villages, where farmers can learn how to use these tools and even access micro-financing tailored to their harvest cycles. The data collected from these interactions also helps us understand regional trends and anticipate food security challenges before they become crises.
+
+The impact is measurable: farmers using our platform have seen an average 25% increase in productivity and a 30% rise in profit margins. By cutting out unnecessary middlemen and providing direct access to buyers, we are ensuring that the wealth generated on the farm stays with the farmers.
+
+Technology is not a luxury for the urban elite; it is a fundamental tool for rural progress. As we scale this program, we are not just growing crops—we are growing a digital ecosystem that empowers everyone.`,
+        category: "Innovation",
+        image: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=800",
+        date: "February 1, 2026",
+        readTime: "5 min read",
+        author: "Sarah Ogunlana",
+    },
+    {
+        id: 8,
+        title: "The Ethics of AI in African Industry",
+        excerpt: "Navigating the complex landscape of automation while preserving human dignity.",
+        fullContent: `As we integrate Artificial Intelligence into our manufacturing processes, we must ask ourselves: what kind of society are we building? At TEFMIN, we believe that technology should serve humanity, not replace it.
+
+The 'Human-Centric Automation' framework we've developed focuses on augmenting human capabilities rather than simple substitution. For example, AI can handle heavy lifting or precision tasks that are dangerous for humans, while humans focus on creativity, complex problem-solving, and emotional intelligence—things AI still struggles with.
+
+Ethical AI also means transparency and accountability. We ensure that all algorithmic decisions in our smart factories are auditable and unbiased. This is particularly important when AI is used in hiring or performance evaluation, where historical biases could otherwise be amplified.
+
+Furthermore, we are committed to 'Just Transition' policies. Every time a process is automated, we provide the affected workers with re-skilling opportunities for higher-value roles within the same organization. Our goal is net job creation through the efficiency and growth that AI enables.
+
+The future of African industry will be automated, but it must also be ethical. By setting these standards now, we ensure that the benefits of the Fourth Industrial Revolution are shared by all.`,
+        category: "Technology",
+        image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&q=80&w=800",
+        date: "January 30, 2026",
+        readTime: "7 min read",
+        author: "Prof. Kolawole Balogun",
+    },
+    {
+        id: 9,
+        title: "Circular Economy: Waste to Wealth in Lagos",
+        excerpt: "How local startups are turning industrial plastic waste into construction materials.",
+        fullContent: `Lagos generates thousands of tons of plastic waste every day, much of it from industrial packaging. Instead of seeing this as a problem, a new wave of 'green-preneurs' sees it as a raw material for the city's future.
+
+TEFMIN is proud to support several startups that have developed proprietary technology to melt down diverse plastic resins and mold them into high-density building blocks. These blocks are not only more durable than traditional concrete but also have better thermal insulation properties.
+
+One such startup, 'EcoBuild', has already paved three community centers using bricks made entirely from recycled industrial wrappers. This approach solves two problems at once: it cleans up the environment and provides affordable, sustainable building materials for our growing population.
+
+We are also working with large manufacturers to implement 'Closed-Loop' systems, where they take back their own packaging from customers and feed it back into their production lines. This reduces their raw material costs and eliminates their environmental footprint.
+
+The circular economy is not just an environmental dream; it's a multi-billion naira industry waiting to be tapped. In Nigeria, we have the ingenuity and the necessity to lead the world in waste-to-wealth innovation.`,
+        category: "Industry",
+        image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=800",
+        date: "January 25, 2026",
+        readTime: "6 min read",
+        author: "Funke Adewale",
+    },
 ];
 
 const categories = ["All", "Industry", "Technology", "Empowerment", "Energy", "Innovation", "Supply Chain"];
@@ -154,7 +211,7 @@ const WhatsApp = ({ size = 24, className = "" }) => (
 export default function BlogPage() {
     const [activeCategory, setActiveCategory] = useState("All");
     const [searchQuery, setSearchQuery] = useState("");
-    const [expandedPostId, setExpandedPostId] = useState(null);
+    const [expandedPostId, setExpandedPostId] = useState(blogPosts[0].id);
     const [commentText, setCommentText] = useState("");
 
     const filteredPosts = blogPosts.filter(post => {
@@ -176,6 +233,11 @@ export default function BlogPage() {
         } else if (platform === 'twitter') {
             window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
         }
+    };
+
+    const handlePostClick = (id) => {
+        setExpandedPostId(id);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return (
@@ -249,14 +311,6 @@ export default function BlogPage() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-                                {/* Close Button */}
-                                <button
-                                    onClick={() => setExpandedPostId(null)}
-                                    className="absolute top-6 right-6 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-colors"
-                                >
-                                    <X size={24} />
-                                </button>
-
                                 {/* Title Overlay */}
                                 <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
                                     <div className="flex items-center gap-4 mb-4">
@@ -320,13 +374,6 @@ export default function BlogPage() {
                                                     </button>
                                                 </div>
                                             </div>
-                                            <button
-                                                onClick={() => setExpandedPostId(null)}
-                                                className="inline-flex items-center gap-3 px-8 py-4 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-2xl text-gray-900 dark:text-white font-bold transition-colors"
-                                            >
-                                                <ChevronUp size={20} />
-                                                Collapse Article
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -345,7 +392,7 @@ export default function BlogPage() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
-                            onClick={() => setExpandedPostId(post.id)}
+                            onClick={() => handlePostClick(post.id)}
                             className="group bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700 cursor-pointer"
                         >
                             <div className="aspect-[16/10] overflow-hidden relative">
@@ -434,26 +481,29 @@ export default function BlogPage() {
 
                     {/* Social Share Buttons */}
                     <div className="pt-8 border-t border-gray-200 dark:border-gray-700">
-                        <h4 className="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                            <Share2 size={18} />
-                            Share TEFMIN Blog
+                        <h4 className="font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2 text-xl">
+                            <Share2 size={22} className="text-primary dark:text-secondary" />
+                            Share TEFMIN Insights
                         </h4>
-                        <div className="flex flex-wrap gap-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <button
-                                onClick={() => window.open(`https://wa.me/?text=${encodeURIComponent('Check out TEFMIN Blog - Insights on Nigerian Industrial Growth ' + window.location.href)}`, '_blank')}
-                                className="flex items-center gap-2 px-5 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold transition-colors"
+                                onClick={() => window.open(`https://wa.me/?text=${encodeURIComponent('Stay updated with TEFMIN Blog - Transforming Nigeria\'s Industry ' + window.location.href)}`, '_blank')}
+                                className="group flex items-center justify-center gap-3 px-6 py-4 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-2xl font-black transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-green-500/20"
                             >
-                                <WhatsApp size={20} />
-                                Share on WhatsApp
+                                <WhatsApp size={24} />
+                                <span>Share on WhatsApp</span>
                             </button>
                             <button
                                 onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent('Discover insights on Nigerian industrial growth at TEFMIN Blog')}&url=${encodeURIComponent(window.location.href)}`, '_blank')}
-                                className="flex items-center gap-2 px-5 py-3 bg-sky-500 hover:bg-sky-600 text-white rounded-xl font-bold transition-colors"
+                                className="group flex items-center justify-center gap-3 px-6 py-4 bg-[#1DA1F2] hover:bg-[#1a91da] text-white rounded-2xl font-black transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-sky-500/20"
                             >
-                                <Twitter size={20} />
-                                Share on Twitter
+                                <Twitter size={24} />
+                                <span>Share on Twitter</span>
                             </button>
                         </div>
+                        <p className="text-center text-gray-400 text-xs mt-6 italic">
+                            Help us spread the word about industrial transformation in Nigeria.
+                        </p>
                     </div>
                 </div>
             </section>

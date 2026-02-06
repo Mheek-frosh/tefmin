@@ -2,11 +2,12 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GlassContainer } from "./ui/GlassContainer";
 import { Target, Flag, Rocket, ChevronRight, X, Award, Briefcase, GraduationCap } from "lucide-react";
+import ceoImage from "../assets/ceo.jpeg";
 
 const founderBio = {
     name: "Oke-Olawuyi Olumide Gabriel",
     title: "Founder, Chief Executive Officer & Lead Consultant",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600",
+    image: ceoImage,
     bio: `Oke-Olawuyi Olumide Gabriel is a seasoned business development professional, consultant, and development-focused entrepreneur with over 20 years of leadership experience across the public and private sectors in Nigeria and internationally.
 
 He is the Founder and CEO of The Future Made in Nigeria Project Ltd (TEFMIN), a consulting and social impact firm dedicated to driving sustainable growth, human capital development, corporate responsibility, and institutional strengthening across Nigeria and Africa.
@@ -45,8 +46,8 @@ export const About = () => {
                         >
                             <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-[0_48px_80px_-16px_rgba(0,0,0,0.15)] border-8 border-white dark:border-gray-700">
                                 <img
-                                    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800"
-                                    alt="TEFMIN Collaboration"
+                                    src={ceoImage}
+                                    alt="Founder of TEFMIN"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
@@ -137,7 +138,7 @@ export const About = () => {
                         </h2>
                     </div>
 
-                    <div className="relative max-w-5xl mx-auto">
+                    <div className="relative max-w-7xl mx-auto">
                         {/* Founder Card */}
                         <div className="relative bg-white dark:bg-gray-900 rounded-[3rem] p-8 md:p-12 shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
                             {/* Background Gradient */}
@@ -146,11 +147,11 @@ export const About = () => {
                             <div className="relative z-10 flex flex-col lg:flex-row items-center gap-10">
                                 {/* Founder Image with Expand Button */}
                                 <div className="relative group shrink-0">
-                                    <div className="w-48 h-48 md:w-64 md:h-64 rounded-[2rem] overflow-hidden border-4 border-secondary/30 shadow-xl">
+                                    <div className="w-64 h-64 md:w-80 md:h-80 rounded-[2rem] overflow-hidden border-4 border-secondary/30 shadow-xl">
                                         <img
                                             src={founderBio.image}
                                             alt={founderBio.name}
-                                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                            className="w-full h-full object-cover transition-all duration-500"
                                         />
                                     </div>
 
@@ -180,7 +181,7 @@ export const About = () => {
                                     <p className="text-primary dark:text-secondary font-bold uppercase tracking-wider text-sm mb-6">
                                         {founderBio.title}
                                     </p>
-                                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 max-w-xl">
+                                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 max-w-2xl text-lg">
                                         A seasoned business development professional with over 20 years of leadership experience, driving sustainable growth across Nigeria and Africa.
                                     </p>
 
