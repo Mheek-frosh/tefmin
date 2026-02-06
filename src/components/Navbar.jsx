@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/Button";
-import bgLogo from "../assets/bg.png";
+import logo from "../assets/logo.png";
 
 const navLinks = [
     { name: "Home", href: "/" },
@@ -11,7 +11,6 @@ const navLinks = [
         name: "About Us",
         href: "/about",
         dropdown: [
-            { name: "Our Company", href: "/about" },
             { name: "Empowerment", href: "/empowerment" },
             { name: "Career", href: "/career" },
         ]
@@ -90,9 +89,8 @@ export const Navbar = () => {
                     }`}
             >
                 <Link to="/" className="flex items-center gap-2">
-                    {/* Use bg.png for white/light backgrounds, logo.png for dark contexts needing visibility */}
                     <img
-                        src={bgLogo}
+                        src={logo}
                         alt="TEFMIN Logo"
                         className={`h-10 w-auto transition-all duration-500 ${!showScrolledStyle || isDarkMode ? "brightness-0 invert" : ""}`}
                     />

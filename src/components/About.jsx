@@ -2,7 +2,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, X, Award, Briefcase, GraduationCap, Rocket, Target, Flag } from "lucide-react";
 import { siteConfig, founderBio } from "../data/siteData";
-import bgLogo from "../assets/bg.png";
+import logo from "../assets/logo.png";
+import workersImage from "../assets/nigerian_workers_happy.png";
 
 export const About = () => {
     const [isFounderExpanded, setIsFounderExpanded] = useState(false);
@@ -25,8 +26,8 @@ export const About = () => {
                         >
                             <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-[0_48px_80px_-16px_rgba(0,0,0,0.15)] border-8 border-white dark:border-gray-700">
                                 <img
-                                    src={ceoImage}
-                                    alt="Founder of TEFMIN"
+                                    src={workersImage}
+                                    alt="Modernizing the Heartbeat of Nigeria"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
@@ -60,9 +61,9 @@ export const About = () => {
                             <span className="text-primary dark:text-secondary font-black tracking-widest uppercase text-xs mb-6 inline-block bg-primary/5 dark:bg-secondary/10 px-4 py-2 rounded-full">
                                 Our Identity
                             </span>
-                            <h2 className="text-5xl md:text-6xl font-black text-gray-900 dark:text-white mb-10 leading-tight">
-                                {tagline.split(',')[0]}, <br />
-                                <span className="text-primary dark:text-secondary italic font-serif">{tagline.split(',')[1]}</span>.
+                            <h2 className="text-5xl md:text-7xl font-black text-gray-900 dark:text-white mb-10 leading-[0.9] tracking-tighter">
+                                Modernizing the <br />
+                                <span className="text-primary dark:text-secondary italic">Heartbeat</span> of Nigeria.
                             </h2>
 
                             <div className="space-y-8 mb-12">
@@ -118,21 +119,22 @@ export const About = () => {
                         </h2>
                     </div>
 
-                    <div className="relative max-w-none">
+                    <div className="relative max-w-none group">
                         {/* Founder Card with Premium Glass Effect */}
-                        <div className="relative backdrop-blur-md bg-white/70 dark:bg-gray-900/70 rounded-[3rem] p-8 md:p-12 shadow-[0_48px_100px_-24px_rgba(0,0,0,0.1)] dark:shadow-2xl border border-white/20 dark:border-gray-700/50 overflow-hidden">
+                        <div className="relative backdrop-blur-3xl bg-white/40 dark:bg-gray-900/40 rounded-[4rem] p-8 md:p-12 shadow-[0_48px_100px_-24px_rgba(0,0,0,0.15)] dark:shadow-2xl border border-white/40 dark:border-gray-700/50 overflow-hidden group-hover:shadow-[0_48px_100px_-24px_rgba(0,0,0,0.25)] transition-shadow duration-500">
                             {/* Background Decorative Gradient */}
                             <div className="absolute top-0 right-0 w-full lg:w-1/3 h-full bg-gradient-to-b lg:bg-gradient-to-l from-primary/10 dark:from-primary/20 to-transparent" />
 
                             <div className="relative z-10 flex flex-col lg:flex-row items-center gap-10">
                                 {/* Founder Image with Expand Button */}
                                 <div className="relative group shrink-0 mb-8 lg:mb-0">
-                                    <div className="w-full max-w-[450px] aspect-[4/5] lg:w-[450px] lg:h-[550px] rounded-tl-[3rem] rounded-bl-[3rem] rounded-tr-none rounded-br-none overflow-hidden border-t-4 border-b-4 border-l-4 border-secondary/30 shadow-2xl mx-auto lg:mx-0">
+                                    <div className="w-full max-w-[450px] aspect-[4/5] lg:w-[450px] lg:h-[550px] rounded-[3rem] overflow-hidden border-4 border-white/50 dark:border-gray-600/50 shadow-2xl mx-auto lg:mx-0">
                                         <img
                                             src={founderBio.image}
                                             alt={founderBio.name}
-                                            className="w-full h-full object-cover transition-all duration-500"
+                                            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                                         />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                     </div>
 
                                     {/* Expand Button */}
@@ -271,7 +273,7 @@ export const About = () => {
                                 {/* Company Badge */}
                                 <div className="mt-10 p-6 bg-gradient-to-r from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10 rounded-2xl border border-primary/10 dark:border-secondary/10">
                                     <div className="flex items-center gap-4">
-                                        <img src={bgLogo} alt="TEFMIN" className="h-12 w-auto" />
+                                        <img src={logo} alt="TEFMIN" className="h-12 w-auto" />
                                         <div>
                                             <h4 className="font-bold text-gray-900 dark:text-white">The Future Made in Nigeria Project Ltd</h4>
                                             <p className="text-sm text-gray-500 dark:text-gray-400">TEFMIN - Building Africa's Future</p>

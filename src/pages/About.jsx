@@ -4,6 +4,8 @@ import { Target, Globe2, Award, ChevronRight, X, Briefcase, GraduationCap, Users
 import { Button } from "../components/ui/Button";
 import { Newsletter } from "../components/Newsletter";
 import { siteConfig, founderBio } from "../data/siteData";
+import logo from "../assets/logo.png";
+import workersImage from "../assets/nigerian_workers_happy.png";
 
 const coreValues = [
     { icon: Heart, title: "Integrity", desc: "We uphold the highest ethical standards in all our engagements, fostering trust and transparency." },
@@ -49,11 +51,11 @@ export default function AboutPage() {
                 <div className="max-w-[1440px] mx-auto px-4">
                     <div className="aspect-[21/9] rounded-[4rem] overflow-hidden shadow-2xl relative">
                         <img
-                            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200"
-                            alt="TEFMIN Mission"
+                            src={workersImage}
+                            alt="Modernizing the Heartbeat of Nigeria"
                             className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-primary/20" />
+                        <div className="absolute inset-0 bg-primary/10" />
                     </div>
                 </div>
 
@@ -91,7 +93,7 @@ export default function AboutPage() {
                     </div>
                     <div className="relative">
                         <div className="bg-gray-50 dark:bg-gray-800 rounded-[3rem] p-10 lg:p-12">
-                            <img src={bgLogo} alt="TEFMIN Logo" className="w-24 h-auto mb-8 opacity-80" />
+                            <img src={logo} alt="TEFMIN Logo" className="w-24 h-auto mb-8 opacity-80" />
                             <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-6">Our Vision</h3>
                             <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-8">
                                 To be Africa's leading catalyst for industrial transformation, creating a self-reliant economy where Nigerian innovation and craftsmanship are celebrated globally.
@@ -153,17 +155,18 @@ export default function AboutPage() {
                     </h2>
                 </div>
 
-                <div className="relative max-w-none">
-                    <div className="relative backdrop-blur-md bg-white/70 dark:bg-gray-800/70 rounded-[3rem] shadow-[0_48px_100px_-24px_rgba(0,0,0,0.1)] dark:shadow-2xl border border-white/20 dark:border-gray-700/50 overflow-hidden">
+                <div className="relative max-w-none group">
+                    <div className="relative backdrop-blur-3xl bg-white/40 dark:bg-gray-800/40 rounded-[4rem] shadow-[0_48px_100px_-24px_rgba(0,0,0,0.15)] dark:shadow-2xl border border-white/40 dark:border-gray-700/50 overflow-hidden">
                         <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
                             {/* Image - Left Side */}
-                            <div className="relative w-full max-w-[450px] aspect-[4/5] lg:w-[450px] lg:h-[550px] rounded-tl-[3rem] rounded-bl-[3rem] rounded-tr-none rounded-br-none overflow-hidden border-y-4 border-l-4 border-secondary/30 shadow-2xl mx-auto lg:mx-0 lg:m-12">
+                            <div className="relative w-full max-w-[450px] aspect-[4/5] lg:w-[450px] lg:h-[550px] rounded-[3rem] overflow-hidden border-4 border-white/50 dark:border-gray-600/50 shadow-2xl mx-auto lg:mx-0 lg:m-12 group/img">
                                 <img
                                     src={founderBio.image}
                                     alt={founderBio.name}
-                                    className="w-full h-full object-cover transition-all duration-500"
+                                    className="w-full h-full object-cover transition-all duration-700 group-hover/img:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/20 to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500" />
 
                                 {/* Expand Button */}
                                 <motion.button
@@ -408,7 +411,7 @@ export default function AboutPage() {
 
                                     <div className="mt-10 p-6 bg-gradient-to-r from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10 rounded-2xl border border-primary/10 dark:border-secondary/10">
                                         <div className="flex items-center gap-4">
-                                            <img src={bgLogo} alt="TEFMIN" className="h-12 w-auto" />
+                                            <img src={logo} alt="TEFMIN" className="h-12 w-auto" />
                                             <div>
                                                 <h4 className="font-bold text-gray-900 dark:text-white">The Future Made in Nigeria Project Ltd</h4>
                                                 <p className="text-sm text-gray-500 dark:text-gray-400">TEFMIN - Building Africa's Future</p>

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Briefcase, MapPin, Clock, ArrowRight, Sparkles, Users, TrendingUp, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
-import bgLogo from "../assets/bg.png";
+import logo from "../assets/logo.png";
 
 const jobListings = [
     {
@@ -123,7 +123,7 @@ export default function CareerPage() {
                         </h2>
                         <p className="text-gray-500 dark:text-gray-400">Opportunities coming soon. Check back regularly!</p>
                     </div>
-                    <img src={bgLogo} alt="TEFMIN" className="h-16 w-auto opacity-20 hidden md:block" />
+                    <img src={logo} alt="TEFMIN" className="h-16 w-auto opacity-20 hidden md:block" />
                 </div>
 
                 <div className="space-y-4">
