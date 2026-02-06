@@ -1,32 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Target, Globe2, Award, ChevronRight, X, Briefcase, GraduationCap, Users, Lightbulb, Heart, TrendingUp, Building2, Sparkles } from "lucide-react";
+import { Target, Globe2, Award, ChevronRight, X, Briefcase, GraduationCap, Users, Lightbulb, Heart, TrendingUp, Building2, Sparkles, Quote, Flag } from "lucide-react";
 import { Button } from "../components/ui/Button";
 import { Newsletter } from "../components/Newsletter";
-import bgLogo from "../assets/bg.png";
-import ceoImage from "../assets/ceo.jpeg";
-
-const founderBio = {
-    name: "Oke-Olawuyi Olumide Gabriel",
-    title: "Founder, Chief Executive Officer & Lead Consultant",
-    image: ceoImage,
-    bio: `Oke-Olawuyi Olumide Gabriel is a seasoned business development professional, consultant, and development-focused entrepreneur with over 20 years of leadership experience across the public and private sectors in Nigeria and internationally.
-
-He is the Founder and CEO of The Future Made in Nigeria Project Ltd (TEFMIN), a consulting and social impact firm dedicated to driving sustainable growth, human capital development, corporate responsibility, and institutional strengthening across Nigeria and Africa.
-
-Mr. Oke-Olawuyi has held senior leadership and regional management roles in key sectors including telecommunications, FMCG, banking, international trade, and public-sector initiatives, working with organizations such as Starcomms PLC, Multichoice (DSTV), NTA–StarTimes Network Ltd, International Tobacco PLC, Societe Generale Bank Ltd, and Cranswick Foods Ltd (UK).
-
-He also brings strong consulting and government engagement experience, having served as a Consultant to the Presidential Youth Empowerment Scheme (PYES) and advised organizations working with Federal and State Ministries, Departments, and Agencies (MDAs).
-
-His academic and professional credentials include postgraduate training in management, entrepreneurship, and international affairs, with a PhD in Entrepreneurship & Innovation Management in view. He is a Chartered Member of the National Institute of Marketing of Nigeria (NIMN).
-
-As Founder and CEO of TEFMIN, he provides strategic leadership, consulting oversight, partnership development, and thought leadership—advancing an African-born, globally aligned institution committed to empowering people, strengthening institutions, and building sustainable systems across Nigeria and Africa.`,
-    highlights: [
-        { icon: Briefcase, text: "20+ Years Leadership Experience" },
-        { icon: Award, text: "Chartered Member, NIMN" },
-        { icon: GraduationCap, text: "PhD Candidate in Entrepreneurship" },
-    ]
-};
+import { siteConfig, founderBio } from "../data/siteData";
 
 const coreValues = [
     { icon: Heart, title: "Integrity", desc: "We uphold the highest ethical standards in all our engagements, fostering trust and transparency." },
@@ -58,11 +35,11 @@ export default function AboutPage() {
                         Founded 2024
                     </span>
                     <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 dark:text-white mb-10 leading-[0.9] tracking-tighter">
-                        Pioneering the <br />
-                        <span className="text-primary dark:text-secondary italic">Industrial</span> Renaissance.
+                        Building the <br />
+                        <span className="text-primary dark:text-secondary italic">Future</span> Made in Nigeria.
                     </h1>
                     <p className="text-2xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">
-                        The Future Made in Nigeria Project LTD (TEFMIN) is more than an organization; it's a movement to restore national pride through economic self-sufficiency and world-class manufacturing standards.
+                        {siteConfig.fullName} (TEFMIN) is more than an organization; it's a movement focused on {siteConfig.tagline.toLowerCase()} through industrial excellence.
                     </p>
                 </motion.div>
             </section>
@@ -177,7 +154,7 @@ export default function AboutPage() {
                 </div>
 
                 <div className="relative max-w-none">
-                    <div className="relative bg-white dark:bg-gray-800 rounded-[3rem] shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+                    <div className="relative backdrop-blur-md bg-white/70 dark:bg-gray-800/70 rounded-[3rem] shadow-[0_48px_100px_-24px_rgba(0,0,0,0.1)] dark:shadow-2xl border border-white/20 dark:border-gray-700/50 overflow-hidden">
                         <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
                             {/* Image - Left Side */}
                             <div className="relative w-full max-w-[450px] aspect-[4/5] lg:w-[450px] lg:h-[550px] rounded-tl-[3rem] rounded-bl-[3rem] rounded-tr-none rounded-br-none overflow-hidden border-y-4 border-l-4 border-secondary/30 shadow-2xl mx-auto lg:mx-0 lg:m-12">
@@ -205,15 +182,20 @@ export default function AboutPage() {
                                     <Award size={14} />
                                     Visionary Leader
                                 </div>
-                                <h3 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-2">
+                                <h3 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-2 tracking-tighter leading-tight">
                                     {founderBio.name}
                                 </h3>
-                                <p className="text-primary dark:text-secondary font-bold uppercase tracking-wider text-sm mb-6">
+                                <p className="text-primary dark:text-secondary font-bold uppercase tracking-[0.2em] text-xs mb-8">
                                     {founderBio.title}
                                 </p>
-                                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-10 text-lg md:text-xl">
-                                    A seasoned business development professional with over 20 years of leadership experience, driving sustainable growth across Nigeria and Africa.
-                                </p>
+                                <div className="relative mb-10">
+                                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg md:text-xl font-medium italic border-l-4 border-secondary pl-6">
+                                        "A lead consultant driving sustainable growth and transformation across Nigeria and Africa."
+                                    </p>
+                                    <p className="text-gray-400 dark:text-gray-500 text-xs mt-4 font-bold uppercase tracking-widest px-7">
+                                        {siteConfig.tagline}
+                                    </p>
+                                </div>
 
                                 <div className="flex flex-wrap gap-3 mb-8">
                                     {founderBio.highlights.map((highlight, index) => {

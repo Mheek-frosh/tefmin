@@ -301,7 +301,15 @@ export default function BlogPage() {
                         transition={{ duration: 0.3 }}
                         className="max-w-7xl mx-auto px-6 mb-12"
                     >
-                        <div className="bg-white dark:bg-gray-800 rounded-[3rem] overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-700">
+                        <div className="bg-white dark:bg-gray-800 rounded-[3rem] overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-700 relative">
+                            {/* Close Button */}
+                            <button
+                                onClick={() => setExpandedPostId(null)}
+                                className="absolute top-6 right-6 z-50 p-3 rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-md flex items-center gap-2 text-white transition-all shadow-lg active:scale-95 group"
+                            >
+                                <span className="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity hidden sm:block">Close Article</span>
+                                <ChevronUp size={24} className="rotate-180" />
+                            </button>
                             {/* Expanded Header with Image */}
                             <div className="relative h-64 md:h-96 overflow-hidden">
                                 <img

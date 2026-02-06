@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import { Button } from "./ui/Button";
+import bgLogo from "../assets/bg.png";
 
 export const Footer = () => {
     const navLinks = [
@@ -19,11 +20,11 @@ export const Footer = () => {
                     {/* Brand Info */}
                     <div className="lg:col-span-1">
                         <div className="flex items-center gap-2 mb-8">
-                            <img src="/logo.png" alt="TEFMIN Logo" className="h-12 w-auto brightness-0 invert" />
+                            <img src={bgLogo} alt="TEFMIN Logo" className="h-12 w-auto brightness-0 invert" />
                             <span className="font-bold text-2xl tracking-tighter">TEFMIN</span>
                         </div>
                         <p className="text-white/70 mb-8 leading-relaxed">
-                            Leading the charge for an industrialized and self-sufficient Nigeria. Forging a brighter tomorrow, today.
+                            Empowering people, building the future. Forging a brighter tomorrow, today.
                         </p>
                         <div className="flex gap-4">
                             {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (

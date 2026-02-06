@@ -84,7 +84,7 @@ export default function CareerPage() {
                         Build the <span className="text-primary dark:text-secondary italic">Future</span> <br />With Us.
                     </h1>
                     <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">
-                        Join TEFMIN and be part of a movement transforming Nigeria's industrial landscape. We're looking for passionate individuals ready to make a lasting impact.
+                        Join TEFMIN and be part of a movement focused on empowering people and building the future of Nigeria's industrial landscape.
                     </p>
                 </motion.div>
             </section>

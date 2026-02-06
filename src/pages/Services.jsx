@@ -6,6 +6,7 @@ import {
     ArrowRight, Zap
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import bgLogo from "../assets/bg.png";
 
 const services = [
     {
@@ -120,8 +121,7 @@ export default function ServicesPage() {
                         <span className="text-primary dark:text-secondary italic">Solutions</span> for Growth.
                     </h1>
                     <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">
-                        TEFMIN provides a full spectrum of consulting and development services designed to
-                        drive sustainable growth, build institutional capacity, and empower people across Nigeria and Africa.
+                        TEFMIN provides a full spectrum of solutions designed to empower people, build the future, and drive sustainable growth across Nigeria and Africa.
                     </p>
                 </motion.div>
             </section>
@@ -146,8 +146,8 @@ export default function ServicesPage() {
                                 onClick={() => setExpandedService(isExpanded ? null : service.id)}
                             >
                                 <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-colors ${service.color === "primary"
-                                        ? "bg-primary/10 dark:bg-primary/20 text-primary dark:text-secondary"
-                                        : "bg-secondary/10 dark:bg-secondary/20 text-secondary"
+                                    ? "bg-primary/10 dark:bg-primary/20 text-primary dark:text-secondary"
+                                    : "bg-secondary/10 dark:bg-secondary/20 text-secondary"
                                     }`}>
                                     <Icon size={32} />
                                 </div>
@@ -268,9 +268,9 @@ export default function ServicesPage() {
                         </div>
                         <div className="hidden lg:block">
                             <img
-                                src="/bg.png"
+                                src={bgLogo}
                                 alt="TEFMIN"
-                                className="w-48 h-auto opacity-50"
+                                className="w-48 h-auto opacity-20"
                             />
                         </div>
                     </div>

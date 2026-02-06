@@ -14,7 +14,7 @@ export const Newsletter = ({ variant = "default" }) => {
                         Stay Updated with TEFMIN
                     </h2>
                     <p className={`text-white/70 ${isCompact ? "text-base" : "text-lg"} max-w-xl mx-auto mb-8`}>
-                        Subscribe to our newsletter for insights on Nigerian industrial growth and opportunities.
+                        Subscribe to our newsletter and join us in empowering people and building the future of Nigeria.
                     </p>
                     <div className={`flex flex-col sm:flex-row gap-4 ${isCompact ? "max-w-md" : "max-w-lg"} mx-auto`}>
                         <input

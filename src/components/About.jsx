@@ -1,33 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { GlassContainer } from "./ui/GlassContainer";
-import { Target, Flag, Rocket, ChevronRight, X, Award, Briefcase, GraduationCap } from "lucide-react";
-import ceoImage from "../assets/ceo.jpeg";
-
-const founderBio = {
-    name: "Oke-Olawuyi Olumide Gabriel",
-    title: "Founder, Chief Executive Officer & Lead Consultant",
-    image: ceoImage,
-    bio: `Oke-Olawuyi Olumide Gabriel is a seasoned business development professional, consultant, and development-focused entrepreneur with over 20 years of leadership experience across the public and private sectors in Nigeria and internationally.
-
-He is the Founder and CEO of The Future Made in Nigeria Project Ltd (TEFMIN), a consulting and social impact firm dedicated to driving sustainable growth, human capital development, corporate responsibility, and institutional strengthening across Nigeria and Africa.
-
-Mr. Oke-Olawuyi has held senior leadership and regional management roles in key sectors including telecommunications, FMCG, banking, international trade, and public-sector initiatives, working with organizations such as Starcomms PLC, Multichoice (DSTV), NTA–StarTimes Network Ltd, International Tobacco PLC, Societe Generale Bank Ltd, and Cranswick Foods Ltd (UK).
-
-He also brings strong consulting and government engagement experience, having served as a Consultant to the Presidential Youth Empowerment Scheme (PYES) and advised organizations working with Federal and State Ministries, Departments, and Agencies (MDAs).
-
-His academic and professional credentials include postgraduate training in management, entrepreneurship, and international affairs, with a PhD in Entrepreneurship & Innovation Management in view. He is a Chartered Member of the National Institute of Marketing of Nigeria (NIMN).
-
-As Founder and CEO of TEFMIN, he provides strategic leadership, consulting oversight, partnership development, and thought leadership—advancing an African-born, globally aligned institution committed to empowering people, strengthening institutions, and building sustainable systems across Nigeria and Africa.`,
-    highlights: [
-        { icon: Briefcase, text: "20+ Years Leadership Experience" },
-        { icon: Award, text: "Chartered Member, NIMN" },
-        { icon: GraduationCap, text: "PhD Candidate in Entrepreneurship" },
-    ]
-};
+import { ChevronRight, X, Award, Briefcase, GraduationCap, Rocket, Target, Flag } from "lucide-react";
+import { siteConfig, founderBio } from "../data/siteData";
+import bgLogo from "../assets/bg.png";
 
 export const About = () => {
     const [isFounderExpanded, setIsFounderExpanded] = useState(false);
+    const { tagline } = siteConfig;
 
     return (
         <section id="about" className="py-32 relative overflow-hidden bg-[#fafafa] dark:bg-gray-800 transition-colors duration-300">
@@ -82,7 +61,8 @@ export const About = () => {
                                 Our Identity
                             </span>
                             <h2 className="text-5xl md:text-6xl font-black text-gray-900 dark:text-white mb-10 leading-tight">
-                                Modernizing the <span className="text-primary dark:text-secondary italic font-serif">Heartbeat</span> of Nigeria.
+                                {tagline.split(',')[0]}, <br />
+                                <span className="text-primary dark:text-secondary italic font-serif">{tagline.split(',')[1]}</span>.
                             </h2>
 
                             <div className="space-y-8 mb-12">
@@ -139,10 +119,10 @@ export const About = () => {
                     </div>
 
                     <div className="relative max-w-none">
-                        {/* Founder Card */}
-                        <div className="relative bg-white dark:bg-gray-900 rounded-[3rem] p-8 md:p-12 shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-                            {/* Background Gradient */}
-                            <div className="absolute top-0 right-0 w-full lg:w-1/3 h-full bg-gradient-to-b lg:bg-gradient-to-l from-primary/5 dark:from-primary/10 to-transparent" />
+                        {/* Founder Card with Premium Glass Effect */}
+                        <div className="relative backdrop-blur-md bg-white/70 dark:bg-gray-900/70 rounded-[3rem] p-8 md:p-12 shadow-[0_48px_100px_-24px_rgba(0,0,0,0.1)] dark:shadow-2xl border border-white/20 dark:border-gray-700/50 overflow-hidden">
+                            {/* Background Decorative Gradient */}
+                            <div className="absolute top-0 right-0 w-full lg:w-1/3 h-full bg-gradient-to-b lg:bg-gradient-to-l from-primary/10 dark:from-primary/20 to-transparent" />
 
                             <div className="relative z-10 flex flex-col lg:flex-row items-center gap-10">
                                 {/* Founder Image with Expand Button */}
@@ -175,15 +155,20 @@ export const About = () => {
                                         <Award size={14} />
                                         Visionary Leader
                                     </div>
-                                    <h3 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-2">
+                                    <h3 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-2 tracking-tighter leading-tight">
                                         {founderBio.name}
                                     </h3>
-                                    <p className="text-primary dark:text-secondary font-bold uppercase tracking-wider text-sm mb-6">
+                                    <p className="text-primary dark:text-secondary font-bold uppercase tracking-[0.2em] text-xs mb-8">
                                         {founderBio.title}
                                     </p>
-                                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-10 text-lg md:text-xl">
-                                        A seasoned business development professional with over 20 years of leadership experience, driving sustainable growth across Nigeria and Africa.
-                                    </p>
+                                    <div className="relative mb-10">
+                                        <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg md:text-xl font-medium italic border-l-4 border-secondary pl-6">
+                                            "A lead consultant driving sustainable growth and transformation across Nigeria and Africa."
+                                        </p>
+                                        <p className="text-gray-400 dark:text-gray-500 text-xs mt-4 font-bold uppercase tracking-widest px-7">
+                                            {tagline}
+                                        </p>
+                                    </div>
 
                                     {/* Highlights */}
                                     <div className="flex flex-wrap justify-center lg:justify-start gap-3">
@@ -286,7 +271,7 @@ export const About = () => {
                                 {/* Company Badge */}
                                 <div className="mt-10 p-6 bg-gradient-to-r from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10 rounded-2xl border border-primary/10 dark:border-secondary/10">
                                     <div className="flex items-center gap-4">
-                                        <img src="/logo.png" alt="TEFMIN" className="h-12 w-auto" />
+                                        <img src={bgLogo} alt="TEFMIN" className="h-12 w-auto" />
                                         <div>
                                             <h4 className="font-bold text-gray-900 dark:text-white">The Future Made in Nigeria Project Ltd</h4>
                                             <p className="text-sm text-gray-500 dark:text-gray-400">TEFMIN - Building Africa's Future</p>

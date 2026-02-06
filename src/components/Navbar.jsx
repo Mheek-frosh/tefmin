@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/Button";
+import bgLogo from "../assets/bg.png";
 
 const navLinks = [
     { name: "Home", href: "/" },
@@ -91,16 +92,16 @@ export const Navbar = () => {
                 <Link to="/" className="flex items-center gap-2">
                     {/* Use bg.png for white/light backgrounds, logo.png for dark contexts needing visibility */}
                     <img
-                        src={showScrolledStyle ? "/logo.png" : "/logo.png"}
+                        src={bgLogo}
                         alt="TEFMIN Logo"
-                        className="h-10 w-auto"
+                        className={`h-10 w-auto transition-all duration-500 ${!showScrolledStyle || isDarkMode ? "brightness-0 invert" : ""}`}
                     />
                     <div className="flex flex-col">
                         <span className={`font-black text-xl tracking-tighter transition-colors duration-500 leading-none ${showScrolledStyle ? "text-primary dark:text-white" : "text-white"}`}>
                             TEFMIN
                         </span>
                         <span className={`text-[10px] font-bold uppercase tracking-[0.2em] transition-colors duration-500 mt-1 whitespace-nowrap leading-none ${showScrolledStyle ? "text-secondary" : "text-secondary"}`}>
-                            Modernizing Nigeria's Heartbeat
+                            Empowering People, Building the Future
                         </span>
                     </div>
                 </Link>
