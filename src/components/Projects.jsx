@@ -43,7 +43,7 @@ const projects = [
 
 export const Projects = () => {
     return (
-        <section id="projects" className="py-24 bg-gray-50/50">
+        <section id="projects" className="py-24 bg-gray-50/50 dark:bg-gray-900/50 transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
                     <div className="max-w-2xl">
@@ -51,11 +51,11 @@ export const Projects = () => {
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+                            className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6"
                         >
-                            Transformative <span className="text-primary">Projects</span> across Nigeria
+                            Transformative <span className="text-primary dark:text-secondary">Projects</span> across Nigeria
                         </motion.h2>
-                        <p className="text-gray-600 text-lg">
+                        <p className="text-gray-600 dark:text-gray-400 text-lg">
                             We take pride in our diverse portfolio of initiatives that drive industrial growth and empower local communities.
                         </p>
                     </div>
@@ -63,7 +63,7 @@ export const Projects = () => {
                         whileHover={{ scale: 1.05 }}
                         className="hidden md:block"
                     >
-                        <a href="#" className="flex items-center gap-2 text-primary font-bold hover:text-secondary transition-colors group">
+                        <a href="#" className="flex items-center gap-2 text-primary dark:text-secondary font-bold hover:text-secondary dark:hover:text-white transition-colors group">
                             View All Case Studies
                             <ExternalLink size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                         </a>

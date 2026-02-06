@@ -37,16 +37,16 @@ const services = [
 
 export const Services = () => {
     return (
-        <section id="services" className="py-24 bg-white">
+        <section id="services" className="py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-20">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+                        className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6"
                     >
-                        Our Core <span className="text-primary">Services</span>
+                        Our Core <span className="text-primary dark:text-secondary">Services</span>
                     </motion.h2>
                     <motion.div
                         initial={{ opacity: 0, width: 0 }}
@@ -54,7 +54,7 @@ export const Services = () => {
                         viewport={{ once: true }}
                         className="h-1.5 bg-secondary mx-auto mb-8 rounded-full"
                     />
-                    <p className="max-w-2xl mx-auto text-gray-600 text-lg">
+                    <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
                         We provide comprehensive solutions designed to unlock the full potential of the Nigerian economy.
                     </p>
                 </div>
@@ -74,11 +74,11 @@ export const Services = () => {
                                 />
                             </div>
                             <div className="relative z-10">
-                                <div className="mb-6 p-4 rounded-2xl bg-primary/5 inline-block group-hover:bg-primary/10 transition-colors">
+                                <div className="mb-6 p-4 rounded-2xl bg-primary/5 dark:bg-primary/10 inline-block group-hover:bg-primary/10 dark:group-hover:bg-primary/20 transition-colors">
                                     {service.icon}
                                 </div>
-                                <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                                <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{service.title}</h3>
+                                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{service.description}</p>
                             </div>
                         </GlassContainer>
                     ))}
@@ -87,3 +87,4 @@ export const Services = () => {
         </section>
     );
 };
+

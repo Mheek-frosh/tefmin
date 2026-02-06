@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/Button";
 
@@ -21,8 +21,26 @@ export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const saved = localStorage.getItem('theme');
+            return saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        }
+        return false;
+    });
     const location = useLocation();
     const dropdownRef = useRef(null);
+
+    // Apply dark mode class to html element
+    useEffect(() => {
+        if (isDarkMode) {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+        }
+    }, [isDarkMode]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -51,6 +69,10 @@ export const Navbar = () => {
         }
     };
 
+    const toggleDarkMode = () => {
+        setIsDarkMode(!isDarkMode);
+    };
+
     const isAlwaysScrolled = location.pathname !== "/";
     const showScrolledStyle = isScrolled || isAlwaysScrolled;
 
@@ -64,8 +86,13 @@ export const Navbar = () => {
                     }`}
             >
                 <Link to="/" className="flex items-center gap-2">
-                    <img src="/logo.png" alt="TEFMIN Logo" className="h-10 w-auto" />
-                    <span className={`font-black text-xl tracking-tighter transition-colors duration-500 ${showScrolledStyle ? "text-primary" : "text-white"}`}>
+                    {/* Use bg.png for white/light backgrounds, logo.png for dark contexts needing visibility */}
+                    <img
+                        src={showScrolledStyle ? "/logo.png" : "/logo.png"}
+                        alt="TEFMIN Logo"
+                        className="h-10 w-auto"
+                    />
+                    <span className={`font-black text-xl tracking-tighter transition-colors duration-500 ${showScrolledStyle ? "text-primary dark:text-white" : "text-white"}`}>
                         TEFMIN
                     </span>
                 </Link>
@@ -82,7 +109,7 @@ export const Navbar = () => {
                             <Link
                                 to={link.href}
                                 onClick={(e) => handleAnchorClick(e, link.href)}
-                                className={`text-sm font-bold uppercase tracking-widest transition-colors duration-500 hover:text-secondary flex items-center gap-1 ${showScrolledStyle ? "text-gray-700" : "text-white"
+                                className={`text-sm font-bold uppercase tracking-widest transition-colors duration-500 hover:text-secondary flex items-center gap-1 ${showScrolledStyle ? "text-gray-700 dark:text-gray-200" : "text-white"
                                     }`}
                             >
                                 {link.name}
@@ -97,7 +124,7 @@ export const Navbar = () => {
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: 10 }}
-                                            className="absolute top-10 left-0 w-48 bg-white rounded-2xl shadow-2xl border border-gray-100 p-4 mt-2"
+                                            className="absolute top-10 left-0 w-48 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-700 p-4 mt-2"
                                         >
                                             <div className="flex flex-col gap-3">
                                                 {link.dropdown.map((sub) => (
@@ -105,7 +132,7 @@ export const Navbar = () => {
                                                         key={sub.name}
                                                         to={sub.href}
                                                         onClick={(e) => handleAnchorClick(e, sub.href)}
-                                                        className="text-xs font-bold text-gray-400 hover:text-primary transition-colors uppercase tracking-widest px-2 py-1"
+                                                        className="text-xs font-bold text-gray-400 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors uppercase tracking-widest px-2 py-1"
                                                     >
                                                         {sub.name}
                                                     </Link>
@@ -117,6 +144,29 @@ export const Navbar = () => {
                             )}
                         </div>
                     ))}
+
+                    {/* Dark Mode Toggle */}
+                    <button
+                        onClick={toggleDarkMode}
+                        className={`p-2.5 rounded-full transition-all duration-300 ${showScrolledStyle
+                            ? "hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200"
+                            : "hover:bg-white/10 text-white"
+                            }`}
+                        aria-label="Toggle dark mode"
+                    >
+                        <AnimatePresence mode="wait" initial={false}>
+                            <motion.div
+                                key={isDarkMode ? 'dark' : 'light'}
+                                initial={{ y: -20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                exit={{ y: 20, opacity: 0 }}
+                                transition={{ duration: 0.2 }}
+                            >
+                                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+                            </motion.div>
+                        </AnimatePresence>
+                    </button>
+
                     <Link
                         to="/contact"
                         className={`py-2.5 px-8 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 active:scale-95 ${showScrolledStyle
@@ -129,16 +179,30 @@ export const Navbar = () => {
                 </div>
 
                 {/* Mobile Toggle */}
-                <button
-                    className="md:hidden p-2"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                >
-                    {isMobileMenuOpen ? (
-                        <X className={showScrolledStyle ? "text-primary" : "text-white"} />
-                    ) : (
-                        <Menu className={showScrolledStyle ? "text-primary" : "text-white"} />
-                    )}
-                </button>
+                <div className="md:hidden flex items-center gap-2">
+                    {/* Mobile Dark Mode Toggle */}
+                    <button
+                        onClick={toggleDarkMode}
+                        className={`p-2 rounded-full transition-all ${showScrolledStyle
+                            ? "text-primary dark:text-white"
+                            : "text-white"
+                            }`}
+                        aria-label="Toggle dark mode"
+                    >
+                        {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+                    </button>
+
+                    <button
+                        className="p-2"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    >
+                        {isMobileMenuOpen ? (
+                            <X className={showScrolledStyle ? "text-primary dark:text-white" : "text-white"} />
+                        ) : (
+                            <Menu className={showScrolledStyle ? "text-primary dark:text-white" : "text-white"} />
+                        )}
+                    </button>
+                </div>
             </div>
 
             {/* Mobile Menu */}
@@ -155,7 +219,7 @@ export const Navbar = () => {
                                 <div key={link.name}>
                                     <Link
                                         to={link.href}
-                                        className="text-2xl font-black text-gray-800 hover:text-primary transition-colors tracking-tighter"
+                                        className="text-2xl font-black text-gray-800 dark:text-white hover:text-primary dark:hover:text-secondary transition-colors tracking-tighter"
                                         onClick={(e) => {
                                             handleAnchorClick(e, link.href);
                                             if (!link.dropdown) setIsMobileMenuOpen(false);
@@ -164,12 +228,12 @@ export const Navbar = () => {
                                         {link.name}
                                     </Link>
                                     {link.dropdown && (
-                                        <div className="mt-4 flex flex-col gap-4 pl-4 border-l-2 border-primary/20">
+                                        <div className="mt-4 flex flex-col gap-4 pl-4 border-l-2 border-primary/20 dark:border-secondary/20">
                                             {link.dropdown.map(sub => (
                                                 <Link
                                                     key={sub.name}
                                                     to={sub.href}
-                                                    className="text-sm font-bold text-gray-400 uppercase tracking-widest"
+                                                    className="text-sm font-bold text-gray-400 dark:text-gray-300 uppercase tracking-widest"
                                                     onClick={(e) => {
                                                         handleAnchorClick(e, sub.href);
                                                         setIsMobileMenuOpen(false);
@@ -196,3 +260,4 @@ export const Navbar = () => {
         </nav>
     );
 };
+

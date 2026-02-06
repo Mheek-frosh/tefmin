@@ -21,7 +21,7 @@ const testimonials = [
         name: "Babajide Williams",
         role: "Founder, BuildRight Nigeria",
         image: "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?auto=format&fit=crop&q=80&w=400",
-        comment: "Being part of the Future Made in Nigeria Project gave us the credibility to partner with global manufacturers. It’s a game-changer for Nigerian MSMEs.",
+        comment: "Being part of the Future Made in Nigeria Project gave us the credibility to partner with global manufacturers. It's a game-changer for Nigerian MSMEs.",
         rating: 5,
     },
 ];
@@ -41,7 +41,7 @@ export const Testimonials = () => {
     }, []);
 
     return (
-        <section className="py-24 bg-white overflow-hidden">
+        <section className="py-24 bg-white dark:bg-gray-900 overflow-hidden transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-20">
                     <motion.div
@@ -49,10 +49,10 @@ export const Testimonials = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <span className="text-primary font-black tracking-widest uppercase text-xs mb-4 inline-block bg-primary/5 px-4 py-2 rounded-full">
+                        <span className="text-primary dark:text-secondary font-black tracking-widest uppercase text-xs mb-4 inline-block bg-primary/5 dark:bg-secondary/10 px-4 py-2 rounded-full">
                             Voices of Impact
                         </span>
-                        <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+                        <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-6">
                             Empowering the Nigerian <span className="text-secondary italic">Ambition.</span>
                         </h2>
                     </motion.div>
@@ -112,14 +112,14 @@ export const Testimonials = () => {
                                 <button
                                     key={i}
                                     onClick={() => setCurrentIndex(i)}
-                                    className={`h-2 transition-all duration-300 rounded-full ${i === currentIndex ? "w-12 bg-primary" : "w-2 bg-gray-200"}`}
+                                    className={`h-2 transition-all duration-300 rounded-full ${i === currentIndex ? "w-12 bg-primary dark:bg-secondary" : "w-2 bg-gray-200 dark:bg-gray-700"}`}
                                 />
                             ))}
                         </div>
 
                         <div className="flex gap-4">
-                            <button onClick={prev} className="p-4 rounded-full border border-gray-100 hover:bg-primary hover:text-white transition-all text-gray-400"><ChevronLeft size={24} /></button>
-                            <button onClick={next} className="p-4 rounded-full border border-gray-100 hover:bg-primary hover:text-white transition-all text-gray-400"><ChevronRight size={24} /></button>
+                            <button onClick={prev} className="p-4 rounded-full border border-gray-100 dark:border-gray-700 hover:bg-primary hover:text-white transition-all text-gray-400 dark:text-gray-500"><ChevronLeft size={24} /></button>
+                            <button onClick={next} className="p-4 rounded-full border border-gray-100 dark:border-gray-700 hover:bg-primary hover:text-white transition-all text-gray-400 dark:text-gray-500"><ChevronRight size={24} /></button>
                         </div>
                     </div>
                 </div>
