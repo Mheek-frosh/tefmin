@@ -35,7 +35,7 @@ export const About = () => {
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 dark:bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/10 dark:bg-secondary/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
 
-            <div className="max-w-7xl mx-auto px-6 relative">
+            <div className="max-w-8xl mx-auto px-6 relative">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
                     <div className="relative">
                         <motion.div
@@ -138,16 +138,16 @@ export const About = () => {
                         </h2>
                     </div>
 
-                    <div className="relative max-w-7xl mx-auto">
+                    <div className="relative max-w-none">
                         {/* Founder Card */}
                         <div className="relative bg-white dark:bg-gray-900 rounded-[3rem] p-8 md:p-12 shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
                             {/* Background Gradient */}
-                            <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-gradient-to-b lg:bg-gradient-to-l from-primary/5 dark:from-primary/10 to-transparent" />
+                            <div className="absolute top-0 right-0 w-full lg:w-1/3 h-full bg-gradient-to-b lg:bg-gradient-to-l from-primary/5 dark:from-primary/10 to-transparent" />
 
                             <div className="relative z-10 flex flex-col lg:flex-row items-center gap-10">
                                 {/* Founder Image with Expand Button */}
-                                <div className="relative group shrink-0 mb-6 lg:mb-0">
-                                    <div className="w-64 h-64 md:w-80 md:h-80 rounded-[2rem] overflow-hidden border-4 border-secondary/30 shadow-xl mx-auto lg:mx-0">
+                                <div className="relative group shrink-0 mb-8 lg:mb-0">
+                                    <div className="w-full max-w-[450px] aspect-[4/5] lg:w-[450px] lg:h-[550px] rounded-tl-[3rem] rounded-bl-[3rem] rounded-tr-none rounded-br-none overflow-hidden border-t-4 border-b-4 border-l-4 border-secondary/30 shadow-2xl mx-auto lg:mx-0">
                                         <img
                                             src={founderBio.image}
                                             alt={founderBio.name}
@@ -181,7 +181,7 @@ export const About = () => {
                                     <p className="text-primary dark:text-secondary font-bold uppercase tracking-wider text-sm mb-6">
                                         {founderBio.title}
                                     </p>
-                                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 max-w-2xl text-base md:text-lg">
+                                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-10 text-lg md:text-xl">
                                         A seasoned business development professional with over 20 years of leadership experience, driving sustainable growth across Nigeria and Africa.
                                     </p>
 
@@ -231,7 +231,7 @@ export const About = () => {
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.9, opacity: 0, y: 40 }}
                             transition={{ type: "spring", damping: 25 }}
-                            className="relative max-w-4xl w-full max-h-[90vh] overflow-y-auto bg-white dark:bg-gray-900 rounded-[2rem] shadow-2xl"
+                            className="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto bg-white dark:bg-gray-900 rounded-[2rem] shadow-2xl"
                             onClick={(e) => e.stopPropagation()}
                         >
                             {/* Header with gradient */}

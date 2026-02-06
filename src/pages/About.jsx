@@ -4,11 +4,12 @@ import { Target, Globe2, Award, ChevronRight, X, Briefcase, GraduationCap, Users
 import { Button } from "../components/ui/Button";
 import { Newsletter } from "../components/Newsletter";
 import bgLogo from "../assets/bg.png";
+import ceoImage from "../assets/ceo.jpeg";
 
 const founderBio = {
     name: "Oke-Olawuyi Olumide Gabriel",
     title: "Founder, Chief Executive Officer & Lead Consultant",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600",
+    image: ceoImage,
     bio: `Oke-Olawuyi Olumide Gabriel is a seasoned business development professional, consultant, and development-focused entrepreneur with over 20 years of leadership experience across the public and private sectors in Nigeria and internationally.
 
 He is the Founder and CEO of The Future Made in Nigeria Project Ltd (TEFMIN), a consulting and social impact firm dedicated to driving sustainable growth, human capital development, corporate responsibility, and institutional strengthening across Nigeria and Africa.
@@ -21,9 +22,9 @@ His academic and professional credentials include postgraduate training in manag
 
 As Founder and CEO of TEFMIN, he provides strategic leadership, consulting oversight, partnership development, and thought leadership—advancing an African-born, globally aligned institution committed to empowering people, strengthening institutions, and building sustainable systems across Nigeria and Africa.`,
     highlights: [
-        { icon: Briefcase, text: "20+ Years Leadership" },
+        { icon: Briefcase, text: "20+ Years Leadership Experience" },
         { icon: Award, text: "Chartered Member, NIMN" },
-        { icon: GraduationCap, text: "PhD Candidate" },
+        { icon: GraduationCap, text: "PhD Candidate in Entrepreneurship" },
     ]
 };
 
@@ -175,24 +176,24 @@ export default function AboutPage() {
                     </h2>
                 </div>
 
-                <div className="relative max-w-6xl mx-auto">
+                <div className="relative max-w-none">
                     <div className="relative bg-white dark:bg-gray-800 rounded-[3rem] shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-                        <div className="grid grid-cols-1 lg:grid-cols-2">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
                             {/* Image - Left Side */}
-                            <div className="relative h-80 lg:h-auto">
+                            <div className="relative w-full max-w-[450px] aspect-[4/5] lg:w-[450px] lg:h-[550px] rounded-tl-[3rem] rounded-bl-[3rem] rounded-tr-none rounded-br-none overflow-hidden border-y-4 border-l-4 border-secondary/30 shadow-2xl mx-auto lg:mx-0 lg:m-12">
                                 <img
                                     src={founderBio.image}
                                     alt={founderBio.name}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover transition-all duration-500"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/50 to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/20 to-transparent" />
 
                                 {/* Expand Button */}
                                 <motion.button
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.95 }}
                                     onClick={() => setIsFounderExpanded(true)}
-                                    className="absolute bottom-6 right-6 w-14 h-14 bg-primary hover:bg-primary/90 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-primary/30 transition-colors"
+                                    className="absolute -bottom-4 right-1/2 translate-x-1/2 lg:right-[-1rem] lg:translate-x-0 w-14 h-14 bg-primary hover:bg-primary/90 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-primary/30 transition-colors"
                                 >
                                     <ChevronRight size={28} />
                                 </motion.button>
@@ -210,8 +211,8 @@ export default function AboutPage() {
                                 <p className="text-primary dark:text-secondary font-bold uppercase tracking-wider text-sm mb-6">
                                     {founderBio.title}
                                 </p>
-                                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
-                                    A seasoned business development professional with over 20 years of leadership experience across the public and private sectors, driving sustainable growth and institutional transformation across Nigeria and Africa.
+                                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-10 text-lg md:text-xl">
+                                    A seasoned business development professional with over 20 years of leadership experience, driving sustainable growth across Nigeria and Africa.
                                 </p>
 
                                 <div className="flex flex-wrap gap-3 mb-8">
@@ -366,7 +367,7 @@ export default function AboutPage() {
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.9, opacity: 0, y: 40 }}
                             transition={{ type: "spring", damping: 25 }}
-                            className="relative max-w-5xl w-full max-h-[90vh] overflow-y-auto bg-white dark:bg-gray-900 rounded-[2rem] shadow-2xl"
+                            className="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto bg-white dark:bg-gray-900 rounded-[2rem] shadow-2xl"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <div className="grid grid-cols-1 lg:grid-cols-3">
