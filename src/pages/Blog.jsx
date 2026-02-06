@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight, Tag, Search, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Newsletter } from "../components/Newsletter";
 
 const blogPosts = [
     {
@@ -178,8 +179,8 @@ export default function BlogPage() {
                                 key={category}
                                 onClick={() => setActiveCategory(category)}
                                 className={`px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider transition-all ${activeCategory === category
-                                        ? "bg-primary text-white shadow-lg shadow-primary/30"
-                                        : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"
+                                    ? "bg-primary text-white shadow-lg shadow-primary/30"
+                                    : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"
                                     }`}
                             >
                                 {category}
@@ -241,30 +242,11 @@ export default function BlogPage() {
                 )}
             </section>
 
-            {/* Newsletter CTA */}
-            <section className="max-w-7xl mx-auto px-6 mt-24">
-                <div className="bg-gradient-to-r from-primary to-primary/80 rounded-[3rem] p-12 md:p-16 text-center relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-                    <div className="relative z-10">
-                        <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-                            Stay Updated with TEFMIN
-                        </h2>
-                        <p className="text-white/70 text-lg max-w-xl mx-auto mb-8">
-                            Subscribe to our newsletter and never miss insights on Nigerian industrial growth.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-                            <input
-                                type="email"
-                                placeholder="Enter your email"
-                                className="flex-1 px-6 py-4 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-secondary"
-                            />
-                            <button className="px-8 py-4 bg-secondary text-primary font-bold uppercase tracking-wider rounded-2xl hover:bg-secondary/90 transition-colors shadow-lg">
-                                Subscribe
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {/* Newsletter */}
+            <div className="mt-24">
+                <Newsletter />
+            </div>
         </div>
     );
 }
+

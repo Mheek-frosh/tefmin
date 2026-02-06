@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Phone, MapPin, Send, MessageSquare, Globe, Clock, CheckCircle2, Award, Sparkles, ShieldCheck } from "lucide-react";
 import { Button } from "../components/ui/Button";
+import { Newsletter } from "../components/Newsletter";
 
 export default function ContactPage() {
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -13,7 +14,7 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="pt-32 pb-24 bg-white overflow-hidden">
+        <div className="pt-32 pb-24 bg-white dark:bg-gray-900 overflow-hidden transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
 
@@ -23,56 +24,56 @@ export default function ContactPage() {
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
                         >
-                            <span className="text-primary font-black tracking-widest uppercase text-xs mb-6 inline-block bg-primary/5 px-4 py-2 rounded-full">
+                            <span className="text-primary dark:text-secondary font-black tracking-widest uppercase text-xs mb-6 inline-block bg-primary/5 dark:bg-secondary/10 px-4 py-2 rounded-full">
                                 Get in Touch
                             </span>
-                            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-10 leading-[0.9] tracking-tighter">
+                            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 dark:text-white mb-10 leading-[0.9] tracking-tighter">
                                 Let's Build the <br />
-                                <span className="text-primary underline decoration-secondary decoration-8 underline-offset-8">Future.</span>
+                                <span className="text-primary dark:text-secondary underline decoration-secondary decoration-8 underline-offset-8">Future.</span>
                             </h1>
-                            <p className="text-xl text-gray-600 mb-12 leading-relaxed">
+                            <p className="text-xl text-gray-600 dark:text-gray-400 mb-12 leading-relaxed">
                                 Have an industrial project in mind? Want to join our empowerment cycle? Reach out to our team of experts and let's discuss how we can collaborate.
                             </p>
 
                             <div className="space-y-8">
                                 <motion.div
                                     whileHover={{ x: 10 }}
-                                    className="group flex items-start gap-6 p-6 rounded-[2rem] hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100"
+                                    className="group flex items-start gap-6 p-6 rounded-[2rem] hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border border-transparent hover:border-gray-100 dark:hover:border-gray-700"
                                 >
-                                    <div className="h-14 w-14 rounded-2xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                                    <div className="h-14 w-14 rounded-2xl bg-primary/5 dark:bg-primary/10 flex items-center justify-center text-primary dark:text-secondary group-hover:bg-primary group-hover:text-white transition-all">
                                         <MapPin size={24} />
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-bold text-gray-900 mb-1">Headquarters</h4>
-                                        <p className="text-gray-500">Suite 402, TEFMIN Plaza, Lekki Phase 1, Lagos, Nigeria</p>
+                                        <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Headquarters</h4>
+                                        <p className="text-gray-500 dark:text-gray-400">Suite 402, TEFMIN Plaza, Lekki Phase 1, Lagos, Nigeria</p>
                                     </div>
                                 </motion.div>
 
                                 <motion.div
                                     whileHover={{ x: 10 }}
-                                    className="group flex items-start gap-6 p-6 rounded-[2rem] hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100"
+                                    className="group flex items-start gap-6 p-6 rounded-[2rem] hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border border-transparent hover:border-gray-100 dark:hover:border-gray-700"
                                 >
-                                    <div className="h-14 w-14 rounded-2xl bg-secondary/10 flex items-center justify-center text-primary group-hover:bg-secondary group-hover:text-primary transition-all">
+                                    <div className="h-14 w-14 rounded-2xl bg-secondary/10 dark:bg-secondary/20 flex items-center justify-center text-primary dark:text-secondary group-hover:bg-secondary group-hover:text-primary transition-all">
                                         <Phone size={24} />
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-bold text-gray-900 mb-1">Call Center</h4>
-                                        <p className="text-gray-500">+234 (0) 800-TEFMIN-PRO</p>
-                                        <p className="text-xs font-bold text-primary mt-1 uppercase tracking-widest">Available 9AM - 6PM WAT</p>
+                                        <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Call Center</h4>
+                                        <p className="text-gray-500 dark:text-gray-400">+234 (0) 800-TEFMIN-PRO</p>
+                                        <p className="text-xs font-bold text-primary dark:text-secondary mt-1 uppercase tracking-widest">Available 9AM - 6PM WAT</p>
                                     </div>
                                 </motion.div>
 
                                 <motion.div
                                     whileHover={{ x: 10 }}
-                                    className="group flex items-start gap-6 p-6 rounded-[2rem] hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100"
+                                    className="group flex items-start gap-6 p-6 rounded-[2rem] hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border border-transparent hover:border-gray-100 dark:hover:border-gray-700"
                                 >
-                                    <div className="h-14 w-14 rounded-2xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                                    <div className="h-14 w-14 rounded-2xl bg-primary/5 dark:bg-primary/10 flex items-center justify-center text-primary dark:text-secondary group-hover:bg-primary group-hover:text-white transition-all">
                                         <Mail size={24} />
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-bold text-gray-900 mb-1">Email Us</h4>
-                                        <p className="text-gray-500">info@tefmin.com</p>
-                                        <p className="text-gray-500">projects@tefmin.com</p>
+                                        <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Email Us</h4>
+                                        <p className="text-gray-500 dark:text-gray-400">info@tefmin.com</p>
+                                        <p className="text-gray-500 dark:text-gray-400">projects@tefmin.com</p>
                                     </div>
                                 </motion.div>
                             </div>
@@ -89,7 +90,7 @@ export default function ContactPage() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="bg-white rounded-[3rem] p-10 md:p-16 shadow-[0_48px_80px_-16px_rgba(0,0,0,0.1)] border border-gray-100 min-h-[600px] flex flex-col justify-center"
+                            className="bg-white dark:bg-gray-800 rounded-[3rem] p-10 md:p-16 shadow-[0_48px_80px_-16px_rgba(0,0,0,0.1)] dark:shadow-2xl border border-gray-100 dark:border-gray-700 min-h-[600px] flex flex-col justify-center"
                         >
                             <AnimatePresence mode="wait">
                                 {!isSubmitted ? (
@@ -100,7 +101,7 @@ export default function ContactPage() {
                                         exit={{ opacity: 0, scale: 0.95 }}
                                     >
                                         <div className="mb-10 flex items-center justify-between">
-                                            <h3 className="text-3xl font-black text-gray-900 uppercase tracking-tighter">Inquiry Form</h3>
+                                            <h3 className="text-3xl font-black text-gray-900 dark:text-white uppercase tracking-tighter">Inquiry Form</h3>
                                             <MessageSquare className="text-primary/20" size={40} />
                                         </div>
 
@@ -112,7 +113,7 @@ export default function ContactPage() {
                                                         required
                                                         type="text"
                                                         placeholder="John Doe"
-                                                        className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all font-bold text-gray-900"
+                                                        className="w-full bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white dark:focus:bg-gray-600 transition-all font-bold text-gray-900 dark:text-white placeholder-gray-400"
                                                     />
                                                 </div>
                                                 <div className="space-y-4">
@@ -121,14 +122,14 @@ export default function ContactPage() {
                                                         required
                                                         type="email"
                                                         placeholder="john@example.com"
-                                                        className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all font-bold text-gray-900"
+                                                        className="w-full bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white dark:focus:bg-gray-600 transition-all font-bold text-gray-900 dark:text-white placeholder-gray-400"
                                                     />
                                                 </div>
                                             </div>
 
                                             <div className="space-y-4">
                                                 <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2">Nature of Inquiry</label>
-                                                <select className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all appearance-none font-bold text-gray-900">
+                                                <select className="w-full bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white dark:focus:bg-gray-600 transition-all appearance-none font-bold text-gray-900 dark:text-white">
                                                     <option>Industrial Project Partner</option>
                                                     <option>Training & Recruitment</option>
                                                     <option>Corporate Partnership</option>
@@ -143,7 +144,7 @@ export default function ContactPage() {
                                                     required
                                                     rows="5"
                                                     placeholder="Tell us about your project or vision..."
-                                                    className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all resize-none font-bold text-gray-900"
+                                                    className="w-full bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white dark:focus:bg-gray-600 transition-all resize-none font-bold text-gray-900 dark:text-white placeholder-gray-400"
                                                 ></textarea>
                                             </div>
 
@@ -152,7 +153,7 @@ export default function ContactPage() {
                                             </Button>
 
                                             <div className="flex items-center gap-4 text-xs font-bold text-gray-400">
-                                                <CheckCircle2 size={16} className="text-primary" />
+                                                <CheckCircle2 size={16} className="text-primary dark:text-secondary" />
                                                 <span>Your data is protected by TEFMIN Privacy Policy.</span>
                                             </div>
                                         </form>
@@ -167,8 +168,8 @@ export default function ContactPage() {
                                         <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-primary/20">
                                             <Sparkles className="text-primary" size={48} />
                                         </div>
-                                        <h3 className="text-4xl font-black text-gray-900 mb-4 tracking-tighter">Inquiry Received!</h3>
-                                        <p className="text-gray-500 text-lg mb-8 leading-relaxed max-w-sm mx-auto">
+                                        <h3 className="text-4xl font-black text-gray-900 dark:text-white mb-4 tracking-tighter">Inquiry Received!</h3>
+                                        <p className="text-gray-500 dark:text-gray-400 text-lg mb-8 leading-relaxed max-w-sm mx-auto">
                                             Thank you for reaching out. A TEFMIN representative will contact you via email within 24 hours.
                                         </p>
                                         <Button
@@ -186,30 +187,75 @@ export default function ContactPage() {
                 </div>
             </div>
 
+            {/* Google Maps Section */}
+            <section className="max-w-7xl mx-auto px-6 mt-24">
+                <div className="text-center mb-12">
+                    <span className="text-primary dark:text-secondary font-black tracking-widest uppercase text-xs mb-4 inline-block bg-primary/5 dark:bg-secondary/10 px-4 py-2 rounded-full">
+                        Find Us
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white">
+                        Our <span className="text-secondary italic">Location</span>
+                    </h2>
+                </div>
+
+                <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-700">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.7286098991983!2d3.4707!3d6.4299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf4cc3e6e8e0d%3A0x0!2sLekki%20Phase%201%2C%20Lagos!5e0!3m2!1sen!2sng!4v1234567890"
+                        width="100%"
+                        height="450"
+                        style={{ border: 0 }}
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        className="w-full"
+                        title="TEFMIN Office Location"
+                    ></iframe>
+
+                    {/* Location Card Overlay */}
+                    <div className="absolute bottom-6 left-6 right-6 md:right-auto md:max-w-sm bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-100 dark:border-gray-700">
+                        <div className="flex items-start gap-4">
+                            <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-white shrink-0">
+                                <MapPin size={24} />
+                            </div>
+                            <div>
+                                <h4 className="font-bold text-gray-900 dark:text-white mb-1">TEFMIN Headquarters</h4>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">Suite 402, TEFMIN Plaza</p>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">Lekki Phase 1, Lagos, Nigeria</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Trust Bar */}
-            <div className="max-w-7xl mx-auto px-6 mt-32 pt-24 border-t border-gray-100">
+            <div className="max-w-7xl mx-auto px-6 mt-24 pt-24 border-t border-gray-100 dark:border-gray-700">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
                     <div>
-                        <Globe className="mx-auto mb-4 text-primary/20" size={32} />
-                        <h5 className="font-bold text-gray-900 mb-1">Global Network</h5>
+                        <Globe className="mx-auto mb-4 text-primary/20 dark:text-secondary/20" size={32} />
+                        <h5 className="font-bold text-gray-900 dark:text-white mb-1">Global Network</h5>
                         <p className="text-xs text-gray-400 uppercase tracking-widest">Export Partners</p>
                     </div>
                     <div>
-                        <Clock className="mx-auto mb-4 text-primary/20" size={32} />
-                        <h5 className="font-bold text-gray-900 mb-1">24Hr Response</h5>
+                        <Clock className="mx-auto mb-4 text-primary/20 dark:text-secondary/20" size={32} />
+                        <h5 className="font-bold text-gray-900 dark:text-white mb-1">24Hr Response</h5>
                         <p className="text-xs text-gray-400 uppercase tracking-widest">Priority Support</p>
                     </div>
                     <div>
-                        <ShieldCheck className="mx-auto mb-4 text-primary/20" size={32} />
-                        <h5 className="font-bold text-gray-900 mb-1">Eco System</h5>
+                        <ShieldCheck className="mx-auto mb-4 text-primary/20 dark:text-secondary/20" size={32} />
+                        <h5 className="font-bold text-gray-900 dark:text-white mb-1">Eco System</h5>
                         <p className="text-xs text-gray-400 uppercase tracking-widest">Verified Partners</p>
                     </div>
                     <div>
-                        <Award className="mx-auto mb-4 text-primary/20" size={32} />
-                        <h5 className="font-bold text-gray-900 mb-1">Impact First</h5>
+                        <Award className="mx-auto mb-4 text-primary/20 dark:text-secondary/20" size={32} />
+                        <h5 className="font-bold text-gray-900 dark:text-white mb-1">Impact First</h5>
                         <p className="text-xs text-gray-400 uppercase tracking-widest">Certified Projects</p>
                     </div>
                 </div>
+            </div>
+
+            {/* Newsletter */}
+            <div className="mt-24">
+                <Newsletter />
             </div>
         </div>
     );

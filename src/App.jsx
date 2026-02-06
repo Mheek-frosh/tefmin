@@ -10,6 +10,7 @@ import EmpowermentPage from "./pages/Empowerment";
 import ContactPage from "./pages/Contact";
 import BlogPage from "./pages/Blog";
 import ServicesPage from "./pages/Services";
+import CareerPage from "./pages/Career";
 
 // Scroll to top on navigation
 function ScrollToTop() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/career" element={<CareerPage />} />
         </Routes>
         <Footer />
         <Chatbot />
@@ -43,4 +45,5 @@ function App() {
 }
 
 export default App;
+
 

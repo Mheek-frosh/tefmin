@@ -12,6 +12,7 @@ const navLinks = [
         dropdown: [
             { name: "Our Company", href: "/about" },
             { name: "Empowerment", href: "/empowerment" },
+            { name: "Career", href: "/career" },
         ]
     },
     { name: "Services", href: "/services" },
