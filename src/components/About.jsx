@@ -142,12 +142,12 @@ export const About = () => {
                         {/* Founder Card */}
                         <div className="relative bg-white dark:bg-gray-900 rounded-[3rem] p-8 md:p-12 shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
                             {/* Background Gradient */}
-                            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 dark:from-primary/10 to-transparent" />
+                            <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-gradient-to-b lg:bg-gradient-to-l from-primary/5 dark:from-primary/10 to-transparent" />
 
                             <div className="relative z-10 flex flex-col lg:flex-row items-center gap-10">
                                 {/* Founder Image with Expand Button */}
-                                <div className="relative group shrink-0">
-                                    <div className="w-64 h-64 md:w-80 md:h-80 rounded-[2rem] overflow-hidden border-4 border-secondary/30 shadow-xl">
+                                <div className="relative group shrink-0 mb-6 lg:mb-0">
+                                    <div className="w-64 h-64 md:w-80 md:h-80 rounded-[2rem] overflow-hidden border-4 border-secondary/30 shadow-xl mx-auto lg:mx-0">
                                         <img
                                             src={founderBio.image}
                                             alt={founderBio.name}
@@ -160,13 +160,13 @@ export const About = () => {
                                         whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.95 }}
                                         onClick={() => setIsFounderExpanded(true)}
-                                        className="absolute -bottom-4 -right-4 w-14 h-14 bg-primary hover:bg-primary/90 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-primary/30 transition-colors"
+                                        className="absolute -bottom-4 right-1/2 translate-x-1/2 lg:right-[-1rem] lg:translate-x-0 w-14 h-14 bg-primary hover:bg-primary/90 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-primary/30 transition-colors"
                                     >
                                         <ChevronRight size={28} />
                                     </motion.button>
 
                                     {/* Decorative Ring */}
-                                    <div className="absolute -inset-4 border-2 border-dashed border-secondary/30 rounded-[2.5rem] -z-10" />
+                                    <div className="absolute -inset-4 border-2 border-dashed border-secondary/30 rounded-[2.5rem] -z-10 hidden lg:block" />
                                 </div>
 
                                 {/* Founder Info */}
@@ -181,7 +181,7 @@ export const About = () => {
                                     <p className="text-primary dark:text-secondary font-bold uppercase tracking-wider text-sm mb-6">
                                         {founderBio.title}
                                     </p>
-                                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 max-w-2xl text-lg">
+                                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 max-w-2xl text-base md:text-lg">
                                         A seasoned business development professional with over 20 years of leadership experience, driving sustainable growth across Nigeria and Africa.
                                     </p>
 

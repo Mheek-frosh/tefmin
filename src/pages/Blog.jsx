@@ -303,7 +303,7 @@ export default function BlogPage() {
                     >
                         <div className="bg-white dark:bg-gray-800 rounded-[3rem] overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-700">
                             {/* Expanded Header with Image */}
-                            <div className="relative h-80 md:h-96 overflow-hidden">
+                            <div className="relative h-64 md:h-96 overflow-hidden">
                                 <img
                                     src={expandedPost.image}
                                     alt={expandedPost.title}
@@ -312,7 +312,7 @@ export default function BlogPage() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
                                 {/* Title Overlay */}
-                                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
                                     <div className="flex items-center gap-4 mb-4">
                                         {expandedPost.featured && (
                                             <span className="px-4 py-1.5 rounded-full bg-secondary/80 text-primary text-xs font-bold uppercase tracking-wider flex items-center gap-2">
@@ -342,7 +342,7 @@ export default function BlogPage() {
                             </div>
 
                             {/* Article Content */}
-                            <div className="p-8 md:p-12 lg:p-16">
+                            <div className="p-6 md:p-12 lg:p-16">
                                 <div className="max-w-4xl mx-auto">
                                     <div className="prose prose-lg dark:prose-invert max-w-none">
                                         {expandedPost.fullContent.split('\n\n').map((paragraph, index) => (

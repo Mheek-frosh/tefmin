@@ -95,9 +95,14 @@ export const Navbar = () => {
                         alt="TEFMIN Logo"
                         className="h-10 w-auto"
                     />
-                    <span className={`font-black text-xl tracking-tighter transition-colors duration-500 ${showScrolledStyle ? "text-primary dark:text-white" : "text-white"}`}>
-                        TEFMIN
-                    </span>
+                    <div className="flex flex-col">
+                        <span className={`font-black text-xl tracking-tighter transition-colors duration-500 leading-none ${showScrolledStyle ? "text-primary dark:text-white" : "text-white"}`}>
+                            TEFMIN
+                        </span>
+                        <span className={`text-[10px] font-bold uppercase tracking-[0.2em] transition-colors duration-500 mt-1 whitespace-nowrap leading-none ${showScrolledStyle ? "text-secondary" : "text-secondary"}`}>
+                            Modernizing Nigeria's Heartbeat
+                        </span>
+                    </div>
                 </Link>
 
                 {/* Desktop Nav */}
@@ -182,27 +187,27 @@ export const Navbar = () => {
                 </div>
 
                 {/* Mobile Toggle */}
-                <div className="md:hidden flex items-center gap-2">
+                <div className="md:hidden flex items-center gap-1">
                     {/* Mobile Dark Mode Toggle */}
                     <button
                         onClick={toggleDarkMode}
-                        className={`p-2 rounded-full transition-all ${showScrolledStyle
+                        className={`p-1.5 rounded-full transition-all ${showScrolledStyle
                             ? "text-primary dark:text-white"
                             : "text-white"
                             }`}
                         aria-label="Toggle dark mode"
                     >
-                        {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+                        {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
                     </button>
 
                     <button
-                        className="p-2"
+                        className="p-1.5"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {isMobileMenuOpen ? (
-                            <X className={showScrolledStyle ? "text-primary dark:text-white" : "text-white"} />
+                            <X size={20} className={showScrolledStyle ? "text-primary dark:text-white" : "text-white"} />
                         ) : (
-                            <Menu className={showScrolledStyle ? "text-primary dark:text-white" : "text-white"} />
+                            <Menu size={20} className={showScrolledStyle ? "text-primary dark:text-white" : "text-white"} />
                         )}
                     </button>
                 </div>
