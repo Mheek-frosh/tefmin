@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import { Button } from "./ui/Button";
-import bgLogo from "../assets/bg.png";
+import logO from "../assets/logow.png";
 
 export const Footer = () => {
     const navLinks = [
