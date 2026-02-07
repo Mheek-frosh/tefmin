@@ -12,11 +12,12 @@ export const founderBio = {
     name: "Oke-Olawuyi Olumide Gabriel",
     title: "Founder, Chief Executive Officer & Lead Consultant",
     image: ceoImage,
-    bio: `Oke-Olawuyi Olumide Gabriel is a seasoned business development professional, consultant, and development-focused entrepreneur with over 20 years of leadership experience across the public and private sectors in Nigeria and internationally.
+    bio: "Strategic leader with 20+ years of corporate excellence across public and private sectors.",
+    detailedBio: `Oke-Olawuyi Olumide Gabriel is a seasoned business development professional, consultant, and development-focused entrepreneur with over 20 years of leadership experience across the public and private sectors in Nigeria and internationally.
 
 He is the Founder and CEO of The Future Made in Nigeria Project Ltd (TEFMIN), a consulting and social impact firm dedicated to driving sustainable growth, human capital development, corporate responsibility, and institutional strengthening across Nigeria and Africa.
 
-Mr. Oke-Olawuyi has held senior leadership and regional management roles in key sectors including telecommunications, FMCG, banking, international trade, ICT, and public-sector initiatives. His experience spans organizations such as Starcomms PLC, Multichoice (DSTV), NTA–StarTimes Network Ltd, International Tobacco PLC, Societe Generale Bank Ltd, Cranswick Foods Ltd (UK), and Secured Records Management Solutions (SRMS) Ltd (a leading ICT development firm), where he served as Head of Business Development and Marketing Communications. He currently serves as a Business Development Consultant to SRMS.
+Mr. Oke-Olawuyi has held senior leadership and regional management roles in key sectors including telecommunications, FMCG, banking, international trade, ICT, and public-sector initiatives. His experience spans organizations such as Starcomms PLC, Multichoice (DSTV), NTA–StarTimes Network Ltd, International Tobacco PLC, Societe Generale Bank Ltd, Cranswick Foods Ltd (UK), and Secured Records Management Solutions (SRMS) Ltd( a leading ICT development firm), where he served as Head of Business Development and Marketing Communications. He currently serves as a Business Development Consultant to SRMS.
 
 He also brings strong consulting and government engagement experience, having served as a Consultant to the Presidential Youth Empowerment Scheme (PYES) and advised organizations working with Federal and State Ministries, Departments, and Agencies (MDAs).
 

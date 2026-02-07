@@ -2,8 +2,31 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, Clock, ArrowRight, Search, TrendingUp, ChevronUp, X, MessageCircle, Share2, Twitter, Send } from "lucide-react";
 import { Newsletter } from "../components/Newsletter";
+import blog1 from "../assets/blog1.jpeg";
 
 const blogPosts = [
+    {
+        id: "srms-pension-solution",
+        title: "Digital Transformation in Pension Systems: NGF and SRMS Partner for 'I'm Alive' Solution Adoption",
+        excerpt: "SRMS seeks a strategic partnership with the Nigeria Governor’s Forum (NGF) to implement the innovative 'I'm Alive' pension verification system across all 36 states.",
+        fullContent: `In a landmark move towards digital governance and social security reform, Secure Records Management Solutions (SRMS) has engaged with the Nigeria Governor’s Forum (NGF) to propose the nationwide adoption of the "I’m Alive" pension verification solution.
+
+The "I’m Alive" solution is a state-of-the-art technological platform designed to solve one of the most persistent challenges in Nigeria's public sector: the periodic verification of pensioners. Traditionally, elderly citizens have been forced to travel long distances and wait in grueling queues to prove they are still alive to receive their hard-earned benefits. SRMS's innovation replaces this cumbersome process with a seamless, mobile-first experience.
+
+Leveraging sophisticated facial recognition, liveness detection, and biometric matching, the "I’m Alive" solution allows pensioners to verify their status from the comfort of their homes using a smartphone or at designated local access points. This adoption by state governments, facilitated by the NGF, promises to eliminate "ghost pensioners," drastically reduce administrative costs, and most importantly, restore dignity to our senior citizens.
+
+During a recent strategic session with key stakeholders from the NGF, SRMS leadership demonstrated how the platform integrates with existing state payroll systems to provide real-time data accuracy. The partnership aims to create a uniform, secure, and transparent verification standard across all 36 states of the Federation.
+
+"Our goal is to ensure that no Nigerian pensioner ever has to suffer the indignity of a verification queue again," stated a representative from the SRMS leadership. "By partnering with the NGF, we can scale this solution to every corner of the country, ensuring that the right benefits reach the right people at the right time."
+
+This initiative marks a significant milestone for TEFMIN and its partners as we continue to drive institutional strengthening and human-centric technological adoption across Nigeria.`,
+        category: "Innovation",
+        image: blog1,
+        date: "February 7, 2026",
+        readTime: "7 min read",
+        featured: true,
+        author: "TEFMIN Communications",
+    },
     {
         id: 1,
         title: "Nigeria's Path to Industrial Self-Sufficiency: A 2026 Vision",
@@ -212,6 +235,7 @@ export default function BlogPage() {
     const [activeCategory, setActiveCategory] = useState("All");
     const [searchQuery, setSearchQuery] = useState("");
     const [expandedPostId, setExpandedPostId] = useState(blogPosts[0].id);
+    const [isCollapsed, setIsCollapsed] = useState(false);
     const [commentText, setCommentText] = useState("");
 
     const filteredPosts = blogPosts.filter(post => {
@@ -237,7 +261,8 @@ export default function BlogPage() {
 
     const handlePostClick = (id) => {
         setExpandedPostId(id);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setIsCollapsed(false);
+        window.scrollTo({ top: 300, behavior: 'smooth' });
     };
 
     return (
@@ -291,38 +316,42 @@ export default function BlogPage() {
             </section>
 
             {/* Expanded Post - Shows at top when a post is selected */}
-            <AnimatePresence mode="wait">
-                {expandedPost && (
-                    <motion.section
-                        key={`expanded-${expandedPost.id}`}
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.3 }}
-                        className="max-w-7xl mx-auto px-6 mb-12"
-                    >
-                        <div className="bg-white dark:bg-gray-800 rounded-[3rem] overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-700 relative">
-                            {/* Top Right Close Button (X) */}
+            <section className="max-w-7xl mx-auto px-6 mb-12">
+                <AnimatePresence mode="wait">
+                    {expandedPost && (
+                        <motion.div
+                            key={`expanded-${expandedPost.id}`}
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{
+                                opacity: 1,
+                                y: 0,
+                                height: isCollapsed ? "550px" : "auto"
+                            }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                            className="bg-white dark:bg-gray-800 rounded-[3rem] overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-700 relative"
+                        >
+                            {/* Top Right Close Button (X) - Now toggles collapse */}
                             <button
-                                onClick={() => setExpandedPostId(null)}
+                                onClick={() => setIsCollapsed(!isCollapsed)}
                                 className="absolute top-6 right-6 z-50 p-3 rounded-full bg-black/20 hover:bg-black/40 backdrop-blur-md flex items-center justify-center text-white transition-all shadow-lg active:scale-95 group border border-white/20"
-                                title="Close Article"
+                                title={isCollapsed ? "Expand Article" : "Collapse Article"}
                             >
-                                <X size={24} />
+                                {isCollapsed ? <ArrowRight size={24} className="rotate-90" /> : <X size={24} />}
                             </button>
 
                             {/* Expanded Header with Image */}
-                            <div className="relative h-64 md:h-96 overflow-hidden">
+                            <div className={`relative transition-all duration-500 ${isCollapsed ? "h-[550px]" : "h-64 md:h-96"} overflow-hidden`}>
                                 <img
                                     src={expandedPost.image}
                                     alt={expandedPost.title}
                                     className="w-full h-full object-cover"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                                <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent ${isCollapsed ? "from-black/90" : ""}`} />
 
                                 {/* Title Overlay */}
-                                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
-                                    <div className="flex items-center gap-4 mb-4">
+                                <div className={`absolute bottom-0 left-0 right-0 p-6 md:p-12 transition-all duration-500 ${isCollapsed ? "pb-24" : ""}`}>
+                                    <div className={`flex items-center gap-4 mb-4 ${isCollapsed ? "flex" : ""}`}>
                                         {expandedPost.featured && (
                                             <span className="px-4 py-1.5 rounded-full bg-secondary/80 text-primary text-xs font-bold uppercase tracking-wider flex items-center gap-2">
                                                 <TrendingUp size={14} />
@@ -333,10 +362,10 @@ export default function BlogPage() {
                                             {expandedPost.category}
                                         </span>
                                     </div>
-                                    <h2 className="text-3xl md:text-5xl font-black text-white mb-4 leading-tight max-w-4xl">
+                                    <h2 className={`font-black text-white leading-tight max-w-4xl transition-all duration-500 ${isCollapsed ? "text-2xl md:text-3xl mb-4" : "text-3xl md:text-5xl mb-4"}`}>
                                         {expandedPost.title}
                                     </h2>
-                                    <div className="flex items-center gap-6 text-sm text-white/70">
+                                    <div className={`flex items-center gap-6 text-sm text-white/70 ${isCollapsed ? "flex" : ""}`}>
                                         <span className="flex items-center gap-2">
                                             <Calendar size={16} />
                                             {expandedPost.date}
@@ -345,129 +374,170 @@ export default function BlogPage() {
                                             <Clock size={16} />
                                             {expandedPost.readTime}
                                         </span>
-                                        <span>By {expandedPost.author}</span>
+                                        {!isCollapsed && <span>By {expandedPost.author}</span>}
                                     </div>
+
+                                    {/* Excerpt when collapsed */}
+                                    {isCollapsed && (
+                                        <p className="text-white/80 mt-6 md:text-lg line-clamp-2 max-w-2xl leading-relaxed">
+                                            {expandedPost.excerpt}
+                                        </p>
+                                    )}
                                 </div>
+
+                                {/* Read More Indicator when collapsed */}
+                                {isCollapsed && (
+                                    <div className="absolute bottom-8 left-12 flex items-center gap-4">
+                                        <button
+                                            onClick={() => setIsCollapsed(false)}
+                                            className="px-6 py-2.5 bg-secondary text-primary font-black text-xs uppercase tracking-widest rounded-xl flex items-center gap-3 hover:scale-105 transition-transform"
+                                        >
+                                            Continue Reading
+                                            <ArrowRight size={16} />
+                                        </button>
+                                    </div>
+                                )}
                             </div>
 
                             {/* Article Content */}
-                            <div className="p-6 md:p-12 lg:p-16 relative">
-                                <div className="max-w-4xl mx-auto">
-                                    <div className="prose prose-lg dark:prose-invert max-w-none">
-                                        {expandedPost.fullContent.split('\n\n').map((paragraph, index) => (
-                                            <p key={index} className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-lg">
-                                                {paragraph}
-                                            </p>
-                                        ))}
-                                    </div>
+                            <AnimatePresence>
+                                {!isCollapsed && (
+                                    <motion.div
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        className="p-6 md:p-12 lg:p-16 relative"
+                                    >
+                                        <div className="max-w-4xl mx-auto">
+                                            <div className="prose prose-lg dark:prose-invert max-w-none">
+                                                {expandedPost.fullContent.split('\n\n').map((paragraph, index) => (
+                                                    <p key={index} className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-lg">
+                                                        {paragraph}
+                                                    </p>
+                                                ))}
+                                            </div>
 
-                                    {/* Share Section */}
-                                    <div className="mt-12 pt-8 border-t border-gray-100 dark:border-gray-700">
-                                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-                                            <div>
-                                                <h4 className="font-bold text-gray-900 dark:text-white mb-2">Share this article</h4>
-                                                <div className="flex gap-3">
-                                                    <button
-                                                        onClick={() => handleShare('whatsapp', expandedPost)}
-                                                        className="flex items-center gap-2 px-4 py-2.5 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold text-sm transition-colors"
-                                                    >
-                                                        <WhatsApp size={18} />
-                                                        WhatsApp
-                                                    </button>
-                                                    <button
-                                                        onClick={() => handleShare('twitter', expandedPost)}
-                                                        className="flex items-center gap-2 px-4 py-2.5 bg-sky-500 hover:bg-sky-600 text-white rounded-xl font-bold text-sm transition-colors"
-                                                    >
-                                                        <Twitter size={18} />
-                                                        Twitter
-                                                    </button>
+                                            {/* Share Section */}
+                                            <div className="mt-12 pt-8 border-t border-gray-100 dark:border-gray-700">
+                                                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                                                    <div>
+                                                        <h4 className="font-bold text-gray-900 dark:text-white mb-2">Share this article</h4>
+                                                        <div className="flex gap-3">
+                                                            <button
+                                                                onClick={() => handleShare('whatsapp', expandedPost)}
+                                                                className="flex items-center gap-2 px-4 py-2.5 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold text-sm transition-colors"
+                                                            >
+                                                                <WhatsApp size={18} />
+                                                                WhatsApp
+                                                            </button>
+                                                            <button
+                                                                onClick={() => handleShare('twitter', expandedPost)}
+                                                                className="flex items-center gap-2 px-4 py-2.5 bg-sky-500 hover:bg-sky-600 text-white rounded-xl font-bold text-sm transition-colors"
+                                                            >
+                                                                <Twitter size={18} />
+                                                                Twitter
+                                                            </button>
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Bottom Right Collapse Button */}
+                                        <button
+                                            onClick={() => {
+                                                setIsCollapsed(true);
+                                                window.scrollTo({ top: 300, behavior: 'smooth' });
+                                            }}
+                                            className="absolute bottom-6 right-6 p-4 rounded-2xl bg-primary hover:bg-primary/90 text-white flex items-center gap-2 shadow-xl shadow-primary/20 transition-all active:scale-95 group border border-white/10"
+                                        >
+                                            <span className="text-xs font-black uppercase tracking-widest">Collapse</span>
+                                            <ChevronUp size={20} className="group-hover:-translate-y-1 transition-transform" />
+                                        </button>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </section>
+
+            {/* Blog Grid */}
+            <section className="max-w-7xl mx-auto px-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+                    {gridPosts.map((post, index) => {
+                        const isFeatured = index === 0;
+                        return (
+                            <motion.div
+                                key={post.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                className={`group cursor-pointer ${isFeatured ? "md:col-span-2 lg:col-span-2" : ""}`}
+                                onClick={() => handlePostClick(post.id)}
+                            >
+                                <div className={`bg-gray-50 dark:bg-gray-800 rounded-[2.5rem] overflow-hidden border border-gray-100 dark:border-gray-700 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 flex flex-col ${isFeatured ? "md:flex-row h-full" : "h-full"}`}>
+                                    <div className={`relative overflow-hidden ${isFeatured ? "md:w-1/2" : "h-64"}`}>
+                                        <img
+                                            src={post.image}
+                                            alt={post.title}
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        />
+                                        <div className="absolute top-4 left-4">
+                                            <span className="px-4 py-1.5 rounded-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md text-primary dark:text-secondary text-[10px] font-black uppercase tracking-wider shadow-lg">
+                                                {post.category}
+                                            </span>
+                                        </div>
+                                        {isFeatured && (
+                                            <div className="absolute top-4 right-4">
+                                                <span className="px-4 py-1.5 rounded-full bg-secondary text-primary text-[10px] font-black uppercase tracking-wider shadow-lg flex items-center gap-2">
+                                                    <TrendingUp size={12} />
+                                                    Latest
+                                                </span>
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className={`p-8 flex flex-col justify-center ${isFeatured ? "md:w-1/2" : "flex-1"}`}>
+                                        <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400 mb-4 font-bold uppercase tracking-widest">
+                                            <span className="flex items-center gap-2">
+                                                <Calendar size={14} />
+                                                {post.date}
+                                            </span>
+                                            <span className="flex items-center gap-2">
+                                                <Clock size={14} />
+                                                {post.readTime}
+                                            </span>
+                                        </div>
+                                        <h3 className={`${isFeatured ? "text-2xl md:text-3xl" : "text-xl"} font-black text-gray-900 dark:text-white mb-4 group-hover:text-primary dark:group-hover:text-secondary transition-colors leading-tight`}>
+                                            {post.title}
+                                        </h3>
+                                        <p className="text-gray-500 dark:text-gray-400 mb-8 line-clamp-3 leading-relaxed text-base">
+                                            {post.excerpt}
+                                        </p>
+                                        <div className="mt-auto flex items-center justify-between">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-primary font-black text-xs uppercase tracking-tighter overflow-hidden">
+                                                    {post.author.charAt(0)}
+                                                </div>
+                                                <span className="text-sm font-black text-gray-900 dark:text-white tracking-tight">{post.author}</span>
+                                            </div>
+                                            <div className="w-12 h-12 rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-700 flex items-center justify-center text-gray-400 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all shadow-sm">
+                                                <ArrowRight size={20} />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-                                {/* Bottom Right Collapse Button */}
-                                <button
-                                    onClick={() => {
-                                        setExpandedPostId(null);
-                                        window.scrollTo({ top: 300, behavior: 'smooth' });
-                                    }}
-                                    className="absolute bottom-6 right-6 p-4 rounded-2xl bg-primary hover:bg-primary/90 text-white flex items-center gap-2 shadow-xl shadow-primary/20 transition-all active:scale-95 group border border-white/10"
-                                >
-                                    <span className="text-xs font-black uppercase tracking-widest">Collapse</span>
-                                    <ChevronUp size={20} className="group-hover:-translate-y-1 transition-transform" />
-                                </button>
-                            </div>
-                        </div>
-                    </motion.section>
-                )}
-            </AnimatePresence>
-
-            {/* Blog Grid */}
-            <section className="max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {gridPosts.map((post, index) => (
-                        <motion.article
-                            key={post.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            onClick={() => handlePostClick(post.id)}
-                            className="group bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700 cursor-pointer"
-                        >
-                            <div className="aspect-[16/10] overflow-hidden relative">
-                                <img
-                                    src={post.image}
-                                    alt={post.title}
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                />
-                                {post.featured && (
-                                    <span className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-secondary text-primary text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-                                        <TrendingUp size={12} />
-                                        Featured
-                                    </span>
-                                )}
-                            </div>
-                            <div className="p-8">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <span className="px-3 py-1 rounded-full bg-primary/5 dark:bg-primary/10 text-primary dark:text-secondary text-xs font-bold uppercase tracking-wider">
-                                        {post.category}
-                                    </span>
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 leading-tight group-hover:text-primary dark:group-hover:text-secondary transition-colors">
-                                    {post.title}
-                                </h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-2">
-                                    {post.excerpt}
-                                </p>
-                                <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
-                                    <span className="flex items-center gap-1.5">
-                                        <Calendar size={14} />
-                                        {post.date}
-                                    </span>
-                                    <span className="flex items-center gap-1.5">
-                                        <Clock size={14} />
-                                        {post.readTime}
-                                    </span>
-                                </div>
-                                <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-                                    <span className="inline-flex items-center gap-2 text-primary dark:text-secondary font-bold text-sm group-hover:gap-3 transition-all">
-                                        Read Article
-                                        <ArrowRight size={16} />
-                                    </span>
-                                </div>
-                            </div>
-                        </motion.article>
-                    ))}
+                            </motion.div>
+                        );
+                    })}
                 </div>
-
-                {filteredPosts.length === 0 && (
-                    <div className="text-center py-20">
-                        <p className="text-gray-500 dark:text-gray-400 text-lg">No articles found matching your criteria.</p>
-                    </div>
-                )}
             </section>
+            {filteredPosts.length === 0 && (
+                <div className="text-center py-20">
+                    <p className="text-gray-500 dark:text-gray-400 text-lg">No articles found matching your criteria.</p>
+                </div>
+            )}
 
             {/* Comments & Social Section */}
             <section className="max-w-4xl mx-auto px-6 mt-24">
