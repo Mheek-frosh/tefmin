@@ -99,8 +99,8 @@ export const Navbar = () => {
                         <span className={`font-black text-xl tracking-tighter transition-colors duration-500 leading-none ${showScrolledStyle ? "text-primary dark:text-white" : "text-white"}`}>
                             TEFMIN
                         </span>
-                        <span className={`text-[10px] font-bold uppercase tracking-[0.2em] transition-colors duration-500 mt-1 whitespace-nowrap leading-none ${showScrolledStyle ? "text-secondary" : "text-secondary"}`}>
-                            Empowering People, Building the Future
+                        <span className={`text-[8px] font-medium transition-colors duration-500 mt-1 whitespace-nowrap leading-none tracking-wider ${showScrolledStyle ? "text-secondary" : "text-secondary"}`}>
+                            Empowering people, building the future
                         </span>
                     </div>
                 </Link>
@@ -213,55 +213,97 @@ export const Navbar = () => {
                 </div>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu - App Style Overlay */}
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-24 left-6 right-6 glass rounded-[2.5rem] p-10 md:hidden shadow-3xl"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[60] md:hidden"
                     >
-                        <div className="flex flex-col gap-8">
-                            {navLinks.map((link) => (
-                                <div key={link.name}>
-                                    <Link
-                                        to={link.href}
-                                        className="text-2xl font-black text-gray-800 dark:text-white hover:text-primary dark:hover:text-secondary transition-colors tracking-tighter"
-                                        onClick={(e) => {
-                                            handleAnchorClick(e, link.href);
-                                            if (!link.dropdown) setIsMobileMenuOpen(false);
-                                        }}
-                                    >
-                                        {link.name}
-                                    </Link>
-                                    {link.dropdown && (
-                                        <div className="mt-4 flex flex-col gap-4 pl-4 border-l-2 border-primary/20 dark:border-secondary/20">
-                                            {link.dropdown.map(sub => (
-                                                <Link
-                                                    key={sub.name}
-                                                    to={sub.href}
-                                                    className="text-sm font-bold text-gray-400 dark:text-gray-300 uppercase tracking-widest"
-                                                    onClick={(e) => {
-                                                        handleAnchorClick(e, sub.href);
-                                                        setIsMobileMenuOpen(false);
-                                                    }}
-                                                >
-                                                    {sub.name}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
-                            ))}
-                            <Link
-                                to="/contact"
-                                className="w-full py-4 rounded-full bg-primary text-white text-center text-lg font-black shadow-xl"
+                        {/* Backdrop */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="absolute inset-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        />
+
+                        {/* Menu Content */}
+                        <motion.div
+                            initial={{ x: "100%" }}
+                            animate={{ x: 0 }}
+                            exit={{ x: "100%" }}
+                            transition={{ type: "spring", damping: 30, stiffness: 300 }}
+                            className="absolute inset-y-0 right-0 w-[85%] bg-white dark:bg-gray-900 shadow-2xl flex flex-col p-8 pt-24"
+                        >
+                            <button
                                 onClick={() => setIsMobileMenuOpen(false)}
+                                className="absolute top-8 right-8 p-3 rounded-full bg-gray-50 dark:bg-gray-800 text-gray-500"
                             >
-                                Contact Us
-                            </Link>
-                        </div>
+                                <X size={24} />
+                            </button>
+
+                            <div className="flex flex-col gap-10 overflow-y-auto">
+                                {navLinks.map((link, index) => (
+                                    <motion.div
+                                        key={link.name}
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: index * 0.1 }}
+                                    >
+                                        <Link
+                                            to={link.href}
+                                            className="text-4xl font-black text-gray-900 dark:text-white hover:text-primary transition-colors tracking-tighter"
+                                            onClick={(e) => {
+                                                handleAnchorClick(e, link.href);
+                                                if (!link.dropdown) setIsMobileMenuOpen(false);
+                                            }}
+                                        >
+                                            {link.name}
+                                        </Link>
+                                        {link.dropdown && (
+                                            <div className="mt-6 flex flex-col gap-5 pl-6 border-l-4 border-primary/10">
+                                                {link.dropdown.map(sub => (
+                                                    <Link
+                                                        key={sub.name}
+                                                        to={sub.href}
+                                                        className="text-lg font-bold text-gray-400 dark:text-gray-500 hover:text-primary dark:hover:text-secondary uppercase tracking-[0.2em]"
+                                                        onClick={(e) => {
+                                                            handleAnchorClick(e, sub.href);
+                                                            setIsMobileMenuOpen(false);
+                                                        }}
+                                                    >
+                                                        {sub.name}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </motion.div>
+                                ))}
+                            </div>
+
+                            <div className="mt-auto">
+                                <Link
+                                    to="/contact"
+                                    className="w-full py-6 rounded-[2rem] bg-primary text-white text-center text-xl font-black shadow-xl shadow-primary/20 block uppercase tracking-widest"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    Contact Us
+                                </Link>
+                                <div className="mt-8 flex justify-between items-center px-4">
+                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Toggle Theme</span>
+                                    <button
+                                        onClick={toggleDarkMode}
+                                        className="p-4 rounded-2xl bg-gray-50 dark:bg-gray-800 text-primary dark:text-secondary"
+                                    >
+                                        {isDarkMode ? <Sun size={24} /> : <Moon size={24} />}
+                                    </button>
+                                </div>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
