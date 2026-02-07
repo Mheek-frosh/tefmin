@@ -72,7 +72,7 @@ export const Hero = () => {
                             </span>
                         </div>
 
-                        <div className="min-h-[180px] md:min-h-[220px]">
+                        <div className="min-h-[160px] sm:min-h-[180px] md:min-h-[220px]">
                             <AnimatePresence mode="wait">
                                 <motion.h1
                                     key={index}
@@ -80,28 +80,28 @@ export const Hero = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: -20 }}
                                     transition={{ duration: 0.6 }}
-                                    className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.95] mb-10 tracking-tighter"
+                                    className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] md:leading-[0.95] mb-8 md:mb-10 tracking-tighter"
                                 >
-                                    {phrases[index].prefix} <br />
+                                    {phrases[index].prefix} <br className="hidden sm:block" />
                                     <span className="text-secondary italic">{phrases[index].suffix}</span>
                                 </motion.h1>
                             </AnimatePresence>
                         </div>
 
-                        <p className="text-xl md:text-2xl text-white/70 mb-12 leading-relaxed max-w-2xl font-medium">
+                        <p className="text-lg md:text-2xl text-white/70 mb-10 md:mb-12 leading-relaxed max-w-2xl font-medium">
                             We're not just building industries; we're architecting the economic backbone of Africa's largest nation through strategic innovation and local excellence.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-6">
-                            <Link to="/contact">
-                                <Button className="text-lg px-12 py-5 shadow-2xl shadow-primary/40 group">
-                                    <span className="flex items-center gap-3">
+                        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                            <Link to="/contact" className="w-full sm:w-auto">
+                                <Button className="w-full sm:w-auto text-lg px-8 md:px-12 py-4 md:py-5 shadow-2xl shadow-primary/40 group">
+                                    <span className="flex items-center justify-center gap-3">
                                         Join the Project
                                         <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                                     </span>
                                 </Button>
                             </Link>
-                            <Button variant="outline" className="text-lg px-12 py-5 border-white/20 text-white backdrop-blur-sm hover:bg-white hover:text-primary transition-all">
+                            <Button variant="outline" className="text-lg px-8 md:px-12 py-4 md:py-5 border-white/20 text-white backdrop-blur-sm hover:bg-white hover:text-primary transition-all">
                                 Download Brochure
                             </Button>
                         </div>

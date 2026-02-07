@@ -37,8 +37,8 @@ export default function About() {
                     <span className="text-primary dark:text-secondary font-black tracking-widest uppercase text-xs mb-6 inline-block bg-primary/5 dark:bg-secondary/10 px-4 py-2 rounded-full">
                         Founded 2024
                     </span>
-                    <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 dark:text-white mb-10 leading-[0.9] tracking-tighter">
-                        Building the <br />
+                    <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 dark:text-white mb-6 md:mb-10 leading-[1.1] md:leading-[0.9] tracking-tighter">
+                        Building the <br className="hidden md:block" />
                         <span className="text-primary dark:text-secondary italic">Future</span> Made in Nigeria.
                     </h1>
                     <p className="text-2xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">
@@ -49,8 +49,8 @@ export default function About() {
 
             {/* Visual Section */}
             <section className="mb-32 relative">
-                <div className="max-w-[1440px] mx-auto px-4">
-                    <div className="aspect-[21/9] rounded-[4rem] overflow-hidden shadow-2xl relative">
+                <div className="max-w-[1440px] mx-auto px-4 md:px-8">
+                    <div className="aspect-video md:aspect-[21/9] rounded-3xl md:rounded-[4rem] overflow-hidden shadow-2xl relative">
                         <img
                             src={workersImage}
                             alt="Modernizing the Heartbeat of Nigeria"
@@ -61,8 +61,8 @@ export default function About() {
                 </div>
 
                 {/* Floating Mission Card */}
-                <div className="absolute -bottom-16 right-12 md:right-32 glass p-10 md:p-16 rounded-[3rem] shadow-2xl max-w-xl border-white/50 dark:border-gray-700 bg-white/90 dark:bg-gray-900/90 backdrop-blur-2xl">
-                    <h3 className="text-3xl font-black text-gray-900 dark:text-white mb-6 italic">"Our mission is to ensure every Nigerian knows that the best in the world can be made right here at home."</h3>
+                <div className="relative md:absolute md:-bottom-16 md:right-32 mt-[-2rem] md:mt-0 mx-6 md:mx-0 glass p-8 md:p-16 rounded-3xl md:rounded-[3rem] shadow-2xl max-w-xl border-white/50 dark:border-gray-700 bg-white/90 dark:bg-gray-900/90 backdrop-blur-2xl">
+                    <h3 className="text-xl md:text-3xl font-black text-gray-900 dark:text-white mb-6 italic">"Our mission is to ensure every Nigerian knows that the best in the world can be made right here at home."</h3>
                     <div className="flex items-center gap-4">
                         <div className="h-0.5 w-12 bg-secondary" />
                         <p className="text-sm font-bold uppercase tracking-widest text-primary dark:text-secondary">Executive Director</p>

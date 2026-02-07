@@ -206,19 +206,19 @@ const Team = () => {
                             initial={{ opacity: 0, scale: 0.9, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                            className="relative w-full max-w-5xl bg-white dark:bg-gray-900 rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh]"
+                            className="relative w-full max-w-5xl bg-white dark:bg-gray-900 rounded-3xl md:rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh]"
                         >
                             {/* Modern Close Button - Top Right */}
                             <button
                                 onClick={() => setSelectedMember(null)}
-                                className="absolute top-8 right-8 z-[110] p-3 rounded-full bg-gray-100/80 dark:bg-gray-800/80 text-gray-800 dark:text-gray-200 hover:bg-primary hover:text-white transition-all shadow-lg active:scale-95 border border-white/20"
+                                className="absolute top-6 right-6 md:top-8 md:right-8 z-[110] p-2 md:p-3 rounded-full bg-gray-100/80 dark:bg-gray-800/80 text-gray-800 dark:text-gray-200 hover:bg-primary hover:text-white transition-all shadow-lg active:scale-95 border border-white/20"
                                 title="Close Profile"
                             >
-                                <X size={24} />
+                                <X size={20} md:size={24} />
                             </button>
 
-                            {/* Left Side: Image (approx 40% on desktop) */}
-                            <div className="w-full md:w-[40%] h-[400px] md:h-auto overflow-hidden relative">
+                            {/* Left Side: Image */}
+                            <div className="w-full md:w-[40%] h-[300px] md:h-auto overflow-hidden relative">
                                 <img
                                     src={selectedMember.image}
                                     alt={selectedMember.name}
@@ -227,28 +227,28 @@ const Team = () => {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
                             </div>
 
-                            {/* Right Side: Biography & Info (approx 60%) */}
-                            <div className="flex-1 p-8 md:p-14 overflow-y-auto">
+                            {/* Right Side: Biography & Info */}
+                            <div className="flex-1 p-6 md:p-14 overflow-y-auto">
                                 <div className="max-w-3xl">
-                                    <span className="inline-block px-4 py-1.5 rounded-full bg-primary/5 dark:bg-primary/10 text-primary dark:text-secondary text-xs font-black uppercase tracking-[0.2em] mb-6">
+                                    <span className="inline-block px-4 py-1.5 rounded-full bg-primary/5 dark:bg-primary/10 text-primary dark:text-secondary text-[10px] md:text-xs font-black uppercase tracking-[0.2em] mb-4 md:mb-6">
                                         Professional Profile
                                     </span>
-                                    <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-3 leading-tight uppercase tracking-tighter">
+                                    <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-2 md:mb-3 leading-tight uppercase tracking-tighter">
                                         {selectedMember.name}
                                     </h2>
-                                    <p className="text-primary dark:text-secondary font-black text-lg uppercase tracking-widest mb-10 pb-6 border-b border-gray-100 dark:border-gray-800">
+                                    <p className="text-primary dark:text-secondary font-black text-base md:text-lg uppercase tracking-widest mb-6 md:mb-10 pb-4 md:pb-6 border-b border-gray-100 dark:border-gray-800">
                                         {selectedMember.role}
                                     </p>
 
                                     <div className="space-y-8">
                                         <div className="prose prose-lg dark:prose-invert max-w-none">
                                             {/* Subtitle Bio (Italic) */}
-                                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg font-medium italic mb-8 pl-6 border-l-4 border-secondary">
+                                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-base md:text-lg font-medium italic mb-6 md:mb-8 pl-4 md:pl-6 border-l-4 border-secondary">
                                                 "{selectedMember.bio || 'Strategic leader committed to excellence.'}"
                                             </p>
 
                                             {/* Detailed Bio Sections */}
-                                            <div className="text-gray-800 dark:text-gray-200 leading-relaxed space-y-6 text-lg">
+                                            <div className="text-gray-800 dark:text-gray-200 leading-relaxed space-y-4 md:space-y-6 text-base md:text-lg">
                                                 {selectedMember.detailedBio?.split('\n\n').map((para, i) => (
                                                     <p key={i} className="mb-4">{para}</p>
                                                 )) || <p>Details coming soon.</p>}

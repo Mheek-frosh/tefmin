@@ -222,8 +222,8 @@ export default function ProjectsPage() {
                                 key={i + 1}
                                 onClick={() => goToPage(i + 1)}
                                 className={`h-12 w-12 rounded-2xl font-black text-sm transition-all border ${currentPage === (i + 1)
-                                        ? "bg-primary text-secondary border-primary shadow-xl shadow-primary/20 scale-110"
-                                        : "bg-white text-gray-400 border-gray-100 hover:border-primary hover:text-primary"
+                                    ? "bg-primary text-secondary border-primary shadow-xl shadow-primary/20 scale-110"
+                                    : "bg-white text-gray-400 border-gray-100 hover:border-primary hover:text-primary"
                                     }`}
                             >
                                 {i + 1}
@@ -255,25 +255,25 @@ export default function ProjectsPage() {
                             initial={{ scale: 0.9, opacity: 0, y: 20 }}
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                            className="bg-white rounded-[3rem] max-w-5xl w-full max-h-[90vh] overflow-y-auto relative"
+                            className="bg-white rounded-3xl md:rounded-[3rem] max-w-5xl w-full max-h-[90vh] overflow-y-auto relative"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <button
                                 onClick={() => setSelectedProject(null)}
-                                className="absolute top-8 right-8 z-10 p-3 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                                className="absolute top-6 right-6 md:top-8 md:right-8 z-10 p-2 md:p-3 bg-gray-100/80 hover:bg-gray-200 rounded-full transition-colors"
                             >
-                                <X size={24} className="text-gray-900" />
+                                <X size={20} className="text-gray-900" />
                             </button>
 
                             <div className="grid grid-cols-1 lg:grid-cols-2">
-                                <div className="h-[400px] lg:h-auto overflow-hidden">
+                                <div className="h-[250px] md:h-[400px] lg:h-auto overflow-hidden">
                                     <img
                                         src={selectedProject.image}
                                         alt={selectedProject.title}
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
-                                <div className="p-8 md:p-12 lg:p-16">
+                                <div className="p-6 md:p-12 lg:p-16">
                                     <span className="text-primary font-black tracking-widest uppercase text-xs mb-4 inline-block bg-primary/5 px-4 py-2 rounded-full">
                                         {selectedProject.category}
                                     </span>

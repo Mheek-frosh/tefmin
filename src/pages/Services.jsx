@@ -116,11 +116,11 @@ export default function ServicesPage() {
                     <span className="text-primary dark:text-secondary font-black tracking-widest uppercase text-xs mb-6 inline-block bg-primary/5 dark:bg-secondary/10 px-4 py-2 rounded-full">
                         What We Offer
                     </span>
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 dark:text-white mb-10 leading-[0.9] tracking-tighter">
+                    <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 dark:text-white mb-8 md:mb-10 leading-[1.1] md:leading-[0.9] tracking-tighter">
                         Comprehensive <br />
                         <span className="text-primary dark:text-secondary italic">Solutions</span> for Growth.
                     </h1>
-                    <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">
+                    <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">
                         TEFMIN provides a full spectrum of solutions designed to empower people, build the future, and drive sustainable growth across Nigeria and Africa.
                     </p>
                 </motion.div>

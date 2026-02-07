@@ -329,7 +329,7 @@ export default function BlogPage() {
                             }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.4, ease: "easeInOut" }}
-                            className="bg-white dark:bg-gray-800 rounded-[3rem] overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-700 relative"
+                            className="bg-white dark:bg-gray-800 rounded-3xl md:rounded-[3rem] overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-700 relative"
                         >
                             {/* Top Right Close Button (X) - Now toggles collapse */}
                             <button
