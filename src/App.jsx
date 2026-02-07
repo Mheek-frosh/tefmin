@@ -11,6 +11,7 @@ import ContactPage from "./pages/Contact";
 import BlogPage from "./pages/Blog";
 import ServicesPage from "./pages/Services";
 import CareerPage from "./pages/Career";
+import TeamPage from "./pages/Team";
 
 // Scroll to top on navigation
 function ScrollToTop() {
@@ -36,6 +37,7 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/career" element={<CareerPage />} />
+          <Route path="/team" element={<TeamPage />} />
         </Routes>
         <Footer />
         <Chatbot />

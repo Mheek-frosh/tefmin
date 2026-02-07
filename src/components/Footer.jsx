@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import { Button } from "./ui/Button";
-import logo from "../assets/logo.png";
+import bgLogo from "../assets/bg.png";
 
 export const Footer = () => {
     const navLinks = [
@@ -20,7 +20,7 @@ export const Footer = () => {
                     {/* Brand Info */}
                     <div className="lg:col-span-1">
                         <div className="flex items-center gap-2 mb-8">
-                            <img src={logo} alt="TEFMIN Logo" className="h-12 w-auto brightness-0 invert" />
+                            <img src={logO} alt="TEFMIN Logo" className="h-12 w-auto" />
                             <span className="font-bold text-2xl tracking-tighter">TEFMIN</span>
                         </div>
                         <p className="text-white/70 mb-8 leading-relaxed">

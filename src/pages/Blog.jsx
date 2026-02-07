@@ -302,14 +302,15 @@ export default function BlogPage() {
                         className="max-w-7xl mx-auto px-6 mb-12"
                     >
                         <div className="bg-white dark:bg-gray-800 rounded-[3rem] overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-700 relative">
-                            {/* Close Button */}
+                            {/* Top Right Close Button (X) */}
                             <button
                                 onClick={() => setExpandedPostId(null)}
-                                className="absolute top-6 right-6 z-50 p-3 rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-md flex items-center gap-2 text-white transition-all shadow-lg active:scale-95 group"
+                                className="absolute top-6 right-6 z-50 p-3 rounded-full bg-black/20 hover:bg-black/40 backdrop-blur-md flex items-center justify-center text-white transition-all shadow-lg active:scale-95 group border border-white/20"
+                                title="Close Article"
                             >
-                                <span className="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity hidden sm:block">Close Article</span>
-                                <ChevronUp size={24} className="rotate-180" />
+                                <X size={24} />
                             </button>
+
                             {/* Expanded Header with Image */}
                             <div className="relative h-64 md:h-96 overflow-hidden">
                                 <img
@@ -350,7 +351,7 @@ export default function BlogPage() {
                             </div>
 
                             {/* Article Content */}
-                            <div className="p-6 md:p-12 lg:p-16">
+                            <div className="p-6 md:p-12 lg:p-16 relative">
                                 <div className="max-w-4xl mx-auto">
                                     <div className="prose prose-lg dark:prose-invert max-w-none">
                                         {expandedPost.fullContent.split('\n\n').map((paragraph, index) => (
@@ -385,6 +386,18 @@ export default function BlogPage() {
                                         </div>
                                     </div>
                                 </div>
+
+                                {/* Bottom Right Collapse Button */}
+                                <button
+                                    onClick={() => {
+                                        setExpandedPostId(null);
+                                        window.scrollTo({ top: 300, behavior: 'smooth' });
+                                    }}
+                                    className="absolute bottom-6 right-6 p-4 rounded-2xl bg-primary hover:bg-primary/90 text-white flex items-center gap-2 shadow-xl shadow-primary/20 transition-all active:scale-95 group border border-white/10"
+                                >
+                                    <span className="text-xs font-black uppercase tracking-widest">Collapse</span>
+                                    <ChevronUp size={20} className="group-hover:-translate-y-1 transition-transform" />
+                                </button>
                             </div>
                         </div>
                     </motion.section>

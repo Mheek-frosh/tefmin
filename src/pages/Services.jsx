@@ -6,7 +6,7 @@ import {
     ArrowRight, Zap
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logO from "../assets/logow.png";
 
 const services = [
     {
@@ -268,7 +268,7 @@ export default function ServicesPage() {
                         </div>
                         <div className="hidden lg:block">
                             <img
-                                src={logo}
+                                src={logO}
                                 alt="TEFMIN"
                                 className="w-48 h-auto opacity-20"
                             />

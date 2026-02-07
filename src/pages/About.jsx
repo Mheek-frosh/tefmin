@@ -4,8 +4,9 @@ import { Target, Globe2, Award, ChevronRight, X, Briefcase, GraduationCap, Users
 import { Button } from "../components/ui/Button";
 import { Newsletter } from "../components/Newsletter";
 import { siteConfig, founderBio } from "../data/siteData";
-import logo from "../assets/logo.png";
+import logO from "../assets/logow.png";
 import workersImage from "../assets/nigerian_workers_happy.png";
+import { Biography } from "../components/Biography";
 
 const coreValues = [
     { icon: Heart, title: "Integrity", desc: "We uphold the highest ethical standards in all our engagements, fostering trust and transparency." },
@@ -21,8 +22,8 @@ const milestones = [
     { year: "2026", title: "Industrial Hub Vision", desc: "Strategic planning for industrial parks and manufacturing excellence centers." },
 ];
 
-export default function AboutPage() {
-    const [isFounderExpanded, setIsFounderExpanded] = useState(false);
+export default function About() {
+
 
     return (
         <div className="pt-32 pb-24 bg-white dark:bg-gray-900 transition-colors duration-300">
@@ -93,7 +94,7 @@ export default function AboutPage() {
                     </div>
                     <div className="relative">
                         <div className="bg-gray-50 dark:bg-gray-800 rounded-[3rem] p-10 lg:p-12">
-                            <img src={logo} alt="TEFMIN Logo" className="w-24 h-auto mb-8 opacity-80" />
+                            <img src={logO} alt="TEFMIN Logo" className="w-24 h-auto mb-8 opacity-80" />
                             <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-6">Our Vision</h3>
                             <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-8">
                                 To be Africa's leading catalyst for industrial transformation, creating a self-reliant economy where Nigerian innovation and craftsmanship are celebrated globally.
@@ -140,90 +141,6 @@ export default function AboutPage() {
                                 </motion.div>
                             );
                         })}
-                    </div>
-                </div>
-            </section>
-
-            {/* Founder Section - Image Left, Content Right */}
-            <section className="max-w-7xl mx-auto px-6 py-24">
-                <div className="text-center mb-16">
-                    <span className="text-primary dark:text-secondary font-black tracking-widest uppercase text-xs mb-4 inline-block bg-primary/5 dark:bg-secondary/10 px-4 py-2 rounded-full">
-                        Leadership
-                    </span>
-                    <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white">
-                        Meet Our <span className="text-secondary italic">Founder</span>
-                    </h2>
-                </div>
-
-                <div className="relative max-w-none group">
-                    <div className="relative backdrop-blur-3xl bg-white/40 dark:bg-gray-800/40 rounded-[4rem] shadow-[0_48px_100px_-24px_rgba(0,0,0,0.15)] dark:shadow-2xl border border-white/40 dark:border-gray-700/50 overflow-hidden">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
-                            {/* Image - Left Side */}
-                            <div className="relative w-full max-w-[450px] aspect-[4/5] lg:w-[450px] lg:h-[550px] rounded-[3rem] overflow-hidden border-4 border-white/50 dark:border-gray-600/50 shadow-2xl mx-auto lg:mx-0 lg:m-12 group/img">
-                                <img
-                                    src={founderBio.image}
-                                    alt={founderBio.name}
-                                    className="w-full h-full object-cover transition-all duration-700 group-hover/img:scale-105"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/20 to-transparent" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500" />
-
-                                {/* Expand Button */}
-                                <motion.button
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    onClick={() => setIsFounderExpanded(true)}
-                                    className="absolute -bottom-4 right-1/2 translate-x-1/2 lg:right-[-1rem] lg:translate-x-0 w-14 h-14 bg-primary hover:bg-primary/90 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-primary/30 transition-colors"
-                                >
-                                    <ChevronRight size={28} />
-                                </motion.button>
-                            </div>
-
-                            {/* Content - Right Side */}
-                            <div className="p-8 lg:p-12 flex flex-col justify-center">
-                                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider mb-4 w-fit">
-                                    <Award size={14} />
-                                    Visionary Leader
-                                </div>
-                                <h3 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-2 tracking-tighter leading-tight">
-                                    {founderBio.name}
-                                </h3>
-                                <p className="text-primary dark:text-secondary font-bold uppercase tracking-[0.2em] text-xs mb-8">
-                                    {founderBio.title}
-                                </p>
-                                <div className="relative mb-10">
-                                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg md:text-xl font-medium italic border-l-4 border-secondary pl-6">
-                                        "A lead consultant driving sustainable growth and transformation across Nigeria and Africa."
-                                    </p>
-                                    <p className="text-gray-400 dark:text-gray-500 text-xs mt-4 font-bold uppercase tracking-widest px-7">
-                                        {siteConfig.tagline}
-                                    </p>
-                                </div>
-
-                                <div className="flex flex-wrap gap-3 mb-8">
-                                    {founderBio.highlights.map((highlight, index) => {
-                                        const Icon = highlight.icon;
-                                        return (
-                                            <div
-                                                key={index}
-                                                className="flex items-center gap-2 px-4 py-2.5 bg-gray-50 dark:bg-gray-700 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-300"
-                                            >
-                                                <Icon size={16} className="text-primary dark:text-secondary" />
-                                                {highlight.text}
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-
-                                <button
-                                    onClick={() => setIsFounderExpanded(true)}
-                                    className="inline-flex items-center gap-2 text-primary dark:text-secondary font-bold hover:underline underline-offset-4 group w-fit"
-                                >
-                                    Read Full Biography
-                                    <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -334,96 +251,25 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Newsletter */}
+            <div className="max-w-7xl mx-auto px-6 py-24">
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mb-32"
+                >
+                    <div className="flex items-center gap-4 mb-12">
+                        <div className="h-px flex-1 bg-gray-200 dark:bg-gray-700" />
+                        <h2 className="text-3xl font-black text-gray-900 dark:text-white uppercase tracking-tighter">
+                            About Our Founder
+                        </h2>
+                        <div className="h-px flex-1 bg-gray-200 dark:bg-gray-700" />
+                    </div>
+
+                    <Biography data={founderBio} />
+                </motion.div>
+            </div>
             <Newsletter />
-
-            {/* Expanded Biography Modal */}
-            <AnimatePresence>
-                {isFounderExpanded && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 md:p-8"
-                        onClick={() => setIsFounderExpanded(false)}
-                    >
-                        <motion.div
-                            initial={{ scale: 0.9, opacity: 0, y: 40 }}
-                            animate={{ scale: 1, opacity: 1, y: 0 }}
-                            exit={{ scale: 0.9, opacity: 0, y: 40 }}
-                            transition={{ type: "spring", damping: 25 }}
-                            className="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto bg-white dark:bg-gray-900 rounded-[2rem] shadow-2xl"
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            <div className="grid grid-cols-1 lg:grid-cols-3">
-                                {/* Image Side */}
-                                <div className="relative h-64 lg:h-auto lg:col-span-1">
-                                    <img
-                                        src={founderBio.image}
-                                        alt={founderBio.name}
-                                        className="w-full h-full object-cover"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/60 to-transparent" />
-                                    <button
-                                        onClick={() => setIsFounderExpanded(false)}
-                                        className="absolute top-4 right-4 lg:hidden w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors text-white"
-                                    >
-                                        <X size={20} />
-                                    </button>
-                                </div>
-
-                                {/* Content Side */}
-                                <div className="lg:col-span-2 p-8 lg:p-10">
-                                    <button
-                                        onClick={() => setIsFounderExpanded(false)}
-                                        className="hidden lg:flex absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 items-center justify-center transition-colors text-gray-600 dark:text-gray-300"
-                                    >
-                                        <X size={20} />
-                                    </button>
-
-                                    <div className="mb-6">
-                                        <h3 className="text-2xl md:text-3xl font-black text-gray-900 dark:text-white mb-1">{founderBio.name}</h3>
-                                        <p className="text-primary dark:text-secondary font-bold text-sm uppercase tracking-wider">{founderBio.title}</p>
-                                    </div>
-
-                                    <div className="flex flex-wrap gap-3 mb-8">
-                                        {founderBio.highlights.map((highlight, index) => {
-                                            const Icon = highlight.icon;
-                                            return (
-                                                <div
-                                                    key={index}
-                                                    className="flex items-center gap-2 px-4 py-2 bg-primary/5 dark:bg-primary/10 rounded-full text-sm font-medium text-primary dark:text-secondary"
-                                                >
-                                                    <Icon size={16} />
-                                                    {highlight.text}
-                                                </div>
-                                            );
-                                        })}
-                                    </div>
-
-                                    <div className="prose prose-lg dark:prose-invert max-w-none">
-                                        {founderBio.bio.split('\n\n').map((paragraph, index) => (
-                                            <p key={index} className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-                                                {paragraph}
-                                            </p>
-                                        ))}
-                                    </div>
-
-                                    <div className="mt-10 p-6 bg-gradient-to-r from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10 rounded-2xl border border-primary/10 dark:border-secondary/10">
-                                        <div className="flex items-center gap-4">
-                                            <img src={logo} alt="TEFMIN" className="h-12 w-auto" />
-                                            <div>
-                                                <h4 className="font-bold text-gray-900 dark:text-white">The Future Made in Nigeria Project Ltd</h4>
-                                                <p className="text-sm text-gray-500 dark:text-gray-400">TEFMIN - Building Africa's Future</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
         </div>
     );
-}
+};
