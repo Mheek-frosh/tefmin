@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import { Button } from "./ui/Button";
-import logO from "../assets/logow.png";
+import logO from "../assets/africa.png";
 
 export const Footer = () => {
     const navLinks = [
@@ -19,12 +19,15 @@ export const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 mb-20">
                     {/* Brand Info */}
                     <div className="lg:col-span-1">
-                        <div className="flex items-center gap-2 mb-8">
-                            <img src={logO} alt="TEFMIN Logo" className="h-12 w-auto" />
-                            <span className="font-bold text-2xl tracking-tighter">TEFMIN</span>
+                        <div className="flex items-center gap-3 mb-8">
+                            <img src={logO} alt="TEFMIN Logo" className="h-14 w-auto" />
+                            <div className="flex flex-col">
+                                <span className="font-bold text-2xl tracking-tighter text-white leading-none">TEFMIN</span>
+                                <span className="text-[11px] font-medium text-secondary mt-1.5 tracking-wide leading-none">The Future Made in Nigeria Ltd</span>
+                            </div>
                         </div>
                         <p className="text-white/70 mb-8 leading-relaxed">
-                            Empowering people, building the future. Forging a brighter tomorrow, today.
+                            Forging a brighter tomorrow, today.
                         </p>
                         <div className="flex gap-4">
                             {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (

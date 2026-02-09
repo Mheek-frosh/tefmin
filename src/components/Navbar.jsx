@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/Button";
-import logO from "../assets/logow.png";
+import logO from "../assets/africa.png";
 
 const navLinks = [
     { name: "Home", href: "/" },
@@ -89,18 +89,18 @@ export const Navbar = () => {
                 className={`max-w-7xl mx-auto rounded-full transition-all duration-500 flex items-center justify-between px-8 py-3 ${showScrolledStyle ? "glass shadow-2xl border border-white/20" : "bg-transparent"
                     }`}
             >
-                <Link to="/" className="flex items-center gap-2">
+                <Link to="/" className="flex items-center gap-3">
                     <img
                         src={logO}
                         alt="TEFMIN Logo"
-                        className={`h-10 w-auto transition-all duration-500 ${showScrolledStyle && !isDarkMode ? "brightness-0" : ""}`}
+                        className="h-12 w-auto transition-all duration-500"
                     />
                     <div className="flex flex-col">
-                        <span className={`font-black text-xl tracking-tighter transition-colors duration-500 leading-none ${showScrolledStyle ? "text-primary dark:text-white" : "text-white"}`}>
+                        <span className={`font-black text-xl tracking-tighter transition-colors duration-500 leading-none ${showScrolledStyle ? "text-[#1a5f3f] dark:text-white" : "text-white"}`}>
                             TEFMIN
                         </span>
-                        <span className={`text-[8px] font-medium transition-colors duration-500 mt-1 whitespace-nowrap leading-none tracking-wider ${showScrolledStyle ? "text-secondary" : "text-secondary"}`}>
-                            Empowering people, building the future
+                        <span className="text-[9px] font-medium text-secondary mt-1.5 whitespace-nowrap leading-none tracking-wide">
+                            The Future Made in Nigeria Ltd
                         </span>
                     </div>
                 </Link>

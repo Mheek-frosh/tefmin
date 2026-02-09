@@ -1,21 +1,22 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Search, ChevronLeft, ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
+
+import { useParams, Link } from 'react-router-dom';
+import { Share2, Heart, MessageCircle, Twitter, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
 import { Newsletter } from "../components/Newsletter";
 import blog1 from "../assets/blog1.jpeg";
 import cultural from "../assets/cultural.png";
 
+// Import blog posts data (same as Blog.jsx)
 const blogPosts = [
     {
         id: "srms-pension-solution",
         title: "Digital Transformation in Pension Systems: NGF and SRMS Partner for 'I'm Alive' Solution Adoption",
-        excerpt: "SRMS seeks a strategic partnership with the Nigeria Governor’s Forum (NGF) to implement the innovative 'I'm Alive' pension verification system across all 36 states.",
-        fullContent: `In a landmark move towards digital governance and social security reform, Secure Records Management Solutions (SRMS) has engaged with the Nigeria Governor’s Forum (NGF) to propose the nationwide adoption of the "I’m Alive" pension verification solution.
+        excerpt: "SRMS seeks a strategic partnership with the Nigeria Governor's Forum (NGF) to implement the innovative 'I'm Alive' pension verification system across all 36 states.",
+        fullContent: `In a landmark move towards digital governance and social security reform, Secure Records Management Solutions (SRMS) has engaged with the Nigeria Governor's Forum (NGF) to propose the nationwide adoption of the "I'm Alive" pension verification solution.
 
-The "I’m Alive" solution is a state-of-the-art technological platform designed to solve one of the most persistent challenges in Nigeria's public sector: the periodic verification of pensioners. Traditionally, elderly citizens have been forced to travel long distances and wait in grueling queues to prove they are still alive to receive their hard-earned benefits. SRMS's innovation replaces this cumbersome process with a seamless, mobile-first experience.
+The "I'm Alive" solution is a state-of-the-art technological platform designed to solve one of the most persistent challenges in Nigeria's public sector: the periodic verification of pensioners. Traditionally, elderly citizens have been forced to travel long distances and wait in grueling queues to prove they are still alive to receive their hard-earned benefits. SRMS's innovation replaces this cumbersome process with a seamless, mobile-first experience.
 
-Leveraging sophisticated facial recognition, liveness detection, and biometric matching, the "I’m Alive" solution allows pensioners to verify their status from the comfort of their homes using a smartphone or at designated local access points. This adoption by state governments, facilitated by the NGF, promises to eliminate "ghost pensioners," drastically reduce administrative costs, and most importantly, restore dignity to our senior citizens.
+Leveraging sophisticated facial recognition, liveness detection, and biometric matching, the "I'm Alive" solution allows pensioners to verify their status from the comfort of their homes using a smartphone or at designated local access points. This adoption by state governments, facilitated by the NGF, promises to eliminate "ghost pensioners," drastically reduce administrative costs, and most importantly, restore dignity to our senior citizens.
 
 During a recent strategic session with key stakeholders from the NGF, SRMS leadership demonstrated how the platform integrates with existing state payroll systems to provide real-time data accuracy. The partnership aims to create a uniform, secure, and transparent verification standard across all 36 states of the Federation.
 
@@ -27,6 +28,7 @@ This initiative marks a significant milestone for TEFMIN and its partners as we 
         date: "February 7, 2026",
         readTime: "7 min read",
         author: "TEFMIN Communications",
+        featured: true,
     },
     {
         id: 1,
@@ -48,6 +50,7 @@ The future is not something that happens to us. It is something we create. And t
         date: "February 5, 2026",
         readTime: "8 min read",
         author: "TEFMIN Editorial Team",
+        featured: true,
     },
     {
         id: 2,
@@ -95,46 +98,21 @@ The future of Nigerian enterprise is increasingly female, and TEFMIN is proud to
         id: 4,
         title: "Sustainable Energy Solutions for Nigerian Industries: A Sino-Nigerian Partnership Story",
         excerpt: "A moment of cultural exchange under TEFMIN's Sino-Nigerian Initiative, reflecting the fusion of tradition and global partnership to drive entrepreneurship and innovation in Northern Nigeria.",
-        fullContent: `A moment of cultural exchange under TEFMIN's Sino-Nigerian Initiative represents far more than a diplomatic handshake or a ceremonial photo opportunity. It embodies the fusion of tradition and global partnership, creating a powerful catalyst to drive entrepreneurship and innovation across Northern Nigeria. This initiative stands as a testament to how cross-cultural collaboration can unlock sustainable solutions to our most pressing industrial challenges.
+        fullContent: `A moment of cultural exchange under TEFMIN's Sino-Nigerian Initiative represents far more than a diplomatic handshake or a ceremonial photo opportunity. It embodies the fusion of tradition and global partnership, creating a powerful catalyst to drive entrepreneurship and innovation across Northern Nigeria.
+        
+The Sino-Nigerian Initiative was born from a simple recognition: China's remarkable journey from an agrarian economy to the world's manufacturing powerhouse offers invaluable lessons for Nigeria. However, this is not about copying a model wholesale—it's about adapting proven strategies to our unique cultural, economic, and geographical context.
 
-The Sino-Nigerian Initiative was born from a simple recognition: China's remarkable journey from an agrarian economy to the world's manufacturing powerhouse offers invaluable lessons for Nigeria. However, this is not about copying a model wholesale—it's about adapting proven strategies to our unique cultural, economic, and geographical context. The cultural exchange component ensures that technology transfer happens with cultural sensitivity and local ownership.
+Energy costs remain the single largest operational expense for most Nigerian manufacturers, often accounting for 40% or more of production costs. With grid electricity unreliable and diesel generators expensive and polluting, the business case for renewable energy has never been stronger.
 
-During a recent cultural exchange event in Kano, Chinese renewable energy experts sat alongside Northern Nigerian entrepreneurs, sharing tea and stories before diving into technical discussions about solar panel manufacturing. This deliberate blending of social connection with technical knowledge transfer has proven remarkably effective. When people understand each other's values and aspirations, technology adoption accelerates dramatically.
+Through our partnership with Chinese manufacturers, we're bringing cost reductions to Nigerian industries. For manufacturers with significant daytime operations, rooftop solar can now provide electricity at a fraction of grid or generator costs. But the innovation goes deeper: we're establishing local assembly plants in Kaduna and Kano, creating jobs while reducing import dependency.
 
-Energy costs remain the single largest operational expense for most Nigerian manufacturers, often accounting for 40% or more of production costs. With grid electricity unreliable and diesel generators expensive and polluting, the business case for renewable energy has never been stronger. This is where the Sino-Nigerian partnership becomes transformative—bringing not just technology, but also financing models, maintenance expertise, and local manufacturing capabilities.
-
-Solar power costs have dropped by 89% over the past decade globally, and through our partnership with Chinese manufacturers, we're bringing these cost reductions to Nigerian industries. For manufacturers with significant daytime operations, rooftop solar can now provide electricity at a fraction of grid or generator costs. But the innovation goes deeper: we're establishing local assembly plants in Kaduna and Kano, creating jobs while reducing import dependency.
-
-The cultural exchange aspect has been crucial in building trust and ensuring sustainable adoption. Northern Nigerian business culture values long-term relationships and community benefit over quick transactions. Chinese partners, coming from a similarly relationship-oriented business culture, understood this intuitively. Joint training programs don't just teach technical skills—they build lasting partnerships where Nigerian engineers work alongside Chinese experts, learning not just what to do, but why certain approaches work.
-
-Hybrid systems that combine solar, batteries, and backup generators offer the best of all worlds: clean power when the sun shines, stored power for cloudy periods, and generator backup for extended outages. Smart controllers, many now assembled locally through our partnership, optimize the mix automatically. This technology, once exclusively imported, is now being manufactured in Nigeria by Nigerian workers trained through the Sino-Nigerian Initiative.
-
-The entrepreneurship dimension of this partnership extends beyond large manufacturers. We've established Innovation Hubs in six Northern states where young Nigerian entrepreneurs can access Chinese-made prototyping equipment, 3D printers, and renewable energy testing facilities. These hubs have become melting pots of innovation, where traditional Nigerian craftsmanship meets cutting-edge Chinese manufacturing technology.
-
-One remarkable success story involves Hajiya Amina, a textile entrepreneur from Katsina. Through the program, she traveled to Guangzhou to study solar-powered textile manufacturing. Upon returning, she implemented a hybrid solar system that cut her energy costs by 65%. More importantly, she now mentors other women entrepreneurs, creating a multiplier effect that extends far beyond her own business.
-
-Beyond cost savings, renewable energy enhances competitiveness in global markets. International buyers increasingly require suppliers to demonstrate environmental responsibility. Carbon footprint certifications are becoming essential for export-oriented manufacturers. The Sino-Nigerian Initiative includes certification support, helping Nigerian manufacturers meet international environmental standards and access premium export markets.
-
-The cultural exchange works both ways. Chinese partners have gained deep insights into the Nigerian market, leading to product adaptations that better serve African conditions. Solar panels now come with dust-resistant coatings suitable for Sahel conditions. Battery systems are optimized for high-temperature performance. Inverters include features that handle the voltage fluctuations common in Nigerian grid connections.
-
-TEFMIN's Energy Access Initiative, operating under this partnership framework, works with leading solar providers to offer financing solutions that make the transition affordable. Manufacturers can pay from savings, with no upfront capital required. This "pay-as-you-save" model, refined through Chinese experience with rural electrification, has enabled over 200 Nigerian manufacturers to transition to renewable energy in the past year alone.
-
-The initiative also addresses the skills gap that has historically hindered technology adoption. Joint training centers in Abuja, Kano, and Lagos offer intensive programs where Nigerian technicians learn installation, maintenance, and troubleshooting of renewable energy systems. The curriculum blends Chinese technical expertise with Nigerian practical knowledge, creating a uniquely effective learning environment.
-
-Community engagement has been central to the initiative's success. We don't just install solar panels—we build understanding and ownership. Town hall meetings, conducted in local languages with cultural sensitivity, explain the technology, address concerns, and incorporate community feedback. This approach, drawing on both Chinese community mobilization experience and Nigerian traditional governance structures, has achieved remarkable buy-in rates.
-
-The environmental impact extends beyond individual factories. As more manufacturers adopt clean energy, air quality in industrial areas improves measurably. Children in communities near factories report fewer respiratory issues. Workers enjoy healthier conditions. The cumulative effect of hundreds of businesses transitioning to clean energy creates visible, tangible improvements in quality of life.
-
-Looking forward, the Sino-Nigerian Initiative is expanding into energy storage and electric vehicle charging infrastructure. Northern Nigeria's abundant sunshine makes it ideal for solar energy, but storage technology will unlock 24-hour clean power. Pilot projects in Kaduna are already demonstrating how large-scale battery systems can stabilize power supply for entire industrial estates.
-
-The journey to net-zero is not just an environmental imperative—it's a business opportunity and a cultural bridge. Nigerian manufacturers who embrace clean energy today, supported by global partnerships built on mutual respect and cultural understanding, will lead the industries of tomorrow. The fusion of Chinese technological prowess with Nigerian entrepreneurial spirit and cultural richness is creating something entirely new: a model of sustainable industrial development that honors tradition while embracing innovation.
-
-This is more than technology transfer. It's the building of a shared future where Nigerian industries thrive on clean energy, young entrepreneurs lead innovation, and cultural exchange enriches everyone involved. The Future Made in Nigeria is being powered by the sun, built through partnership, and rooted in the deep cultural values that make our nation unique.`,
+The journey to net-zero is not just an environmental imperative—it's a business opportunity and a cultural bridge. Nigerian manufacturers who embrace clean energy today, supported by global partnerships built on mutual respect and cultural understanding, will lead the industries of tomorrow.`,
         category: "Energy",
         image: cultural,
         date: "February 9, 2026",
         readTime: "12 min read",
         author: "Emmanuel Okonkwo",
+        featured: false,
     },
     {
         id: 5,
@@ -241,157 +219,115 @@ The circular economy is not just an environmental dream; it's a multi-billion na
     },
 ];
 
-const categories = ["All", "Innovation", "Renewable Energy", "Startup Advice", "Consultation", "Industry", "Technology", "Empowerment"];
+const BlogDetailPage = () => {
+    const { id } = useParams();
+    const post = blogPosts.find(p => p.id === id || p.id === parseInt(id)) || blogPosts[0];
 
-export default function BlogPage() {
-    const [activeCategory, setActiveCategory] = useState("All");
-    const [searchQuery, setSearchQuery] = useState("");
-    const [currentPage, setCurrentPage] = useState(1);
-    const postsPerPage = 6;
-
-    const filteredPosts = blogPosts.filter(post => {
-        const matchesCategory = activeCategory === "All" || post.category === activeCategory;
-        const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
-        return matchesCategory && matchesSearch;
-    });
-
-    // Calculate pagination
-    const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
-    const indexOfLastPost = currentPage * postsPerPage;
-    const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
-
-    // Pagination functions
-    const paginate = (pageNumber) => {
-        setCurrentPage(pageNumber);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    // Get related posts (same category, excluding current post)
+    const relatedPosts = blogPosts
+        .filter(p => p.category === post.category && p.id !== post.id)
+        .slice(0, 3);
 
     return (
-        <div className="pt-32 pb-24 bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors duration-300 font-sans">
-            {/* Header */}
-            <section className="max-w-7xl mx-auto px-6 mb-12 text-center">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-black dark:text-white mb-10 tracking-tight">
+        <div className="pt-32 pb-24 bg-white dark:bg-gray-900 min-h-screen transition-colors duration-300 font-sans">
+            <section className="max-w-7xl mx-auto px-6 mb-12 text-center md:text-left">
+                {/* Header */}
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-black dark:text-white mb-10 tracking-tight text-center">
                     Blog News
                 </h1>
 
-                {/* Search Bar matching the design */}
-                <div className="relative max-w-5xl mx-auto mb-10">
-                    <div className="relative">
-                        <Search size={22} className="absolute left-6 top-1/2 -translate-y-1/2 text-gray-400" />
-                        <input
-                            type="text"
-                            placeholder="Search blog posts"
-                            value={searchQuery}
-                            onChange={(e) => {
-                                setSearchQuery(e.target.value);
-                                setCurrentPage(1);
-                            }}
-                            className="w-full pl-16 pr-6 py-4 rounded-xl bg-gray-100/80 dark:bg-gray-800 border-none text-gray-600 dark:text-gray-300 placeholder-gray-400 focus:outline-none focus:ring-0 transition-all text-lg"
-                        />
-                    </div>
+                {/* Breadcrumbs matching design */}
+                <div className="flex items-center gap-2 text-sm text-gray-500 font-medium mb-12">
+                    <Link to="/blog" className="hover:text-black dark:hover:text-white">Blog</Link>
+                    <span>/</span>
+                    <span className="text-black dark:text-white font-bold">All</span>
                 </div>
 
-                {/* Categories */}
-                <div className="flex flex-wrap justify-center gap-2 mb-12">
-                    {categories.map(category => (
-                        <button
-                            key={category}
-                            onClick={() => {
-                                setActiveCategory(category);
-                                setCurrentPage(1);
-                            }}
-                            className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${activeCategory === category
-                                    ? "bg-[#FFC107] text-black"
-                                    : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
-                                }`}
-                        >
-                            {category}
-                        </button>
-                    ))}
+                {/* Post Info */}
+                <div className="mb-4">
+                    <p className="text-gray-400 text-sm font-medium">
+                        By <span className="text-gray-600 dark:text-gray-300">{post.author}</span> | Published on {post.date}
+                    </p>
                 </div>
             </section>
 
-            {/* Blog Grid */}
-            <section className="max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-                    {currentPosts.map((post) => (
-                        <div key={post.id} className="bg-white dark:bg-gray-800 rounded-none overflow-hidden group flex flex-col h-full shadow-sm hover:shadow-md transition-shadow duration-300 p-6">
-                            {/* Image */}
-                            <div className="h-64 sm:h-72 overflow-hidden rounded-2xl mb-6 relative">
-                                <img
-                                    src={post.image}
-                                    alt={post.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                />
-                            </div>
+            {/* Content Area */}
+            <div className="max-w-5xl mx-auto px-6">
 
-                            {/* Content */}
-                            <div className="flex flex-col flex-1">
-                                <div className="text-gray-400 text-sm font-medium mb-3">
-                                    {post.category}
+                {/* Featured Image */}
+                <div className="w-full h-[400px] md:h-[550px] rounded-None overflow-hidden mb-12">
+                    <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                </div>
+
+                {/* Article Body */}
+                <article className="prose prose-lg dark:prose-invert max-w-none mb-16">
+                    <div className="text-gray-800 dark:text-gray-200 leading-relaxed text-lg">
+                        {post.fullContent.split('\n\n').map((paragraph, index) => (
+                            <p key={index} className="mb-6 leading-relaxed">
+                                {paragraph}
+                            </p>
+                        ))}
+                    </div>
+                </article>
+
+                {/* Share and Interactions Section matching design */}
+                <div className="border-t border-b border-gray-200 dark:border-gray-700 py-6 mb-16">
+                    <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2 font-bold text-gray-900 dark:text-white">
+                            Share this post:
+                        </div>
+                        <div className="flex items-center gap-6 text-gray-500">
+                            <div className="flex items-center gap-2 cursor-pointer hover:text-red-500 transition-colors">
+                                <Heart size={20} /> <span className="text-sm font-medium">23</span>
+                            </div>
+                            <div className="flex items-center gap-2 cursor-pointer hover:text-blue-500 transition-colors">
+                                <MessageCircle size={20} /> <span className="text-sm font-medium">5</span>
+                            </div>
+                            <div className="flex items-center gap-2 cursor-pointer hover:text-green-500 transition-colors">
+                                <Share2 size={20} /> <span className="text-sm font-medium">12</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Comments Section */}
+                <div className="mb-20">
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Comments (5)</h3>
+                    <div className="space-y-8">
+                        {[
+                            { name: 'Ethan Carter', date: 'August 16, 2024', comment: 'Great insights, Dr. Sharma! This article is very helpful for understanding the legal landscape in the tech industry.', avatar: 'https://i.pravatar.cc/150?u=ethan' },
+                            { name: 'Olivia Bennett', date: 'August 17, 2024', comment: 'I appreciate the clear explanations of complex legal concepts. The section on data privacy was particularly informative.', avatar: 'https://i.pravatar.cc/150?u=olivia' },
+                            { name: 'Dr. Anya Sharma', date: 'August 17, 2024', comment: 'Thank you, Olivia! I\'m glad you found the information helpful.', avatar: 'https://i.pravatar.cc/150?u=anya', isAuthor: true }
+                        ].map((comment, idx) => (
+                            <div key={idx} className={`flex gap-4 ${comment.isAuthor ? 'ml-12 md:ml-20' : ''}`}>
+                                <img src={comment.avatar} alt={comment.name} className="w-10 h-10 rounded-full object-cover flex-shrink-0" />
+                                <div>
+                                    <div className="flex items-center gap-2 mb-1">
+                                        <span className="font-bold text-gray-900 dark:text-white text-sm">{comment.name}</span>
+                                        <span className="text-xs text-gray-400">{comment.date}</span>
+                                    </div>
+                                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{comment.comment}</p>
                                 </div>
-                                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 leading-tight group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
-                                    {post.title}
-                                </h2>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm mb-6 leading-relaxed flex-1">
-                                    {post.excerpt}
-                                </p>
-
-                                <Link to={`/blog/${post.id}`}>
-                                    <button className="bg-[#1A1A1A] hover:bg-black text-white px-8 py-3 rounded-lg text-sm font-medium transition-colors w-fit">
-                                        Read More
-                                    </button>
-                                </Link>
                             </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Pagination */}
-                {totalPages > 1 && (
-                    <div className="flex justify-center items-center gap-4">
-                        <button
-                            onClick={() => paginate(currentPage - 1)}
-                            disabled={currentPage === 1}
-                            className="p-2 text-gray-400 hover:text-black dark:text-gray-500 dark:hover:text-white disabled:opacity-30 disabled:hover:text-gray-400 transition-colors"
-                        >
-                            <ChevronLeft size={20} />
-                        </button>
-
-                        <div className="flex gap-2">
-                            {Array.from({ length: totalPages }).map((_, idx) => (
-                                <button
-                                    key={idx}
-                                    onClick={() => paginate(idx + 1)}
-                                    className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all ${currentPage === idx + 1
-                                            ? "bg-[#FFC107] text-black shadow-md"
-                                            : "text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800"
-                                        }`}
-                                >
-                                    {idx + 1}
-                                </button>
-                            ))}
-                            {/* Ellipsis if needed, simply showing all pages for now as list is small */}
-                            {totalPages > 5 && <span className="flex items-end px-2 text-gray-400">...</span>}
-                            {totalPages > 5 && (
-                                <button className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-gray-500 hover:bg-gray-100">
-                                    {totalPages}
-                                </button>
-                            )}
-                        </div>
-
-                        <button
-                            onClick={() => paginate(currentPage + 1)}
-                            disabled={currentPage === totalPages}
-                            className="p-2 text-gray-400 hover:text-black dark:text-gray-500 dark:hover:text-white disabled:opacity-30 disabled:hover:text-gray-400 transition-colors"
-                        >
-                            <ChevronRight size={20} />
-                        </button>
+                        ))}
                     </div>
-                )}
-            </section>
+
+                    {/* Add Comment Input */}
+                    <div className="mt-12 flex gap-4">
+                        <img src="https://i.pravatar.cc/150?u=me" alt="User" className="w-10 h-10 rounded-full object-cover flex-shrink-0" />
+                        <div className="flex-1">
+                            <input
+                                type="text"
+                                placeholder="Add a comment..."
+                                className="w-full bg-gray-50 dark:bg-gray-800 border-none rounded-lg p-4 text-sm focus:ring-0 focus:bg-gray-100 dark:focus:bg-gray-700 transition-colors mb-4"
+                            />
+                            <button className="bg-[#FFC107] text-black font-bold px-6 py-2 rounded text-sm hover:bg-[#ffcd38] transition-colors">
+                                Post Comment
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             {/* Newsletter */}
             <div className="mt-24">
@@ -399,4 +335,6 @@ export default function BlogPage() {
             </div>
         </div>
     );
-}
+};
+
+export default BlogDetailPage;
