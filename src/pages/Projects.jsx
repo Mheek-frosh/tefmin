@@ -54,7 +54,11 @@ export default function ProjectsPage() {
                             className="group cursor-pointer"
                             onClick={() => handleProjectClick(project.id)}
                         >
+<<<<<<< HEAD
                             <div className="bg-white dark:bg-gray-800 rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 dark:border-gray-700 h-full flex flex-col transition-all hover:shadow-2xl">
+=======
+                            <div className="bg-white rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 h-full flex flex-col transition-shadow hover:shadow-2xl">
+>>>>>>> 6462a1eb3e3fd4269a2c72c42d83d75acef6783f
                                 <div className="relative h-[240px] overflow-hidden">
                                     <img
                                         src={project.image}

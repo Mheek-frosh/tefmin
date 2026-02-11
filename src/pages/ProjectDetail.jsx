@@ -149,8 +149,13 @@ export default function ProjectDetail() {
                                         key={index}
                                         onClick={() => setCurrentImageIndex(index)}
                                         className={`w-2 h-2 rounded-full transition-all ${index === currentImageIndex
+<<<<<<< HEAD
                                             ? "bg-white w-8"
                                             : "bg-white/50 hover:bg-white/75"
+=======
+                                                ? "bg-white w-8"
+                                                : "bg-white/50 hover:bg-white/75"
+>>>>>>> 6462a1eb3e3fd4269a2c72c42d83d75acef6783f
                                             }`}
                                     />
                                 ))}
@@ -195,12 +200,16 @@ export default function ProjectDetail() {
                         transition={{ delay: 0.7 }}
                         className="flex flex-col sm:flex-row gap-4"
                     >
+<<<<<<< HEAD
                         <Button
                             onClick={() => navigate("/partner")}
                             className="flex-grow py-4 shadow-xl"
                         >
                             Partner With Us
                         </Button>
+=======
+                        <Button className="flex-grow py-4 shadow-xl">Partner on this Project</Button>
+>>>>>>> 6462a1eb3e3fd4269a2c72c42d83d75acef6783f
                         <Button variant="outline" className="py-4 px-6 flex items-center justify-center gap-2">
                             <ExternalLink size={20} />
                             <span>Learn More</span>
