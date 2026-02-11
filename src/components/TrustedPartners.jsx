@@ -1,15 +1,19 @@
 import { motion } from "framer-motion";
 import sdgImage from "../assets/sdg.jpeg";
 import valueImage from "../assets/value.jpeg";
+import nyscLogo from "../assets/nysc.png";
+import nitdaLogo from "../assets/nitda.png";
+import tonyLogo from "../assets/tony.png";
+import smedanLogo from "../assets/smedan.png";
 
 export const TrustedPartners = () => {
     const partners = [
-        { name: "NYSC", logo: "https://via.placeholder.com/180x80/1a1a1a/FFC107?text=NYSC" },
-        { name: "SMEDAN", logo: "https://via.placeholder.com/180x80/1a1a1a/FFC107?text=SMEDAN" },
+        { name: "NYSC", logo: nyscLogo },
+        { name: "SMEDAN", logo: smedanLogo },
         { name: "SDG", logo: sdgImage },
         { name: "Value", logo: valueImage },
-        { name: "Tony Elumelu Foundation", logo: "https://via.placeholder.com/180x80/1a1a1a/FFC107?text=TEF" },
-        { name: "NITDA", logo: "https://via.placeholder.com/180x80/1a1a1a/FFC107?text=NITDA" },
+        { name: "Tony Elumelu Foundation", logo: tonyLogo },
+        { name: "NITDA", logo: nitdaLogo },
         { name: "Bank of Industry", logo: "https://via.placeholder.com/180x80/1a1a1a/FFC107?text=BOI" },
         { name: "NEPC", logo: "https://via.placeholder.com/180x80/1a1a1a/FFC107?text=NEPC" },
     ];
