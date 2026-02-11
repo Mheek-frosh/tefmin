@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Newsletter } from "../components/Newsletter";
 import blog1 from "../assets/blog1.jpeg";
 import cultural from "../assets/cultural.png";
+import spain from "../assets/spain.jpeg";
 
 const blogPosts = [
     {
@@ -27,6 +28,37 @@ This initiative marks a significant milestone for TEFMIN and its partners as we 
         date: "February 7, 2026",
         readTime: "7 min read",
         author: "TEFMIN Communications",
+    },
+    {
+        id: "spain-azud-visit",
+        title: "On a working visit to AZUD Industries in Spain",
+        excerpt: "TEFMIN delegation visits AZUD Industries in Spain to explore advanced irrigation technologies and sustainable agricultural solutions for Nigerian farmers.",
+        fullContent: `In a significant step towards modernizing Nigeria's agricultural sector, a TEFMIN delegation recently undertook a working visit to AZUD Industries in Spain, one of the world's leading manufacturers of irrigation systems and agricultural technology solutions.
+
+The visit, which took place at AZUD's state-of-the-art manufacturing facility, focused on exploring advanced irrigation technologies that could transform water management practices across Nigerian farms. With climate change increasingly affecting rainfall patterns and water availability, efficient irrigation systems have become critical for agricultural productivity and food security.
+
+AZUD Industries, with over 35 years of experience in precision irrigation, showcased their latest innovations in drip irrigation, filtration systems, and fertigation technology. These systems can reduce water consumption by up to 60% while increasing crop yields by 40%—metrics that are particularly relevant for Nigeria's agricultural transformation agenda.
+
+During the facility tour, the TEFMIN team observed the manufacturing process of micro-drip emitters, self-cleaning filters, and automated irrigation controllers. The precision engineering and quality control standards demonstrated by AZUD align perfectly with TEFMIN's commitment to bringing world-class technology to Nigerian farmers.
+
+Discussions centered on potential partnership models that would enable technology transfer, local assembly of irrigation components, and training programs for Nigerian agricultural engineers. AZUD expressed strong interest in establishing a regional hub in Nigeria to serve the West African market, creating jobs while making advanced irrigation technology more accessible and affordable.
+
+The visit also included technical sessions on solar-powered irrigation systems—a perfect fit for Nigeria's abundant sunshine and rural electrification challenges. AZUD's solar pumping solutions can operate entirely off-grid, providing reliable water access to remote farming communities without dependence on diesel generators or unreliable grid power.
+
+One particularly promising area of collaboration involves AZUD's precision fertigation systems, which deliver nutrients directly through irrigation water with computer-controlled precision. This technology can dramatically reduce fertilizer waste while optimizing plant nutrition—addressing both economic and environmental concerns.
+
+The TEFMIN delegation included agricultural engineers, irrigation specialists, and representatives from farmer cooperatives who provided valuable insights into the specific challenges and requirements of Nigerian agriculture. This ground-level perspective helped shape discussions around product adaptation and localization strategies.
+
+AZUD's commitment to sustainability resonated strongly with TEFMIN's values. Their systems not only conserve water but also reduce energy consumption, minimize chemical runoff, and support organic farming practices. These environmental benefits align with Nigeria's climate commitments and the growing global demand for sustainably produced agricultural products.
+
+Looking ahead, both organizations have committed to developing a detailed implementation roadmap. This includes pilot projects in select Nigerian states, training programs for local technicians, and exploration of financing mechanisms that make the technology accessible to smallholder farmers—not just large commercial operations.
+
+The Spain visit represents more than a technology scouting mission—it's about building lasting partnerships that bring global expertise to Nigerian challenges while creating opportunities for local innovation and entrepreneurship. As we work to feed a growing population while managing scarce water resources, collaborations like this become essential building blocks of our agricultural future.`,
+        category: "Innovation",
+        image: spain,
+        date: "February 10, 2026",
+        readTime: "8 min read",
+        author: "TEFMIN International Relations",
     },
     {
         id: 1,
@@ -303,8 +335,8 @@ export default function BlogPage() {
                                 setCurrentPage(1);
                             }}
                             className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${activeCategory === category
-                                    ? "bg-[#FFC107] text-black"
-                                    : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+                                ? "bg-[#FFC107] text-black"
+                                : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
                                 }`}
                         >
                             {category}
@@ -366,8 +398,8 @@ export default function BlogPage() {
                                     key={idx}
                                     onClick={() => paginate(idx + 1)}
                                     className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all ${currentPage === idx + 1
-                                            ? "bg-[#FFC107] text-black shadow-md"
-                                            : "text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800"
+                                        ? "bg-[#FFC107] text-black shadow-md"
+                                        : "text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800"
                                         }`}
                                 >
                                     {idx + 1}

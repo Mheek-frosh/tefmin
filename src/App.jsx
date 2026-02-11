@@ -5,6 +5,7 @@ import { Footer } from "./components/Footer";
 import { Chatbot } from "./components/Chatbot";
 import Home from "./pages/Home";
 import ProjectsPage from "./pages/Projects";
+import ProjectDetail from "./pages/ProjectDetail";
 import AboutPage from "./pages/About";
 import EmpowermentPage from "./pages/Empowerment";
 import ContactPage from "./pages/Contact";
@@ -13,6 +14,7 @@ import BlogDetail from "./pages/BlogDetail";
 import ServicesPage from "./pages/Services";
 import CareerPage from "./pages/Career";
 import TeamPage from "./pages/Team";
+import PartnerForm from "./pages/PartnerForm";
 
 // Scroll to top on navigation
 function ScrollToTop() {
@@ -32,9 +34,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/projects/:id" element={<ProjectDetail />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/empowerment" element={<EmpowermentPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/partner" element={<PartnerForm />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/services" element={<ServicesPage />} />

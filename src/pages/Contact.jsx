@@ -57,8 +57,13 @@ export default function ContactPage() {
                                         <Phone size={24} />
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Call Center</h4>
-                                        <p className="text-gray-500 dark:text-gray-400">+234 (0) 800-TEFMIN-PRO</p>
+                                        <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Call Us</h4>
+                                        <a href="tel:+2348072222291" className="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-secondary transition-colors block">
+                                            +234 807 222 2291
+                                        </a>
+                                        <a href="tel:+447423090691" className="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-secondary transition-colors block">
+                                            +44 7423 090691
+                                        </a>
                                         <p className="text-xs font-bold text-primary dark:text-secondary mt-1 uppercase tracking-widest">Available 9AM - 6PM WAT</p>
                                     </div>
                                 </motion.div>

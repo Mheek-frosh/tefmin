@@ -5,9 +5,10 @@ import { Button } from "./ui/Button";
 import { ArrowRight, Star } from "lucide-react";
 
 const phrases = [
-    { prefix: "The Future", suffix: "is Made in Nigeria." },
-    { prefix: "The Quality", suffix: "is Made in Nigeria." },
-    { prefix: "The Progress", suffix: "is Made in Nigeria." },
+    { prefix: "Empowering", suffix: "the Future" },
+    { prefix: "Training", suffix: "Africa's Future" },
+    { prefix: "Social", suffix: "Impact" },
+    { prefix: "Corporate Social", suffix: "Responsibility" },
 ];
 
 export const Hero = () => {
