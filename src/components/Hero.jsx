@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/Button";
 import { ArrowRight, Star } from "lucide-react";
+import heroImage from "../assets/hero2.jpeg";
 
 const phrases = [
     { prefix: "Empowering", suffix: "the Future" },
@@ -26,7 +27,7 @@ export const Hero = () => {
             {/* Dynamic Background */}
             <div className="absolute inset-0 z-0">
                 <img
-                    src="/hero.png"
+                    src={heroImage}
                     alt="Nigerian Business Team"
                     className="w-full h-full object-cover"
                 />

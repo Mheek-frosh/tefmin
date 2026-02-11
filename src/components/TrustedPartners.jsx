@@ -5,6 +5,8 @@ import nyscLogo from "../assets/nysc.png";
 import nitdaLogo from "../assets/nitda.png";
 import tonyLogo from "../assets/tony.png";
 import smedanLogo from "../assets/smedan.png";
+import npowerLogo from "../assets/npower.png";
+import katLogo from "../assets/kat.png";
 
 export const TrustedPartners = () => {
     const partners = [
@@ -14,8 +16,8 @@ export const TrustedPartners = () => {
         { name: "Value", logo: valueImage },
         { name: "Tony Elumelu Foundation", logo: tonyLogo },
         { name: "NITDA", logo: nitdaLogo },
-        { name: "Bank of Industry", logo: "https://via.placeholder.com/180x80/1a1a1a/FFC107?text=BOI" },
-        { name: "NEPC", logo: "https://via.placeholder.com/180x80/1a1a1a/FFC107?text=NEPC" },
+        { name: "N-Power", logo: npowerLogo },
+        { name: "KAT", logo: katLogo },
     ];
 
     return (
