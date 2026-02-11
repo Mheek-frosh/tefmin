@@ -27,17 +27,17 @@ export default function ProjectsPage() {
     };
 
     return (
-        <div className="pt-32 pb-24 bg-gray-50/50 min-h-screen">
+        <div className="pt-32 pb-24 bg-gray-50/50 dark:bg-gray-900 min-h-screen transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-6">
                 <header className="mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                     >
-                        <h1 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
+                        <h1 className="text-5xl md:text-6xl font-black text-gray-900 dark:text-white mb-6">
                             Our <span className="text-primary">Projects</span>
                         </h1>
-                        <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
+                        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed">
                             Explore the diverse portfolio of TEFMIN initiatives that are reshaping Nigeria's industrial landscape.
                         </p>
                     </motion.div>
@@ -54,7 +54,7 @@ export default function ProjectsPage() {
                             className="group cursor-pointer"
                             onClick={() => handleProjectClick(project.id)}
                         >
-                            <div className="bg-white rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 h-full flex flex-col transition-shadow hover:shadow-2xl">
+                            <div className="bg-white dark:bg-gray-800 rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 dark:border-gray-700 h-full flex flex-col transition-all hover:shadow-2xl">
                                 <div className="relative h-[240px] overflow-hidden">
                                     <img
                                         src={project.image}
@@ -62,20 +62,20 @@ export default function ProjectsPage() {
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
                                     <div className="absolute top-6 left-6">
-                                        <span className="glass px-4 py-2 rounded-full text-xs font-bold text-primary">
+                                        <span className="glass px-4 py-2 rounded-full text-xs font-bold text-primary dark:text-secondary">
                                             {project.category}
                                         </span>
                                     </div>
                                 </div>
                                 <div className="p-8 flex flex-col flex-grow">
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{project.title}</h3>
-                                    <p className="text-gray-500 text-sm mb-6 line-clamp-2 leading-relaxed">
+                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{project.title}</h3>
+                                    <p className="text-gray-500 dark:text-gray-400 text-sm mb-6 line-clamp-2 leading-relaxed">
                                         {project.description}
                                     </p>
                                     <div className="mt-auto flex items-center justify-between">
                                         <div className="flex gap-2">
                                             {project.tags.slice(0, 2).map(tag => (
-                                                <span key={tag} className="text-[10px] font-black uppercase text-gray-400">#{tag}</span>
+                                                <span key={tag} className="text-[10px] font-black uppercase text-gray-400 dark:text-gray-500">#{tag}</span>
                                             ))}
                                         </div>
                                         <Button variant="ghost" className="p-0 flex items-center gap-2 group-hover:text-primary text-xs">
@@ -93,7 +93,7 @@ export default function ProjectsPage() {
                     <button
                         onClick={() => goToPage(currentPage - 1)}
                         disabled={currentPage === 1}
-                        className="p-4 rounded-full border border-gray-200 hover:bg-primary hover:text-white transition-all disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-gray-400 text-gray-400"
+                        className="p-4 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-primary hover:text-white transition-all disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-gray-400 text-gray-400 dark:text-gray-500"
                     >
                         <ChevronLeft size={20} />
                     </button>
@@ -105,7 +105,7 @@ export default function ProjectsPage() {
                                 onClick={() => goToPage(i + 1)}
                                 className={`h-12 w-12 rounded-2xl font-black text-sm transition-all border ${currentPage === (i + 1)
                                     ? "bg-primary text-secondary border-primary shadow-xl shadow-primary/20 scale-110"
-                                    : "bg-white text-gray-400 border-gray-100 hover:border-primary hover:text-primary"
+                                    : "bg-white dark:bg-gray-800 text-gray-400 dark:text-gray-500 border-gray-100 dark:border-gray-700 hover:border-primary hover:text-primary dark:hover:text-secondary"
                                     }`}
                             >
                                 {i + 1}
@@ -116,7 +116,7 @@ export default function ProjectsPage() {
                     <button
                         onClick={() => goToPage(currentPage + 1)}
                         disabled={currentPage === totalPages}
-                        className="p-4 rounded-full border border-gray-200 hover:bg-primary hover:text-white transition-all disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-gray-400 text-gray-400"
+                        className="p-4 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-primary hover:text-white transition-all disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-gray-400 text-gray-400 dark:text-gray-500"
                     >
                         <ChevronRight size={20} />
                     </button>

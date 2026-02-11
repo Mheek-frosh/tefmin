@@ -1,4 +1,5 @@
 import { Hero } from "../components/Hero";
+import { TrustedPartners } from "../components/TrustedPartners";
 import { Services } from "../components/Services";
 import { VideoSection } from "../components/VideoSection";
 import { Gallery } from "../components/Gallery";
@@ -10,6 +11,7 @@ export default function Home() {
     return (
         <>
             <Hero />
+            <TrustedPartners />
             <Services />
             <VideoSection />
             <Gallery />

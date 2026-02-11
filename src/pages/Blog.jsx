@@ -118,7 +118,7 @@ Success stories abound: Hajiya Fatima now employs 23 women in her shea butter pr
 
 The future of Nigerian enterprise is increasingly female, and TEFMIN is proud to be a catalyst for this transformation.`,
         category: "Empowerment",
-        image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&q=80&w=800&h=600",
         date: "January 28, 2026",
         readTime: "5 min read",
         author: "Amina Ibrahim",
@@ -209,7 +209,7 @@ More importantly, these young entrepreneurs are changing the narrative. They're 
 
 The future isn't something we wait for. It's something these young leaders are building, one innovation at a time.`,
         category: "Innovation",
-        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800&h=600&fp-y=0.35",
         date: "January 10, 2026",
         readTime: "4 min read",
         author: "Chidi Emeka",
@@ -349,7 +349,11 @@ export default function BlogPage() {
             <section className="max-w-7xl mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
                     {currentPosts.map((post) => (
-                        <div key={post.id} className="bg-white dark:bg-gray-800 rounded-none overflow-hidden group flex flex-col h-full shadow-sm hover:shadow-md transition-shadow duration-300 p-6">
+                        <Link
+                            key={post.id}
+                            to={`/blog/${post.id}`}
+                            className="bg-white dark:bg-gray-800 rounded-none overflow-hidden group flex flex-col h-full shadow-sm hover:shadow-md transition-shadow duration-300 p-6 cursor-pointer"
+                        >
                             {/* Image */}
                             <div className="h-64 sm:h-72 overflow-hidden rounded-2xl mb-6 relative">
                                 <img
@@ -371,13 +375,11 @@ export default function BlogPage() {
                                     {post.excerpt}
                                 </p>
 
-                                <Link to={`/blog/${post.id}`}>
-                                    <button className="bg-[#1A1A1A] hover:bg-black text-white px-8 py-3 rounded-lg text-sm font-medium transition-colors w-fit">
-                                        Read More
-                                    </button>
-                                </Link>
+                                <button className="bg-[#1A1A1A] hover:bg-black text-white px-8 py-3 rounded-lg text-sm font-medium transition-colors w-fit">
+                                    Read More
+                                </button>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
 

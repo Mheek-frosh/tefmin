@@ -1,10 +1,12 @@
 
-import { useParams, Link } from 'react-router-dom';
-import { Share2, Heart, MessageCircle, Twitter, ArrowRight } from 'lucide-react';
+
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { Share2, Heart, MessageCircle, Twitter, ArrowRight, ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
 import { Newsletter } from "../components/Newsletter";
 import blog1 from "../assets/blog1.jpeg";
 import cultural from "../assets/cultural.png";
+import spain from "../assets/spain.jpeg";
 
 // Import blog posts data (same as Blog.jsx)
 const blogPosts = [
@@ -29,6 +31,38 @@ This initiative marks a significant milestone for TEFMIN and its partners as we 
         readTime: "7 min read",
         author: "TEFMIN Communications",
         featured: true,
+    },
+    {
+        id: "spain-azud-visit",
+        title: "On a working visit to AZUD Industries in Spain",
+        excerpt: "TEFMIN delegation visits AZUD Industries in Spain to explore advanced irrigation technologies and sustainable agricultural solutions for Nigerian farmers.",
+        fullContent: `In a significant step towards modernizing Nigeria's agricultural sector, a TEFMIN delegation recently undertook a working visit to AZUD Industries in Spain, one of the world's leading manufacturers of irrigation systems and agricultural technology solutions.
+
+The visit, which took place at AZUD's state-of-the-art manufacturing facility, focused on exploring advanced irrigation technologies that could transform water management practices across Nigerian farms. With climate change increasingly affecting rainfall patterns and water availability, efficient irrigation systems have become critical for agricultural productivity and food security.
+
+AZUD Industries, with over 35 years of experience in precision irrigation, showcased their latest innovations in drip irrigation, filtration systems, and fertigation technology. These systems can reduce water consumption by up to 60% while increasing crop yields by 40%—metrics that are particularly relevant for Nigeria's agricultural transformation agenda.
+
+During the facility tour, the TEFMIN team observed the manufacturing process of micro-drip emitters, self-cleaning filters, and automated irrigation controllers. The precision engineering and quality control standards demonstrated by AZUD align perfectly with TEFMIN's commitment to bringing world-class technology to Nigerian farmers.
+
+Discussions centered on potential partnership models that would enable technology transfer, local assembly of irrigation components, and training programs for Nigerian agricultural engineers. AZUD expressed strong interest in establishing a regional hub in Nigeria to serve the West African market, creating jobs while making advanced irrigation technology more accessible and affordable.
+
+The visit also included technical sessions on solar-powered irrigation systems—a perfect fit for Nigeria's abundant sunshine and rural electrification challenges. AZUD's solar pumping solutions can operate entirely off-grid, providing reliable water access to remote farming communities without dependence on diesel generators or unreliable grid power.
+
+One particularly promising area of collaboration involves AZUD's precision fertigation systems, which deliver nutrients directly through irrigation water with computer-controlled precision. This technology can dramatically reduce fertilizer waste while optimizing plant nutrition—addressing both economic and environmental concerns.
+
+The TEFMIN delegation included agricultural engineers, irrigation specialists, and representatives from farmer cooperatives who provided valuable insights into the specific challenges and requirements of Nigerian agriculture. This ground-level perspective helped shape discussions around product adaptation and localization strategies.
+
+AZUD's commitment to sustainability resonated strongly with TEFMIN's values. Their systems not only conserve water but also reduce energy consumption, minimize chemical runoff, and support organic farming practices. These environmental benefits align with Nigeria's climate commitments and the growing global demand for sustainably produced agricultural products.
+
+Looking ahead, both organizations have committed to developing a detailed implementation roadmap. This includes pilot projects in select Nigerian states, training programs for local technicians, and exploration of financing mechanisms that make the technology accessible to smallholder farmers—not just large commercial operations.
+
+The Spain visit represents more than a technology scouting mission—it's about building lasting partnerships that bring global expertise to Nigerian challenges while creating opportunities for local innovation and entrepreneurship. As we work to feed a growing population while managing scarce water resources, collaborations like this become essential building blocks of our agricultural future.`,
+        category: "Innovation",
+        image: spain,
+        date: "February 10, 2026",
+        readTime: "8 min read",
+        author: "TEFMIN International Relations",
+        featured: false,
     },
     {
         id: 1,
@@ -68,7 +102,7 @@ TEFMIN's technology partnerships are bringing these capabilities to Nigerian SME
 
 The future of African manufacturing is intelligent, connected, and distinctly African—built by us, for us, with the best of global technology adapted to our unique contexts.`,
         category: "Technology",
-        image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800&h=600",
         date: "February 3, 2026",
         readTime: "6 min read",
         author: "Dr. Aisha Mohammed",
@@ -89,7 +123,7 @@ Success stories abound: Hajiya Fatima now employs 23 women in her shea butter pr
 
 The future of Nigerian enterprise is increasingly female, and TEFMIN is proud to be a catalyst for this transformation.`,
         category: "Empowerment",
-        image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&q=80&w=800&h=600",
         date: "January 28, 2026",
         readTime: "5 min read",
         author: "Amina Ibrahim",
@@ -155,7 +189,7 @@ More importantly, these young entrepreneurs are changing the narrative. They're 
 
 The future isn't something we wait for. It's something these young leaders are building, one innovation at a time.`,
         category: "Innovation",
-        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800&h=600&fp-y=0.35",
         date: "January 10, 2026",
         readTime: "4 min read",
         author: "Chidi Emeka",
@@ -221,6 +255,7 @@ The circular economy is not just an environmental dream; it's a multi-billion na
 
 const BlogDetailPage = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const post = blogPosts.find(p => p.id === id || p.id === parseInt(id)) || blogPosts[0];
 
     // Get related posts (same category, excluding current post)
@@ -231,6 +266,15 @@ const BlogDetailPage = () => {
     return (
         <div className="pt-32 pb-24 bg-white dark:bg-gray-900 min-h-screen transition-colors duration-300 font-sans">
             <section className="max-w-7xl mx-auto px-6 mb-12 text-center md:text-left">
+                {/* Back Button */}
+                <button
+                    onClick={() => navigate("/blog")}
+                    className="flex items-center gap-2 text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-secondary transition-colors mb-8 group"
+                >
+                    <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+                    <span className="font-semibold">Back to Blog</span>
+                </button>
+
                 {/* Header */}
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-black dark:text-white mb-10 tracking-tight text-center">
                     Blog News
@@ -255,7 +299,7 @@ const BlogDetailPage = () => {
             <div className="max-w-5xl mx-auto px-6">
 
                 {/* Featured Image */}
-                <div className="w-full h-[400px] md:h-[550px] rounded-None overflow-hidden mb-12">
+                <div className="w-full h-[400px] md:h-[550px] rounded-3xl overflow-hidden mb-12">
                     <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
                 </div>
 

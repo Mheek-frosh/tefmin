@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, CheckCircle2, Handshake, TrendingUp, Users, Target, Lightbulb, Award } from "lucide-react";
 import { Button } from "../components/ui/Button";
+import sdgLogo from "../assets/sdg.jpeg";
 
 export default function PartnerForm() {
     const [formData, setFormData] = useState({
@@ -97,7 +98,13 @@ ${formData.message}`;
         {
             icon: <Target size={28} />,
             title: "Strategic Alignment",
-            description: "Support national development priorities, SDGs, ESG, and climate goals"
+            description: (
+                <div className="flex items-center gap-2">
+                    <span>Support national development priorities,</span>
+                    <img src={sdgLogo} alt="SDG" className="h-5 w-auto inline-block" />
+                    <span>SDGs, ESG, and climate goals</span>
+                </div>
+            )
         }
     ];
 
