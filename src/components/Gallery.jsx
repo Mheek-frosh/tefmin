@@ -1,11 +1,47 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, X, Image as ImageIcon, Film, Grid3X3 } from "lucide-react";
+import fastImage from "../assets/fast.jpeg";
+import kekeImage from "../assets/keke.jpeg";
+import twoManImage from "../assets/2man.jpeg";
+import shopImage from "../assets/shop.jpeg";
 
 // Sample gallery items - you can add your own videos and images here
 const galleryItems = [
     {
         id: 1,
+        type: "image",
+        thumbnail: fastImage,
+        src: fastImage,
+        title: "Fast Food Retail Outlet",
+        category: "Empowerment"
+    },
+    {
+        id: 2,
+        type: "image",
+        thumbnail: kekeImage,
+        src: kekeImage,
+        title: "Mobile Barber Shop",
+        category: "Empowerment"
+    },
+    {
+        id: 3,
+        type: "image",
+        thumbnail: twoManImage,
+        src: twoManImage,
+        title: "SET Construction Training",
+        category: "Training"
+    },
+    {
+        id: 4,
+        type: "image",
+        thumbnail: shopImage,
+        src: shopImage,
+        title: "ICT Business Solutions Center",
+        category: "Technology"
+    },
+    {
+        id: 5,
         type: "video",
         thumbnail: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600",
         src: "https://assets.mixkit.co/videos/preview/mixkit-conveyor-belt-in-a-large-factory-4491-large.mp4",
@@ -13,7 +49,7 @@ const galleryItems = [
         category: "Manufacturing"
     },
     {
-        id: 2,
+        id: 6,
         type: "image",
         thumbnail: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=600",
         src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200",
@@ -21,7 +57,7 @@ const galleryItems = [
         category: "Technology"
     },
     {
-        id: 3,
+        id: 7,
         type: "video",
         thumbnail: "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&q=80&w=600",
         src: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-solar-power-farm-44540-large.mp4",
@@ -29,44 +65,12 @@ const galleryItems = [
         category: "Energy"
     },
     {
-        id: 4,
+        id: 8,
         type: "image",
         thumbnail: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&q=80&w=600",
         src: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&q=80&w=1200",
         title: "Agricultural Revolution",
         category: "Agriculture"
-    },
-    {
-        id: 5,
-        type: "image",
-        thumbnail: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=600",
-        src: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200",
-        title: "Modern Workspace",
-        category: "Business"
-    },
-    {
-        id: 6,
-        type: "video",
-        thumbnail: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80&w=600",
-        src: "https://assets.mixkit.co/videos/preview/mixkit-employees-working-inside-a-modern-office-4819-large.mp4",
-        title: "Team Collaboration",
-        category: "Business"
-    },
-    {
-        id: 7,
-        type: "image",
-        thumbnail: "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&q=80&w=600",
-        src: "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&q=80&w=1200",
-        title: "Manufacturing Excellence",
-        category: "Manufacturing"
-    },
-    {
-        id: 8,
-        type: "image",
-        thumbnail: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=600",
-        src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=1200",
-        title: "Community Empowerment",
-        category: "Empowerment"
     },
 ];
 

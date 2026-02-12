@@ -2,10 +2,54 @@ import p1 from "../assets/p1.jpeg";
 import p2 from "../assets/p2.jpeg";
 import p3 from "../assets/p3.jpeg";
 import pp4 from "../assets/pp4.jpeg";
+import fastImage from "../assets/fast.jpeg";
+import kekeImage from "../assets/keke.jpeg";
+import twoManImage from "../assets/2man.jpeg";
+import shopImage from "../assets/shop.jpeg";
 
 export const projectItems = [
     {
         id: 1,
+        title: "Fast Food Retail Outlet",
+        category: "Empowerment",
+        description: "A bespoke fast food retail outlet constructed for a youth entrepreneurship empowerment program.",
+        longDescription: "This custom-designed fast food retail outlet represents a key component of our youth entrepreneurship empowerment initiative. Built to modern standards with efficient kitchen layouts and customer-friendly service areas, this outlet provides young entrepreneurs with a turnkey business solution. The project includes comprehensive training in food safety, business management, and customer service, ensuring beneficiaries have the skills needed to run successful food service businesses. Each outlet is strategically located in high-traffic areas to maximize business potential while contributing to local economic development and job creation.",
+        image: fastImage,
+        tags: ["Youth", "Empowerment", "Business"],
+        stats: { beneficiaries: "50+", jobs: "150+", locations: "10 States" }
+    },
+    {
+        id: 2,
+        title: "Mobile Barber Shop",
+        category: "Empowerment",
+        description: "A bespoke mobile barber shop designed for a Youth and Women Entrepreneurship program.",
+        longDescription: "The Mobile Barber Shop initiative provides fully equipped, mobile grooming units to young entrepreneurs and women as part of our comprehensive empowerment program. Each unit is custom-designed with professional barbering equipment, modern styling tools, and efficient workspace layouts. This innovative approach brings grooming services directly to underserved communities while providing beneficiaries with a flexible, low-overhead business model. The program includes extensive training in barbering techniques, customer relations, and mobile business operations, empowering participants to build sustainable livelihoods while serving their communities.",
+        image: kekeImage,
+        tags: ["Youth", "Women", "Empowerment"],
+        stats: { beneficiaries: "200+", units: "100", coverage: "15 States" }
+    },
+    {
+        id: 3,
+        title: "SET Construction Training",
+        category: "Training",
+        description: "Beneficiaries undergoing practical training on the construction of Seed Empowerment Tools (SET) for a public sector led CSR program.",
+        longDescription: "The Seed Empowerment Tools (SET) Construction Training program is a flagship public sector Corporate Social Responsibility initiative that equips participants with hands-on skills in building essential business tools and equipment. Through intensive practical training sessions, beneficiaries learn fabrication, assembly, and quality control techniques while constructing various empowerment tools including tricycles, kiosks, and mobile business units. This program not only provides valuable technical skills but also creates a sustainable supply chain for empowerment tools, with trained participants becoming manufacturers and suppliers for future empowerment initiatives. The program has successfully trained thousands of youth across Nigeria, creating both immediate employment opportunities and long-term entrepreneurial pathways.",
+        image: twoManImage,
+        tags: ["Training", "Skills", "CSR"],
+        stats: { trainees: "5,000+", tools: "2,500", states: "20 States" }
+    },
+    {
+        id: 4,
+        title: "ICT Business Solutions Center",
+        category: "Technology",
+        description: "A bespoke ICT cabin designed and equipped with modern ICT facilities to serve as a Business Solutions Center for a private sector led Youth Entrepreneurship and Empowerment Program.",
+        longDescription: "The ICT Business Solutions Center represents a cutting-edge approach to youth empowerment through technology. Each custom-designed cabin is fully equipped with modern computers, high-speed internet connectivity, printing and scanning facilities, and professional workspace amenities. These centers serve as one-stop business hubs where young entrepreneurs can access digital services, receive ICT training, and develop their technology skills. The program provides comprehensive training in digital literacy, online business operations, graphic design, and basic programming. Beneficiaries learn to offer services such as document processing, digital marketing, web design, and business consulting to their communities. This initiative bridges the digital divide while creating sustainable tech-based businesses in both urban and rural areas, contributing to Nigeria's digital transformation agenda.",
+        image: shopImage,
+        tags: ["ICT", "Technology", "Youth"],
+        stats: { centers: "75", beneficiaries: "1,500+", states: "25 States" }
+    },
+    {
+        id: 5,
         title: "Lagos Tech Hub",
         category: "Infrastructure",
         description: "Developing the largest industrial technology ecosystem in West Africa. This project focuses on providing state-of-the-art facilities for local tech startups and manufacturers.",
@@ -15,7 +59,7 @@ export const projectItems = [
         stats: { jobs: "2,000+", impact: "Lagos State" }
     },
     {
-        id: 2,
+        id: 6,
         title: "Eco-Friendly Logistics",
         category: "Supply Chain",
         description: "Revolutionizing distribution with zero-emission delivery solutions. We've introduced a fleet of electric vehicles to handle last-mile delivery in Nigeria's urban centers.",
@@ -65,7 +109,7 @@ export const projectItems = [
         stats: { workers: "800+", output: "2M Meters" }
     },
     {
-        id: 7,
+        id: 11,
         title: "Digital Literacy Program",
         category: "Education",
         description: "Equipping young Nigerians with coding and data analysis skills for the future industrial economy.",
@@ -75,7 +119,7 @@ export const projectItems = [
         stats: { students: "50,000", centers: "120" }
     },
     {
-        id: 8,
+        id: 12,
         title: "Waste-to-Energy Plant",
         category: "Sustainability",
         description: "Converting urban municipal waste into clean synthetic gas and electricity for industrial use.",
@@ -85,7 +129,7 @@ export const projectItems = [
         stats: { waste: "500t/day", power: "10MW" }
     },
     {
-        id: 9,
+        id: 13,
         title: "Local Pharma Research",
         category: "Health",
         description: "Developing specialized laboratories for the production of essential vaccines and medications within Nigeria.",
@@ -95,7 +139,7 @@ export const projectItems = [
         stats: { vaccines: "3 types", labs: "5" }
     },
     {
-        id: 10,
+        id: 14,
         title: "Bio-Fertilizer Project",
         category: "Agriculture",
         description: "Producing organic fertilizers from agricultural waste to boost soil health and crop yields.",
@@ -105,7 +149,7 @@ export const projectItems = [
         stats: { yield: "+25%", waste_used: "1000t" }
     },
     {
-        id: 11,
+        id: 15,
         title: "Metal Recycling Hub",
         category: "Industrial",
         description: "Advanced smelting facilities focused on recovering high-grade steel and aluminum from scrap metal.",
@@ -115,7 +159,7 @@ export const projectItems = [
         stats: { steel: "10k tons", jobs: "300" }
     },
     {
-        id: 12,
+        id: 16,
         title: "Data Sovereignty Center",
         category: "Tech",
         description: "Establishing Tier-4 data centers to host Nigerian industrial and governmental data locally.",
@@ -125,7 +169,7 @@ export const projectItems = [
         stats: { uptime: "99.99%", capacity: "100PB" }
     },
     {
-        id: 13,
+        id: 17,
         title: "Presidential Youth Empowerment Scheme (PYES)",
         category: "Empowerment",
         description: "Launch of the Presidential Youth Empowerment Scheme (PYES) at Aso Rock Villa Abuja.",
