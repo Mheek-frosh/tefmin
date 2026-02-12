@@ -5,6 +5,11 @@ import fastImage from "../assets/fast.jpeg";
 import kekeImage from "../assets/keke.jpeg";
 import twoManImage from "../assets/2man.jpeg";
 import shopImage from "../assets/shop.jpeg";
+import grindImage from "../assets/grind.jpeg";
+import carwashImage from "../assets/carwash.jpeg";
+import polImage from "../assets/pol.jpeg";
+import makeupImage from "../assets/makeup.jpeg";
+import v2Video from "../assets/v2.mp4";
 
 // Sample gallery items - you can add your own videos and images here
 const galleryItems = [
@@ -42,6 +47,46 @@ const galleryItems = [
     },
     {
         id: 5,
+        type: "image",
+        thumbnail: grindImage,
+        src: grindImage,
+        title: "Grinding Machine Workshop",
+        category: "Empowerment"
+    },
+    {
+        id: 6,
+        type: "image",
+        thumbnail: carwashImage,
+        src: carwashImage,
+        title: "Mobile Car Wash Service",
+        category: "Empowerment"
+    },
+    {
+        id: 7,
+        type: "image",
+        thumbnail: polImage,
+        src: polImage,
+        title: "Poultry Farming Initiative",
+        category: "Agriculture"
+    },
+    {
+        id: 8,
+        type: "image",
+        thumbnail: makeupImage,
+        src: makeupImage,
+        title: "Beauty & Makeup Studio",
+        category: "Empowerment"
+    },
+    {
+        id: 9,
+        type: "video",
+        thumbnail: makeupImage,
+        src: v2Video,
+        title: "Empowerment Program Showcase",
+        category: "Empowerment"
+    },
+    {
+        id: 10,
         type: "video",
         thumbnail: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600",
         src: "https://assets.mixkit.co/videos/preview/mixkit-conveyor-belt-in-a-large-factory-4491-large.mp4",
@@ -49,7 +94,7 @@ const galleryItems = [
         category: "Manufacturing"
     },
     {
-        id: 6,
+        id: 11,
         type: "image",
         thumbnail: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=600",
         src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200",
@@ -57,20 +102,12 @@ const galleryItems = [
         category: "Technology"
     },
     {
-        id: 7,
+        id: 12,
         type: "video",
         thumbnail: "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&q=80&w=600",
         src: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-solar-power-farm-44540-large.mp4",
         title: "Sustainable Energy",
         category: "Energy"
-    },
-    {
-        id: 8,
-        type: "image",
-        thumbnail: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&q=80&w=600",
-        src: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&q=80&w=1200",
-        title: "Agricultural Revolution",
-        category: "Agriculture"
     },
 ];
 
