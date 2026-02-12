@@ -153,6 +153,11 @@ export const Navbar = () => {
                         </div>
                     ))}
 
+                    {/* RC Number */}
+                    <span className={`text-xs font-bold uppercase tracking-widest transition-colors duration-500 ${showScrolledStyle ? "text-gray-600 dark:text-gray-400" : "text-white/80"}`}>
+                        RC 929882
+                    </span>
+
                     {/* Dark Mode Toggle */}
                     <button
                         onClick={toggleDarkMode}

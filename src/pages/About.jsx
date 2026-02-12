@@ -16,10 +16,10 @@ const coreValues = [
 ];
 
 const milestones = [
-    { year: "2024", title: "TEFMIN Founded", desc: "Establishment of The Future Made in Nigeria Project Ltd in Lagos." },
-    { year: "2024", title: "First Consulting Engagement", desc: "Initiated partnerships with Federal MDAs and private sector organizations." },
-    { year: "2025", title: "Youth Empowerment Launch", desc: "Rolled out nationwide youth empowerment and capacity building programs." },
-    { year: "2026", title: "Industrial Hub Vision", desc: "Strategic planning for industrial parks and manufacturing excellence centers." },
+    { year: "2011", title: "TEFMIN Founded", desc: "Establishment of The Future Made in Nigeria Project Ltd in Lagos." },
+    { year: "2012", title: "First Consulting Engagement", desc: "Initiated partnerships with Federal MDAs and private sector organizations." },
+    { year: "2020", title: "Youth Empowerment Launch", desc: "Rolled out nationwide youth empowerment and capacity building programs." },
+    { year: "2024", title: "Industrial Hub Vision", desc: "Strategic planning for industrial parks and manufacturing excellence centers." },
 ];
 
 export default function About() {
@@ -35,7 +35,7 @@ export default function About() {
                     className="max-w-4xl"
                 >
                     <span className="text-primary dark:text-secondary font-black tracking-widest uppercase text-xs mb-6 inline-block bg-primary/5 dark:bg-secondary/10 px-4 py-2 rounded-full">
-                        Founded 2024
+                        Founded 2011
                     </span>
                     <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 dark:text-white mb-6 md:mb-10 leading-[1.1] md:leading-[0.9] tracking-tighter">
                         Building the <br className="hidden md:block" />

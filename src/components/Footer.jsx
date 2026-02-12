@@ -52,7 +52,10 @@ export const Footer = () => {
                             </li>
                             <li className="flex gap-4 items-start text-white/70">
                                 <Phone className="text-secondary shrink-0" size={20} />
-                                <span>+234 (0) 800 TEFMIN-PRO</span>
+                                <div>
+                                    <a href="tel:+2348072222291" className="block hover:text-secondary transition-colors">+234 807 222 2291</a>
+                                    <a href="tel:+447423090691" className="block hover:text-secondary transition-colors">+44 7423 090691</a>
+                                </div>
                             </li>
                             <li className="flex gap-4 items-start text-white/70">
                                 <Mail className="text-secondary shrink-0" size={20} />

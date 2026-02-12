@@ -7,6 +7,7 @@ import tonyLogo from "../assets/tony.png";
 import smedanLogo from "../assets/smedan.png";
 import npowerLogo from "../assets/npower.png";
 import katLogo from "../assets/kat.png";
+import srmsLogo from "../assets/srms.png";
 
 export const TrustedPartners = () => {
     const partners = [
@@ -18,6 +19,7 @@ export const TrustedPartners = () => {
         { name: "NITDA", logo: nitdaLogo },
         { name: "N-Power", logo: npowerLogo },
         { name: "KAT", logo: katLogo },
+        { name: "SRMS", logo: srmsLogo },
     ];
 
     return (

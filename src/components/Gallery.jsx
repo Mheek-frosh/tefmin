@@ -85,30 +85,6 @@ const galleryItems = [
         title: "Empowerment Program Showcase",
         category: "Empowerment"
     },
-    {
-        id: 10,
-        type: "video",
-        thumbnail: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600",
-        src: "https://assets.mixkit.co/videos/preview/mixkit-conveyor-belt-in-a-large-factory-4491-large.mp4",
-        title: "Industrial Excellence",
-        category: "Manufacturing"
-    },
-    {
-        id: 11,
-        type: "image",
-        thumbnail: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=600",
-        src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200",
-        title: "Tech Innovation Hub",
-        category: "Technology"
-    },
-    {
-        id: 12,
-        type: "video",
-        thumbnail: "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&q=80&w=600",
-        src: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-solar-power-farm-44540-large.mp4",
-        title: "Sustainable Energy",
-        category: "Energy"
-    },
 ];
 
 const filterTabs = [
