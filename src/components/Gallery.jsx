@@ -98,7 +98,7 @@ export const Gallery = () => {
                             Our Journey
                         </span>
                         <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-6">
-                            Media <span className="text-secondary italic">Gallery</span>
+                            Impact <span className="text-secondary italic">Gallery</span>
                         </h2>
                         <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
                             Explore our collection of images and videos showcasing the impact of TEFMIN across Nigeria.
@@ -116,8 +116,8 @@ export const Gallery = () => {
                                     key={tab.id}
                                     onClick={() => setActiveFilter(tab.id)}
                                     className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 ${activeFilter === tab.id
-                                            ? "bg-primary text-white shadow-lg"
-                                            : "text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-secondary"
+                                        ? "bg-primary text-white shadow-lg"
+                                        : "text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-secondary"
                                         }`}
                                 >
                                     <Icon size={16} />
@@ -176,8 +176,8 @@ export const Gallery = () => {
                                 {/* Type Badge */}
                                 <div className="absolute top-4 right-4">
                                     <div className={`px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${item.type === "video"
-                                            ? "bg-red-500/80 text-white"
-                                            : "bg-white/80 text-gray-800"
+                                        ? "bg-red-500/80 text-white"
+                                        : "bg-white/80 text-gray-800"
                                         } backdrop-blur-sm`}>
                                         {item.type === "video" ? <Film size={12} /> : <ImageIcon size={12} />}
                                     </div>
