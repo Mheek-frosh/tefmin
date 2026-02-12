@@ -4,7 +4,7 @@ import { Play, X, Image as ImageIcon, Film, Grid3X3 } from "lucide-react";
 import fastImage from "../assets/fast.jpeg";
 import kekeImage from "../assets/keke.jpeg";
 import twoManImage from "../assets/2man.jpeg";
-import shopImage from "../assets/shop.jpeg";
+import shopImage from "../assets/shop.png";
 import grindImage from "../assets/grind.jpeg";
 import carwashImage from "../assets/carwash.jpeg";
 import polImage from "../assets/pol.jpeg";
@@ -267,6 +267,7 @@ export const Gallery = () => {
                                     <video
                                         autoPlay
                                         controls
+                                        muted
                                         loop
                                         className="w-full aspect-video bg-black"
                                     >

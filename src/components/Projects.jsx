@@ -1,43 +1,27 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Tag } from "lucide-react";
 import { GlassContainer } from "./ui/GlassContainer";
+import p1 from "../assets/p1.jpeg";
+import shop from "../assets/shop.png";
 
 const projects = [
+    {
+        title: "PYES Initiative",
+        category: "Empowerment",
+        description: "National youth empowerment scheme providing tools and training for sustainable livelihoods.",
+        image: p1,
+    },
+    {
+        title: "Business Solutions Center",
+        category: "Technology",
+        description: "Bespoke ICT hubs designed to bridge the digital divide in rural communities.",
+        image: shop,
+    },
     {
         title: "Lagos Tech Hub",
         category: "Infrastructure",
         description: "Developing the largest industrial technology ecosystem in West Africa.",
         image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800",
-    },
-    {
-        title: "Lagos Innovation Hub",
-        category: "Innovation",
-        description: "A state-of-the-art startup incubator fostering the next generation of Nigerian tech leaders.",
-        image: "/lagos_startup_hub.png",
-    },
-    {
-        title: "Sustainable Energy Initiative",
-        category: "Energy",
-        description: "Implementing large-scale solar solutions to power rural Nigerian communities.",
-        image: "/sustainable_energy.png",
-    },
-    {
-        title: "Eco-Friendly Logistics",
-        category: "Supply Chain",
-        description: "Revolutionizing distribution with zero-emission delivery solutions.",
-        image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
-    },
-    {
-        title: "Textile Excellence Center",
-        category: "Manufacturing",
-        description: "Modernizing Nigerian textile production with high-tech automated machinery.",
-        image: "/textile_excellence.png",
-    },
-    {
-        title: "Nigerian Artisans Export",
-        category: "Empowerment",
-        description: "Connecting local excellence with global luxury markets.",
-        image: "https://images.unsplash.com/photo-1541944743827-e04bb645f9a3?auto=format&fit=crop&q=80&w=800",
     },
 ];
 

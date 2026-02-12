@@ -98,6 +98,21 @@ const services = [
             "Tech-enabled business models"
         ],
         color: "secondary"
+    },
+    {
+        id: 7,
+        icon: GraduationCap,
+        title: "Strategic Consultation for Alhamadinah Integrated Farms",
+        shortDesc: "Comprehensive advisory for Alhamadinah Integrated Farms' operations.",
+        fullDesc: "We provide specialized strategic consultation for Alhamadinah Integrated Farms, focusing on integrated agriculture, sustainable practices, and technology deployment for optimized farm yield and operational excellence.",
+        features: [
+            "Integrated farm management systems",
+            "Sustainable agricultural practices",
+            "Farm-to-market supply chain strategy",
+            "Agricultural technology implementation",
+            "Water management and irrigation advisory"
+        ],
+        color: "secondary"
     }
 ];
 

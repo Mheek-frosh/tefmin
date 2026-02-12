@@ -5,11 +5,23 @@ import pp4 from "../assets/pp4.jpeg";
 import fastImage from "../assets/fast.jpeg";
 import kekeImage from "../assets/keke.jpeg";
 import twoManImage from "../assets/2man.jpeg";
-import shopImage from "../assets/shop.jpeg";
+import shopImage from "../assets/shop.png";
+
 
 export const projectItems = [
     {
         id: 1,
+        title: "Presidential Youth Empowerment Scheme (PYES)",
+        category: "Empowerment",
+        description: "Launch of the Presidential Youth Empowerment Scheme (PYES) at Aso Rock Villa Abuja.",
+        longDescription: "The Presidential Youth Empowerment Scheme (PYES) represents a transformative initiative aimed at empowering Nigerian youth through skills acquisition, entrepreneurship training, and access to modern business tools. Launched at the prestigious Aso Rock Villa in Abuja, this program provides young entrepreneurs with tricycles, motorcycles, and essential business equipment to kickstart their ventures. The scheme focuses on creating sustainable livelihoods, reducing unemployment, and fostering economic independence among Nigeria's youth population. Through strategic partnerships with government agencies and private sector stakeholders, PYES has already impacted thousands of young Nigerians, providing them with the resources and training needed to build successful businesses and contribute meaningfully to the nation's economic growth.",
+        image: p1,
+        images: [p1, p2, p3, pp4],
+        tags: ["Youth", "Empowerment", "Government"],
+        stats: { beneficiaries: "10,000+", states: "36 States" }
+    },
+    {
+        id: 2,
         title: "Fast Food Retail Outlet",
         category: "Empowerment",
         description: "A bespoke fast food retail outlet constructed for a youth entrepreneurship empowerment program.",
@@ -19,7 +31,7 @@ export const projectItems = [
         stats: { beneficiaries: "50+", jobs: "150+", locations: "10 States" }
     },
     {
-        id: 2,
+        id: 3,
         title: "Mobile Barber Shop",
         category: "Empowerment",
         description: "A bespoke mobile barber shop designed for a Youth and Women Entrepreneurship program.",
@@ -29,7 +41,7 @@ export const projectItems = [
         stats: { beneficiaries: "200+", units: "100", coverage: "15 States" }
     },
     {
-        id: 3,
+        id: 4,
         title: "SET Construction Training",
         category: "Training",
         description: "Beneficiaries undergoing practical training on the construction of Seed Empowerment Tools (SET) for a public sector led CSR program.",
@@ -39,7 +51,7 @@ export const projectItems = [
         stats: { trainees: "5,000+", tools: "2,500", states: "20 States" }
     },
     {
-        id: 4,
+        id: 5,
         title: "ICT Business Solutions Center",
         category: "Technology",
         description: "A bespoke ICT cabin designed and equipped with modern ICT facilities to serve as a Business Solutions Center for a private sector led Youth Entrepreneurship and Empowerment Program.",
@@ -49,7 +61,7 @@ export const projectItems = [
         stats: { centers: "75", beneficiaries: "1,500+", states: "25 States" }
     },
     {
-        id: 5,
+        id: 6,
         title: "Lagos Tech Hub",
         category: "Infrastructure",
         description: "Developing the largest industrial technology ecosystem in West Africa. This project focuses on providing state-of-the-art facilities for local tech startups and manufacturers.",
@@ -59,7 +71,7 @@ export const projectItems = [
         stats: { jobs: "2,000+", impact: "Lagos State" }
     },
     {
-        id: 6,
+        id: 7,
         title: "Eco-Friendly Logistics",
         category: "Supply Chain",
         description: "Revolutionizing distribution with zero-emission delivery solutions. We've introduced a fleet of electric vehicles to handle last-mile delivery in Nigeria's urban centers.",
@@ -69,7 +81,7 @@ export const projectItems = [
         stats: { emissions: "-1,200 tons", vehicles: "550" }
     },
     {
-        id: 3,
+        id: 8,
         title: "Nigerian Artisans Export",
         category: "Empowerment",
         description: "Connecting local excellence with global luxury markets. We empower traditional craftsmen to reach international buyers through modern digital platforms.",
@@ -79,7 +91,7 @@ export const projectItems = [
         stats: { artisans: "5,000+", income: "+400%" }
     },
     {
-        id: 4,
+        id: 9,
         title: "Agro-Industrial Park",
         category: "Agriculture",
         description: "Integrating modern processing facilities directly into farming communities. This project helps reduce post-harvest losses and adds value to local produce.",
@@ -89,7 +101,7 @@ export const projectItems = [
         stats: { farmers: "10,000+", wastage: "-35%" }
     },
     {
-        id: 5,
+        id: 10,
         title: "Renewable Energy Grid",
         category: "Energy",
         description: "Powering industrial zones with sustainable solar-wind hybrid solutions. Reducing dependence on unreliable fossil fuel grids.",
@@ -99,7 +111,7 @@ export const projectItems = [
         stats: { capacity: "50MW", savings: "60%" }
     },
     {
-        id: 6,
+        id: 11,
         title: "Smart Textiles Factory",
         category: "Manufacturing",
         description: "Modernizing Nigeria's textile industry with automated weaving and eco-friendly dye techniques.",
@@ -109,7 +121,7 @@ export const projectItems = [
         stats: { workers: "800+", output: "2M Meters" }
     },
     {
-        id: 11,
+        id: 12,
         title: "Digital Literacy Program",
         category: "Education",
         description: "Equipping young Nigerians with coding and data analysis skills for the future industrial economy.",
@@ -119,7 +131,7 @@ export const projectItems = [
         stats: { students: "50,000", centers: "120" }
     },
     {
-        id: 12,
+        id: 13,
         title: "Waste-to-Energy Plant",
         category: "Sustainability",
         description: "Converting urban municipal waste into clean synthetic gas and electricity for industrial use.",
@@ -129,7 +141,7 @@ export const projectItems = [
         stats: { waste: "500t/day", power: "10MW" }
     },
     {
-        id: 13,
+        id: 14,
         title: "Local Pharma Research",
         category: "Health",
         description: "Developing specialized laboratories for the production of essential vaccines and medications within Nigeria.",
@@ -139,7 +151,7 @@ export const projectItems = [
         stats: { vaccines: "3 types", labs: "5" }
     },
     {
-        id: 14,
+        id: 15,
         title: "Bio-Fertilizer Project",
         category: "Agriculture",
         description: "Producing organic fertilizers from agricultural waste to boost soil health and crop yields.",
@@ -149,7 +161,7 @@ export const projectItems = [
         stats: { yield: "+25%", waste_used: "1000t" }
     },
     {
-        id: 15,
+        id: 16,
         title: "Metal Recycling Hub",
         category: "Industrial",
         description: "Advanced smelting facilities focused on recovering high-grade steel and aluminum from scrap metal.",
@@ -159,7 +171,7 @@ export const projectItems = [
         stats: { steel: "10k tons", jobs: "300" }
     },
     {
-        id: 16,
+        id: 17,
         title: "Data Sovereignty Center",
         category: "Tech",
         description: "Establishing Tier-4 data centers to host Nigerian industrial and governmental data locally.",
@@ -167,16 +179,5 @@ export const projectItems = [
         image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800",
         tags: ["Data", "Cloud", "Sovereignty"],
         stats: { uptime: "99.99%", capacity: "100PB" }
-    },
-    {
-        id: 17,
-        title: "Presidential Youth Empowerment Scheme (PYES)",
-        category: "Empowerment",
-        description: "Launch of the Presidential Youth Empowerment Scheme (PYES) at Aso Rock Villa Abuja.",
-        longDescription: "The Presidential Youth Empowerment Scheme (PYES) represents a transformative initiative aimed at empowering Nigerian youth through skills acquisition, entrepreneurship training, and access to modern business tools. Launched at the prestigious Aso Rock Villa in Abuja, this program provides young entrepreneurs with tricycles, motorcycles, and essential business equipment to kickstart their ventures. The scheme focuses on creating sustainable livelihoods, reducing unemployment, and fostering economic independence among Nigeria's youth population. Through strategic partnerships with government agencies and private sector stakeholders, PYES has already impacted thousands of young Nigerians, providing them with the resources and training needed to build successful businesses and contribute meaningfully to the nation's economic growth.",
-        image: p1,
-        images: [p1, p2, p3, pp4],
-        tags: ["Youth", "Empowerment", "Government"],
-        stats: { beneficiaries: "10,000+", states: "36 States" }
     }
 ];

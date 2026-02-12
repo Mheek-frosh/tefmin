@@ -7,9 +7,29 @@ import { Newsletter } from "../components/Newsletter";
 import blog1 from "../assets/blog1.jpeg";
 import cultural from "../assets/cultural.png";
 import spain from "../assets/spain.jpeg";
+import a1 from "../assets/a1.jpeg";
+import a2 from "../assets/a2.jpeg";
+import a3 from "../assets/a3.jpeg";
+import p1 from "../assets/p1.jpeg";
 
 // Import blog posts data (same as Blog.jsx)
 const blogPosts = [
+    {
+        id: "pyes-initiative",
+        title: "PYES Initiative: Empowering the Next Generation of Nigerian Entrepreneurs",
+        excerpt: "National youth empowerment scheme providing tools and training for sustainable livelihoods and economic independence.",
+        fullContent: `The Presidential Youth Empowerment Scheme (PYES) represents a transformative initiative aimed at empowering Nigerian youth through skills acquisition, entrepreneurship training, and access to modern business tools. Launched at the prestigious Aso Rock Villa in Abuja, this program provides young entrepreneurs with tricycles, motorcycles, and essential business equipment to kickstart their ventures.
+
+The scheme focuses on creating sustainable livelihoods, reducing unemployment, and fostering economic independence among Nigeria's youth population. Through strategic partnerships with government agencies and private sector stakeholders, PYES has already impacted thousands of young Nigerians, providing them with the resources and training needed to build successful businesses and contribute meaningfully to the nation's economic growth.
+
+By providing the necessary tools and training, PYES ensures that beneficiaries are not just given fish, but taught how to fish. This sustainable approach is key to long-term economic stability and youth engagement in the industrial sector.`,
+        category: "Empowerment",
+        image: p1,
+        date: "February 13, 2026",
+        readTime: "8 min read",
+        author: "TEFMIN Empowerment Team",
+        featured: true,
+    },
     {
         id: "srms-pension-solution",
         title: "Digital Transformation in Pension Systems: NGF and SRMS Partner for 'I'm Alive' Solution Adoption",
@@ -84,6 +104,29 @@ The future is not something that happens to us. It is something we create. And t
         date: "February 5, 2026",
         readTime: "8 min read",
         author: "TEFMIN Editorial Team",
+        featured: true,
+    },
+    {
+        id: "alhamadinah-integrated-farms",
+        title: "Alhamadinah Integrated Farms: A New Era of Sustainable Agriculture and Industrial Innovation",
+        excerpt: "Exploring the groundbreaking transformation of Alhamadinah Integrated Farms into a model of sustainable, high-tech agricultural excellence.",
+        fullContent: `Alhamadinah Integrated Farms is setting a new standard for modern agriculture in Nigeria. Through a strategic partnership with TEFMIN, the farm has implemented cutting-edge integrated management systems that harmonize diverse agricultural activities into a cohesive, high-efficiency operation.
+
+The core of Alhamadinah's success lies in its 'Circle of Life' approach, where waste from one section becomes the nutrient source for another. This closed-loop system not only reduces environmental impact but also significantly lowers operational costs. Our consultation has helped transition the farm toward 100% sustainable practices, ensuring long-term soil health and productivity.
+
+Sustainability is no longer a luxury; it is a necessity for the future of Nigerian agriculture. Alhamadinah Integrated Farms has become a beacon of hope, demonstrating that eco-friendly farming is not only possible but highly profitable. Through TEFMIN's consultation, Alhamadinah has adopted advanced water conservation techniques, including solar-powered drip irrigation systems that deliver water directly to the plant roots. This has reduced water consumption by 40% while maintaining optimal growth conditions even during the dry season.
+
+The farm also utilizes organic fertilization methods, leveraging poultry and livestock waste processed through industrial-grade composting units. These practices have revitalized the land, producing nutrient-dense crops that command premium prices in both local and international markets.
+
+Strategic consultation is the bridge between potential and performance. In the case of Alhamadinah Integrated Farms, TEFMIN's involvement has been transformative, moving the operation from traditional methods to a data-driven, industrial-scale enterprise. Our advisory services covered everything from organizational structure to supply chain optimization. We helped Alhamadinah establish direct links with industrial buyers, ensuring that their products reach the market at the peak of freshness and value. This vertical integration has significantly increased the farm's profit margins.
+
+Furthermore, we've implemented comprehensive training programs for the farm staff, ensuring that the local community benefits from the knowledge and technology transfer. Alhamadinah is now not just a farm, but a center of excellence for agricultural innovation in the region.`,
+        category: "Innovation",
+        image: a1,
+        images: [a1, a2, a3],
+        date: "February 12, 2026",
+        readTime: "12 min read",
+        author: "TEFMIN & Alhamadinah Team",
         featured: true,
     },
     {
@@ -298,10 +341,25 @@ const BlogDetailPage = () => {
             {/* Content Area */}
             <div className="max-w-5xl mx-auto px-6">
 
-                {/* Featured Image */}
-                <div className="w-full h-[400px] md:h-[550px] rounded-3xl overflow-hidden mb-12">
-                    <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
-                </div>
+                {/* Featured Image or Gallery */}
+                {post.images && post.images.length > 0 ? (
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                        {post.images.map((img, index) => (
+                            <div key={index} className="w-full h-[300px] rounded-3xl overflow-hidden shadow-lg hover:scale-[1.02] transition-transform duration-300">
+                                <img src={img} alt={`${post.title} ${index + 1}`} className="w-full h-full object-cover" />
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="w-full h-[400px] md:h-[550px] rounded-3xl overflow-hidden mb-12 shadow-xl">
+                        <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                    </div>
+                )}
+
+                {/* Blog Post Title */}
+                <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-10 leading-tight">
+                    {post.title}
+                </h2>
 
                 {/* Article Body */}
                 <article className="prose prose-lg dark:prose-invert max-w-none mb-16">
