@@ -11,7 +11,7 @@ const quickReplies = [
 
 const botResponses = {
     default: "Thank you for your message! Our team will get back to you soon. In the meantime, feel free to explore our website or use the quick options below.",
-    services: "TEFMIN offers comprehensive services including Business Development & Consulting, Human Capital Development, Corporate Social Responsibility (CSR), Institutional Strengthening, Industrial Growth Solutions, and Innovation & Technology Advisory. Visit our Services page to learn more!",
+    services: "TEFMIN offers comprehensive services including Business Development & Consulting, Human Capital Development, Corporate Social Responsibility Advisory (CSR), Institutional Strengthening, Industrial Growth Solutions, and Innovation & Technology Advisory. Visit our Services page to learn more!",
     contact: "You can reach us through our Contact page at /contact. We'd love to hear from you! Our team typically responds within 24 hours.",
     projects: "TEFMIN is involved in transformative projects across Nigeria including the Lagos Tech Hub, Sustainable Energy Initiative, Textile Excellence Center, and many more. Check out our Projects page for the full portfolio!",
     mission: "TEFMIN's mission is to build a self-reliant Nigerian economy by fostering local manufacturing, industrial excellence, and human capital development. We believe Nigeria has everything it needs to thrive!",
