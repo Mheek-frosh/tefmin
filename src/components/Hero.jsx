@@ -131,10 +131,10 @@ export const Hero = () => {
                                     className="mb-8"
                                 >
                                     <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] mb-4 tracking-tighter">
-                                        The Future, Made in Nigeria
+                                        The Future Made in Nigeria
                                     </h1>
                                     <p className="text-xl md:text-2xl font-bold text-secondary uppercase tracking-[0.3em] mb-4">
-                                        Empowering People Building the Future
+                                        Empowering People, Building the Future
                                     </p>
                                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white/90 italic leading-tight">
                                         {slide.title}, {slide.subtitle}

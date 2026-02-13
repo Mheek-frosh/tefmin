@@ -6,6 +6,7 @@ import fastImage from "../assets/fast.jpeg";
 import kekeImage from "../assets/keke.jpeg";
 import twoManImage from "../assets/2man.jpeg";
 import shopImage from "../assets/shop.png";
+import ttImage from "../assets/tt.jpeg";
 
 
 export const projectItems = [
@@ -69,5 +70,15 @@ export const projectItems = [
         image: "https://images.unsplash.com/photo-1541944743827-e04bb645f9a3?auto=format&fit=crop&q=80&w=800",
         tags: ["Artisans", "Export", "Growth"],
         stats: { artisans: "5,000+", income: "+400%" }
+    },
+    {
+        id: 7,
+        title: "Strategic Consultation for Alhamadinah Integrated Farms",
+        category: "Consultation",
+        description: "Comprehensive advisory for Alhamadinah Integrated Farms' operations, focusing on sustainable practices and technology deployment.",
+        longDescription: "We provide specialized strategic consultation for Alhamadinah Integrated Farms, focusing on integrated agriculture, sustainable practices, and technology deployment for optimized farm yield and operational excellence. Our approach includes farm-to-market supply chain strategies and the implementation of advanced agricultural technologies.",
+        image: ttImage,
+        tags: ["Agriculture", "Consultation", "Sustainability"],
+        stats: { area: "500+ Hectares", output: "+35% yield" }
     },
 ];
