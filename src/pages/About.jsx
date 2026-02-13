@@ -4,7 +4,7 @@ import { Target, Globe2, Award, ChevronRight, X, Briefcase, GraduationCap, Users
 import { Button } from "../components/ui/Button";
 import { Newsletter } from "../components/Newsletter";
 import { siteConfig, founderBio } from "../data/siteData";
-import logO from "../assets/logow.png";
+import logO from "../assets/africa.png";
 import workersImage from "../assets/nigerian_workers_happy.png";
 import sdgLogo from "../assets/sdg.jpeg";
 import { Biography } from "../components/Biography";
@@ -97,7 +97,17 @@ export default function About() {
                     </div>
                     <div className="relative">
                         <div className="bg-gray-50 dark:bg-gray-800 rounded-[3rem] p-10 lg:p-12">
-                            <img src={logO} alt="TEFMIN Logo" className="w-24 h-auto mb-8 opacity-80" />
+                            <div className="flex items-center gap-4 mb-8">
+                                <img src={logO} alt="TEFMIN Logo" className="w-16 h-auto transition-all duration-500" />
+                                <div className="flex flex-col">
+                                    <span className="font-black text-2xl tracking-tighter text-[#1a5f3f] dark:text-white leading-none">
+                                        TEFMIN
+                                    </span>
+                                    <span className="text-[10px] font-medium text-secondary mt-1.5 whitespace-nowrap leading-none tracking-wide">
+                                        The Future Made in Nigeria Ltd
+                                    </span>
+                                </div>
+                            </div>
                             <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-6">Our Vision</h3>
                             <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-8">
                                 To be Africa's leading catalyst for industrial transformation, creating a self-reliant economy where Nigerian innovation and craftsmanship are celebrated globally.
