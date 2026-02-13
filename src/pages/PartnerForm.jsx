@@ -124,98 +124,130 @@ ${formData.message}`;
                         </h1>
                     </div>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Join TEFMIN in shaping Nigeria's innovation ecosystem and driving sustainable industrial transformation
+                        Join TEFMIN in advancing the UN Sustainable Development Goals through innovation, empowerment, and sustainable industrial transformation in Nigeria
                     </p>
                 </motion.div>
 
-                {/* Main Content */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-                    {/* Left Side - Information */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm mb-8">
-                            <h2 className="text-3xl font-black text-gray-900 mb-6">About the Initiative</h2>
-                            <div className="space-y-4 text-gray-700 leading-relaxed">
-                                <p>
-                                    The <strong>Future Made in Nigeria Initiative (FMNI)</strong> offers sponsors a unique opportunity to engage directly with Nigeria's emerging innovators while shaping solutions in AgriTech, Clean Energy & Climate Solutions, Health & Bio-Safety Innovation, Digital Transformation, and Artificial Intelligence.
-                                </p>
-                                <p>
-                                    By partnering with TEFMIN, sponsors gain early access to high-potential inventions, research-driven innovations, and young talent emerging from universities and research institutions across Nigeria. Our platform enables partners to identify, adopt, invest in, license, or incubate innovations aligned with their strategic, commercial, CSR, ESG, and sustainability objectives.
-                                </p>
-                            </div>
+                {/* SDG Alignment Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                    className="bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/5 rounded-3xl p-8 md:p-12 mb-12 border border-primary/20"
+                >
+                    <div className="flex flex-col md:flex-row items-center gap-8">
+                        <div className="flex-shrink-0">
+                            <img src={sdgLogo} alt="UN Sustainable Development Goals" className="w-48 h-auto rounded-2xl shadow-lg" />
                         </div>
-
-                        {/* Benefits Grid */}
-                        <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl p-8 md:p-10 mb-8">
-                            <h3 className="text-2xl font-black text-gray-900 mb-6">Why Partner with TEFMIN?</h3>
-                            <div className="space-y-4">
-                                {benefits.map((benefit, index) => (
-                                    <motion.div
-                                        key={index}
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.3 + index * 0.1 }}
-                                        className="flex items-start gap-4 p-4 bg-white rounded-2xl"
-                                    >
-                                        <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                                            {benefit.icon}
-                                        </div>
-                                        <div>
-                                            <h4 className="font-bold text-gray-900 mb-1">{benefit.title}</h4>
-                                            <p className="text-sm text-gray-600">{benefit.description}</p>
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Partnership Models */}
-                        <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm">
-                            <h3 className="text-2xl font-black text-gray-900 mb-6">Partnership Models</h3>
-                            <ul className="space-y-3 text-gray-700">
-                                <li className="flex items-start gap-3">
-                                    <CheckCircle2 className="text-primary shrink-0 mt-1" size={20} />
-                                    <span>Innovation sponsorship and challenge funding</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <CheckCircle2 className="text-primary shrink-0 mt-1" size={20} />
-                                    <span>Prototype and pilot project support</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <CheckCircle2 className="text-primary shrink-0 mt-1" size={20} />
-                                    <span>Corporate adoption and commercialization partnerships</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <CheckCircle2 className="text-primary shrink-0 mt-1" size={20} />
-                                    <span>Research-to-market and university-industry collaboration</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <CheckCircle2 className="text-primary shrink-0 mt-1" size={20} />
-                                    <span>CSR, ESG, and development-impact partnerships</span>
-                                </li>
-                            </ul>
-                            <p className="text-sm text-gray-600 mt-6 italic">
-                                TEFMIN serves as the neutral convener and commercialization bridge, ensuring value creation for innovators while delivering strategic and measurable impact for partners.
+                        <div className="flex-1">
+                            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+                                Aligned with the <span className="text-primary">UN SDGs</span>
+                            </h2>
+                            <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                                Our partnership framework directly supports multiple Sustainable Development Goals, including <strong>SDG 4 (Quality Education)</strong>, <strong>SDG 8 (Decent Work and Economic Growth)</strong>, <strong>SDG 9 (Industry, Innovation and Infrastructure)</strong>, <strong>SDG 12 (Responsible Consumption and Production)</strong>, and <strong>SDG 17 (Partnerships for the Goals)</strong>.
+                            </p>
+                            <p className="text-gray-600 leading-relaxed">
+                                By partnering with TEFMIN, your organization contributes to measurable impact on global sustainability targets while advancing Nigeria's innovation ecosystem and creating opportunities for local talent.
                             </p>
                         </div>
-                    </motion.div>
+                    </div>
+                </motion.div>
 
-                    {/* Right Side - Form */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.3 }}
-                    >
-                        <div className="bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100 sticky top-32">
-                            {!isSubmitted ? (
-                                <>
-                                    <h3 className="text-3xl font-black text-gray-900 mb-2">Get Started</h3>
-                                    <p className="text-gray-600 mb-8">Fill out the form below and we'll connect with you via WhatsApp</p>
+                {/* Main Content - Full Width */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="mb-12"
+                >
+                    <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm mb-8">
+                        <h2 className="text-3xl font-black text-gray-900 mb-6">About the Initiative</h2>
+                        <div className="space-y-4 text-gray-700 leading-relaxed">
+                            <p>
+                                The <strong>Future Made in Nigeria Initiative (FMNI)</strong> offers partners a unique opportunity to engage directly with Nigeria's emerging innovators while advancing solutions aligned with the UN Sustainable Development Goals. Our focus areas include AgriTech, Clean Energy & Climate Solutions, Health & Bio-Safety Innovation, Digital Transformation, and Artificial Intelligence.
+                            </p>
+                            <p>
+                                By partnering with TEFMIN, organizations gain early access to high-potential inventions, research-driven innovations, and young talent emerging from universities and research institutions across Nigeria. Our platform enables partners to identify, adopt, invest in, license, or incubate innovations aligned with their strategic, commercial, CSR, ESG, and SDG objectives.
+                            </p>
+                        </div>
+                    </div>
 
-                                    <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Benefits Grid */}
+                    <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl p-8 md:p-10 mb-8">
+                        <h3 className="text-2xl font-black text-gray-900 mb-6">Why Partner with TEFMIN?</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {benefits.map((benefit, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.3 + index * 0.1 }}
+                                    className="flex items-start gap-4 p-4 bg-white rounded-2xl"
+                                >
+                                    <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                        {benefit.icon}
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-gray-900 mb-1">{benefit.title}</h4>
+                                        <p className="text-sm text-gray-600">{benefit.description}</p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Partnership Models */}
+                    <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm">
+                        <h3 className="text-2xl font-black text-gray-900 mb-6">Partnership Models</h3>
+                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-700">
+                            <li className="flex items-start gap-3">
+                                <CheckCircle2 className="text-primary shrink-0 mt-1" size={20} />
+                                <span>Innovation sponsorship and challenge funding</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <CheckCircle2 className="text-primary shrink-0 mt-1" size={20} />
+                                <span>Prototype and pilot project support</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <CheckCircle2 className="text-primary shrink-0 mt-1" size={20} />
+                                <span>Corporate adoption and commercialization partnerships</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <CheckCircle2 className="text-primary shrink-0 mt-1" size={20} />
+                                <span>Research-to-market and university-industry collaboration</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <CheckCircle2 className="text-primary shrink-0 mt-1" size={20} />
+                                <span>CSR, ESG, and SDG-aligned development partnerships</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <CheckCircle2 className="text-primary shrink-0 mt-1" size={20} />
+                                <span>Sustainable technology transfer and capacity building</span>
+                            </li>
+                        </ul>
+                        <p className="text-sm text-gray-600 mt-6 italic">
+                            TEFMIN serves as the neutral convener and commercialization bridge, ensuring value creation for innovators while delivering strategic, measurable impact aligned with global sustainability goals.
+                        </p>
+                    </div>
+                </motion.div>
+
+                {/* Partnership Form - Full Width Below */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="max-w-3xl mx-auto"
+                >
+                    <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
+                        {!isSubmitted ? (
+                            <>
+                                <div className="text-center mb-10">
+                                    <h3 className="text-4xl font-black text-gray-900 mb-3">Start Your Partnership Journey</h3>
+                                    <p className="text-gray-600 text-lg">Fill out the form below and we'll connect with you via WhatsApp to discuss how we can collaborate on advancing the SDGs together</p>
+                                </div>
+
+                                <form onSubmit={handleSubmit} className="space-y-6">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
                                             <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
                                                 Full Name *
@@ -245,7 +277,9 @@ ${formData.message}`;
                                                 className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all font-bold text-gray-900 placeholder-gray-400"
                                             />
                                         </div>
+                                    </div>
 
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
                                             <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
                                                 Company/Organization *
@@ -275,66 +309,66 @@ ${formData.message}`;
                                                 className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all font-bold text-gray-900 placeholder-gray-400"
                                             />
                                         </div>
-
-                                        <div>
-                                            <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
-                                                Partnership Interest *
-                                            </label>
-                                            <select
-                                                required
-                                                name="interest"
-                                                value={formData.interest}
-                                                onChange={handleChange}
-                                                className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all appearance-none font-bold text-gray-900"
-                                            >
-                                                <option value="">Select an option</option>
-                                                {partnershipInterests.map((interest) => (
-                                                    <option key={interest} value={interest}>{interest}</option>
-                                                ))}
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
-                                                Message (Optional)
-                                            </label>
-                                            <textarea
-                                                rows="4"
-                                                name="message"
-                                                value={formData.message}
-                                                onChange={handleChange}
-                                                placeholder="Tell us more about your partnership goals..."
-                                                className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all resize-none font-bold text-gray-900 placeholder-gray-400"
-                                            ></textarea>
-                                        </div>
-
-                                        <Button type="submit" className="w-full py-5 text-lg shadow-2xl flex items-center justify-center gap-3">
-                                            Send via WhatsApp <Send size={20} />
-                                        </Button>
-
-                                        <p className="text-xs text-gray-500 text-center">
-                                            By submitting this form, you'll be redirected to WhatsApp to complete your inquiry
-                                        </p>
-                                    </form>
-                                </>
-                            ) : (
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    className="text-center py-12"
-                                >
-                                    <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                        <CheckCircle2 className="text-green-600" size={48} />
                                     </div>
-                                    <h3 className="text-3xl font-black text-gray-900 mb-4">Redirecting to WhatsApp!</h3>
-                                    <p className="text-gray-600 leading-relaxed">
-                                        Your partnership inquiry is being sent via WhatsApp. Please complete the message there.
+
+                                    <div>
+                                        <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
+                                            Partnership Interest *
+                                        </label>
+                                        <select
+                                            required
+                                            name="interest"
+                                            value={formData.interest}
+                                            onChange={handleChange}
+                                            className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all appearance-none font-bold text-gray-900"
+                                        >
+                                            <option value="">Select an option</option>
+                                            {partnershipInterests.map((interest) => (
+                                                <option key={interest} value={interest}>{interest}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
+                                            Message (Optional)
+                                        </label>
+                                        <textarea
+                                            rows="5"
+                                            name="message"
+                                            value={formData.message}
+                                            onChange={handleChange}
+                                            placeholder="Tell us more about your SDG priorities and partnership goals..."
+                                            className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all resize-none font-bold text-gray-900 placeholder-gray-400"
+                                        ></textarea>
+                                    </div>
+
+                                    <Button type="submit" className="w-full py-5 text-lg shadow-2xl flex items-center justify-center gap-3">
+                                        Send via WhatsApp <Send size={20} />
+                                    </Button>
+
+                                    <p className="text-xs text-gray-500 text-center">
+                                        By submitting this form, you'll be redirected to WhatsApp to complete your inquiry
                                     </p>
-                                </motion.div>
-                            )}
-                        </div>
-                    </motion.div>
-                </div>
+                                </form>
+                            </>
+                        ) : (
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                className="text-center py-12"
+                            >
+                                <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <CheckCircle2 className="text-green-600" size={48} />
+                                </div>
+                                <h3 className="text-3xl font-black text-gray-900 mb-4">Redirecting to WhatsApp!</h3>
+                                <p className="text-gray-600 leading-relaxed">
+                                    Your partnership inquiry is being sent via WhatsApp. Please complete the message there.
+                                </p>
+                            </motion.div>
+                        )}
+                    </div>
+                </motion.div>
             </div>
         </div>
     );
