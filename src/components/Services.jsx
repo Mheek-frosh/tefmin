@@ -54,8 +54,8 @@ export const Services = () => {
                         viewport={{ once: true }}
                         className="h-1.5 bg-secondary mx-auto mb-8 rounded-full"
                     />
-                    <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
-                        We provide comprehensive solutions designed to unlock the full potential of the Nigerian economy.
+                    <p className="max-w-4xl mx-auto text-gray-600 dark:text-gray-400 text-lg md:text-xl leading-relaxed">
+                        TEFMIN exists to design, develop, and scale solutions that strengthen Nigeria's economic backbone — from innovation and enterprise development to strategic partnerships that unlock long-term national value.
                     </p>
                 </div>
 

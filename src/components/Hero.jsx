@@ -156,9 +156,7 @@ export const Hero = () => {
                                 </motion.p>
                             </AnimatePresence>
 
-                            <p className="text-base md:text-xl text-white/80 mb-10 md:mb-12 leading-relaxed max-w-3xl mx-auto">
-                                TEFMIN exists to design, develop, and scale solutions that strengthen Nigeria's economic backbone — from innovation and enterprise development to strategic partnerships that unlock long-term national value.
-                            </p>
+
 
                             {/* CTA Buttons */}
                             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
