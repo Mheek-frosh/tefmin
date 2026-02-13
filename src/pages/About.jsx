@@ -17,9 +17,11 @@ const coreValues = [
 
 const milestones = [
     { year: "2011", title: "TEFMIN Founded", desc: "Establishment of The Future Made in Nigeria Project Ltd in Lagos." },
-    { year: "2012", title: "First Consulting Engagement", desc: "Initiated partnerships with Federal MDAs and private sector organizations." },
-    { year: "2020", title: "Youth Empowerment Launch", desc: "Rolled out nationwide youth empowerment and capacity building programs." },
-    { year: "2024", title: "Industrial Hub Vision", desc: "Strategic planning for industrial parks and manufacturing excellence centers." },
+    { year: "2014", title: "Regional Expansion & Advisory", desc: "Initiated key partnerships with Federal MDAs and private sector organizations." },
+    { year: "2018", title: "Nationwide Empowerment Rollout", desc: "Extended programs to all 36 states, focusing on youth and vocational excellence." },
+    { year: "2021", title: "Digital Skills & ICT Integration", desc: "Incorporating modern technology and ICT solutions into artisan workflows." },
+    { year: "2024", title: "Innovation Fair & Export Readiness", desc: "Launching platforms to showcase local inventions to global luxury markets." },
+    { year: "2026", title: "Vision 2026 Goal", desc: "Targeting a milestone of 1M+ Nigerians empowered through industrial inclusion." },
 ];
 
 export default function About() {
