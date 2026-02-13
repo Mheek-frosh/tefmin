@@ -27,7 +27,7 @@ export const Footer = () => {
                             </div>
                         </div>
                         <p className="text-white/70 mb-8 leading-relaxed">
-                            Empowering People Building the Future
+                            Empowering People, Building the Future
                         </p>
                         <div className="flex gap-4">
                             {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
