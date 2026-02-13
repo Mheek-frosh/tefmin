@@ -282,7 +282,7 @@ ${formData.message || 'No additional message provided.'}`;
                     <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
                         <div className="text-center mb-10">
                             <h3 className="text-4xl font-black text-gray-900 mb-3">Start Your Partnership Journey</h3>
-                            <p className="text-gray-600 text-lg">Fill out the form below and we'll connect with you via WhatsApp to discuss how we can collaborate on advancing the SDGs together</p>
+                            <p className="text-gray-600 text-lg">Fill out the form below and we'll connect with you via WhatsApp to discuss how we can be of service to your business and community.</p>
                         </div>
 
                         <form onSubmit={handleSubmit} className="space-y-6">

@@ -153,10 +153,17 @@ export const Navbar = () => {
                         </div>
                     ))}
 
-                    {/* RC Number */}
-                    <span className={`text-xs font-bold uppercase tracking-widest transition-colors duration-500 ${showScrolledStyle ? "text-gray-600 dark:text-gray-400" : "text-white/80"}`}>
-                        RC 929882
-                    </span>
+
+
+                    <a
+                        href="https://drive.google.com/file/d/1L-jaI6WYqQYmH6k2StsP-EFoUvf1_5Il/view?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`py-2.5 px-6 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 hover:text-secondary ${showScrolledStyle ? "text-gray-700 dark:text-gray-200" : "text-white"
+                            }`}
+                    >
+                        Brochure
+                    </a>
 
                     {/* Dark Mode Toggle */}
                     <button
@@ -218,7 +225,12 @@ export const Navbar = () => {
                 </div>
             </div>
 
-            {/* Mobile Menu - App Style Overlay */}
+            {/* RC Number - Positioned under the bar on the right */}
+            <div className="max-w-7xl mx-auto px-12 relative flex justify-end">
+                <span className={`text-[10px] font-black uppercase tracking-[0.2em] mt-2 transition-colors duration-500 ${showScrolledStyle ? "text-gray-400 dark:text-gray-500" : "text-white/60"}`}>
+                    RC 929882
+                </span>
+            </div>
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
@@ -290,7 +302,16 @@ export const Navbar = () => {
                                 ))}
                             </div>
 
-                            <div className="mt-auto">
+                            <div className="mt-auto flex flex-col gap-4">
+                                <a
+                                    href="https://drive.google.com/file/d/1L-jaI6WYqQYmH6k2StsP-EFoUvf1_5Il/view?usp=sharing"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-full py-5 rounded-[2rem] border-2 border-primary/20 text-primary dark:text-white dark:border-white/20 text-center text-lg font-black block uppercase tracking-widest"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    Brochure
+                                </a>
                                 <Link
                                     to="/contact"
                                     className="w-full py-6 rounded-[2rem] bg-primary text-white text-center text-xl font-black shadow-xl shadow-primary/20 block uppercase tracking-widest"
@@ -298,13 +319,13 @@ export const Navbar = () => {
                                 >
                                     Contact Us
                                 </Link>
-                                <div className="mt-8 flex justify-between items-center px-4">
+                                <div className="mt-4 flex justify-between items-center px-4 py-4 rounded-2xl bg-gray-50 dark:bg-gray-800">
                                     <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Toggle Theme</span>
                                     <button
                                         onClick={toggleDarkMode}
-                                        className="p-4 rounded-2xl bg-gray-50 dark:bg-gray-800 text-primary dark:text-secondary"
+                                        className="p-3 rounded-xl bg-white dark:bg-gray-700 text-primary dark:text-secondary shadow-sm"
                                     >
-                                        {isDarkMode ? <Sun size={24} /> : <Moon size={24} />}
+                                        {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
                                     </button>
                                 </div>
                             </div>
@@ -312,7 +333,7 @@ export const Navbar = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </nav>
+        </nav >
     );
 };
 
