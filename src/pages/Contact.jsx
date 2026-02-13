@@ -32,7 +32,7 @@ export default function ContactPage() {
                                 <span className="text-primary dark:text-secondary underline decoration-secondary decoration-8 underline-offset-8">Future.</span>
                             </h1>
                             <p className="text-xl text-gray-600 dark:text-gray-400 mb-12 leading-relaxed">
-                                Have an industrial project in mind? Want to join our empowerment cycle? Reach out to our team of experts and let's discuss how we can collaborate.
+                                Have a CSR project or training need? Want to join our empowerment cycle? Reach out to our team of experts and let's discuss how we can collaborate.
                             </p>
 
                             <div className="space-y-8">
