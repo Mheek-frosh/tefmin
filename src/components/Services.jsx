@@ -16,7 +16,7 @@ const services = [
         image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800",
     },
     {
-        title: "Corporate Social Responsibility (CSR) Advisory",
+        title: "Corporate Social Responsibility (CSR)",
         description: "Aligning business objectives with impactful social responsibility projects.",
         icon: <Heart className="w-8 h-8 text-secondary" />,
         image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800",

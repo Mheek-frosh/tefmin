@@ -11,7 +11,7 @@ const quickReplies = [
 
 const botResponses = {
     default: "Thank you for your message! Our team will get back to you soon. In the meantime, feel free to explore our website or use the quick options below.",
-    services: "TEFMIN offers comprehensive services including Business Development & Consulting, Human Capital Development, Corporate Responsibility Advisory, Institutional Strengthening, Industrial Growth Solutions, and Innovation & Technology Advisory. Visit our Services page to learn more!",
+    services: "TEFMIN offers comprehensive services including Business Development & Consulting, Human Capital Development, Corporate Social Responsibility (CSR), Institutional Strengthening, Industrial Growth Solutions, and Innovation & Technology Advisory. Visit our Services page to learn more!",
     contact: "You can reach us through our Contact page at /contact. We'd love to hear from you! Our team typically responds within 24 hours.",
     projects: "TEFMIN is involved in transformative projects across Nigeria including the Lagos Tech Hub, Sustainable Energy Initiative, Textile Excellence Center, and many more. Check out our Projects page for the full portfolio!",
     mission: "TEFMIN's mission is to build a self-reliant Nigerian economy by fostering local manufacturing, industrial excellence, and human capital development. We believe Nigeria has everything it needs to thrive!",
@@ -86,8 +86,8 @@ export const Chatbot = () => {
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setIsOpen(!isOpen)}
                 className={`fixed bottom-6 right-6 z-50 w-16 h-16 rounded-2xl flex items-center justify-center shadow-2xl transition-colors ${isOpen
-                        ? "bg-gray-800 dark:bg-gray-700"
-                        : "bg-primary hover:bg-primary/90"
+                    ? "bg-gray-800 dark:bg-gray-700"
+                    : "bg-primary hover:bg-primary/90"
                     }`}
             >
                 <AnimatePresence mode="wait">
@@ -157,8 +157,8 @@ export const Chatbot = () => {
                                     )}
                                     <div
                                         className={`max-w-[75%] px-4 py-3 rounded-2xl text-sm ${message.type === "user"
-                                                ? "bg-primary text-white rounded-br-lg"
-                                                : "bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-bl-lg shadow-sm"
+                                            ? "bg-primary text-white rounded-br-lg"
+                                            : "bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-bl-lg shadow-sm"
                                             }`}
                                     >
                                         {message.text}

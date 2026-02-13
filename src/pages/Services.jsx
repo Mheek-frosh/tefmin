@@ -42,7 +42,7 @@ const services = [
     {
         id: 3,
         icon: ShieldCheck,
-        title: "Corporate Responsibility Advisory",
+        title: "Corporate Social Responsibility (CSR)",
         shortDesc: "Helping organizations create meaningful social impact.",
         fullDesc: "We guide corporations in developing and implementing CSR strategies that create genuine community impact while aligning with business objectives. Our approach ensures sustainable, measurable outcomes.",
         features: [
