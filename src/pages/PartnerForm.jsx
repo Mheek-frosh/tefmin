@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, CheckCircle2, Handshake, TrendingUp, Users, Target, Lightbulb, Award, Sparkles, Check } from "lucide-react";
+import { Send, CheckCircle2, Handshake, TrendingUp, Users, Target, Lightbulb, Award, Sparkles, Check, BookOpen, GraduationCap, Globe2, Briefcase, Quote } from "lucide-react";
 import { Button } from "../components/ui/Button";
-import sdgLogo from "../assets/sdg.jpeg";
 
 export default function PartnerForm() {
     const [formData, setFormData] = useState({
@@ -40,7 +39,7 @@ ${formData.message || 'No additional message provided.'}`;
         // Encode message for URL
         const encodedMessage = encodeURIComponent(whatsappMessage);
 
-        // WhatsApp URL - New number provided by user
+        // WhatsApp URL
         const whatsappURL = `https://wa.me/2349034448700?text=${encodedMessage}`;
 
         // Open WhatsApp in new tab
@@ -64,6 +63,7 @@ ${formData.message || 'No additional message provided.'}`;
     };
 
     const partnershipInterests = [
+        "Sponsor TEFMIN Initiative",
         "Innovation Sponsorship",
         "Prototype & Pilot Project Support",
         "Corporate Adoption & Commercialization",
@@ -76,36 +76,38 @@ ${formData.message || 'No additional message provided.'}`;
 
     const benefits = [
         {
-            icon: <Lightbulb size={28} />,
+            icon: <Target size={28} />,
             title: "Early-Stage Access",
-            description: "Scalable, locally developed technologies from Nigerian innovators"
+            description: "Scalable, locally developed technologies and early access to emerging Nigerian innovations."
         },
         {
             icon: <Users size={28} />,
-            title: "Co-Creation Opportunities",
-            description: "Direct collaboration with universities and research institutions"
+            title: "Co-Creation",
+            description: "Opportunities to collaborate directly with universities, polytechnics, and young innovators."
         },
         {
             icon: <Award size={28} />,
             title: "Brand Visibility",
-            description: "Thought leadership at the Future Made in Nigeria Science & Tech Innovation Fair"
+            description: "Thought leadership presence at the Future Made in Nigeria Science & Tech Innovation Fair."
         },
         {
             icon: <TrendingUp size={28} />,
             title: "Talent Pipeline",
-            description: "Access to startups, spin-offs, and emerging tech talent"
+            description: "A direct channel for identifying startups, spin-offs, and high-potential tech talent."
         },
         {
-            icon: <Target size={28} />,
+            icon: <Globe2 size={28} />,
             title: "Strategic Alignment",
-            description: (
-                <div className="flex items-center gap-2">
-                    <span>Support national development priorities,</span>
-                    <img src={sdgLogo} alt="SDG" className="h-5 w-auto inline-block" />
-                    <span>SDGs, ESG, and climate goals</span>
-                </div>
-            )
+            description: "Alignment with national development priorities, SDGs, ESG, and climate goals."
         }
+    ];
+
+    const models = [
+        "Innovation sponsorship and challenge funding",
+        "Prototype and pilot project support",
+        "Corporate adoption and commercialization partnerships",
+        "Research-to-market and university-industry collaboration",
+        "CSR, ESG, and development-impact partnerships"
     ];
 
     return (
@@ -128,6 +130,7 @@ ${formData.message || 'No additional message provided.'}`;
                     </motion.div>
                 )}
             </AnimatePresence>
+
             <div className="max-w-7xl mx-auto px-6">
                 {/* Header Section */}
                 <motion.div
@@ -135,7 +138,6 @@ ${formData.message || 'No additional message provided.'}`;
                     animate={{ opacity: 1, y: 0 }}
                     className="text-center mb-16 relative"
                 >
-                    {/* Decorative Background Elements */}
                     <div className="absolute inset-0 -z-10 overflow-hidden">
                         <div className="absolute top-0 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
                         <div className="absolute top-0 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
@@ -148,147 +150,150 @@ ${formData.message || 'No additional message provided.'}`;
                         transition={{ delay: 0.2 }}
                     >
                         <Sparkles className="text-primary" size={20} />
-                        <span className="text-sm font-black uppercase tracking-wider text-gray-700">Build the Future Together</span>
+                        <span className="text-sm font-black uppercase tracking-wider text-gray-700">Flagship Program</span>
                     </motion.div>
 
-                    <h1 className="text-5xl md:text-6xl lg:text-8xl font-black mb-6 leading-[0.95]">
-                        <span className="block text-gray-900">Partner With</span>
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+                        <span className="block text-gray-900">TEFMIN Flagship Program:</span>
                         <span className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient">
-                            TEFMIN
+                            The Future Made in Nigeria Initiative (FMNI)
                         </span>
                     </h1>
-
-                    <div className="flex items-center justify-center gap-3 mb-6">
-                        <div className="h-1 w-16 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full"></div>
-                        <Handshake className="text-primary" size={32} />
-                        <div className="h-1 w-16 bg-gradient-to-r from-transparent via-secondary to-transparent rounded-full"></div>
-                    </div>
-
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Join TEFMIN in advancing the UN Sustainable Development Goals through innovation, empowerment, and sustainable industrial transformation in Nigeria
-                    </p>
                 </motion.div>
 
-                {/* SDG Alignment Section */}
+                {/* Flagship Program Description */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/5 rounded-3xl p-8 md:p-12 mb-12 border border-primary/20"
+                    className="bg-white rounded-[3rem] p-8 md:p-16 mb-16 shadow-xl border border-gray-100"
                 >
-                    <div className="flex flex-col md:flex-row items-center gap-8">
-                        <div className="flex-shrink-0">
-                            <img src={sdgLogo} alt="UN Sustainable Development Goals" className="w-48 h-auto rounded-2xl shadow-lg" />
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                        <div className="space-y-6">
+                            <p className="text-xl text-primary font-bold leading-relaxed">
+                                The Future Made in Nigeria Initiative (FMNI) is TEFMIN’s flagship science, technology, and innovation program designed to unlock Nigeria’s next generation of inventors, researchers, and technology entrepreneurs.
+                            </p>
+                            <p className="text-gray-600 leading-relaxed text-lg">
+                                The initiative partners with universities, polytechnics, research institutions, and innovation hubs to provide a structured platform for young people in science, technology, engineering, and related disciplines to conceive, design, and develop ideas into practical, market-ready solutions.
+                            </p>
+                            <p className="text-gray-600 leading-relaxed text-lg">
+                                Through guided innovation labs, mentorship, and industry-led problem statements, students and young innovators are supported to transform academic concepts into prototypes, inventions, and scalable technologies addressing real economic and social challenges.
+                            </p>
                         </div>
-                        <div className="flex-1">
-                            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-                                Aligned with the <span className="text-primary">UN SDGs</span>
-                            </h2>
-                            <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                                Our partnership framework directly supports multiple Sustainable Development Goals, including <strong>SDG 4 (Quality Education)</strong>, <strong>SDG 8 (Decent Work and Economic Growth)</strong>, <strong>SDG 9 (Industry, Innovation and Infrastructure)</strong>, <strong>SDG 12 (Responsible Consumption and Production)</strong>, and <strong>SDG 17 (Partnerships for the Goals)</strong>.
+                        <div className="space-y-6">
+                            <p className="text-gray-600 leading-relaxed text-lg">
+                                Selected projects receive financial support, technical assistance, and entrepreneurial development, including business modeling, intellectual property guidance, and go-to-market support. High-potential inventions are then showcased at the <strong>Future Made in Nigeria Science & Tech Innovation Fair</strong>, a national platform that connects innovators with investors, corporates, government agencies, and development partners.
                             </p>
-                            <p className="text-gray-600 leading-relaxed">
-                                By partnering with TEFMIN, your organization contributes to measurable impact on global sustainability targets while advancing Nigeria's innovation ecosystem and creating opportunities for local talent.
+                            <p className="text-gray-600 leading-relaxed text-lg">
+                                At the Innovation Fair, sponsors and partners can adopt, license, incubate, or invest in selected inventions, accelerating commercialization, job creation, and indigenous technology development.
                             </p>
+                            <div className="bg-primary/5 p-6 rounded-2xl border-l-4 border-primary italic text-gray-700">
+                                The Future Made in Nigeria Initiative positions innovation as a pathway to youth empowerment, economic diversification, and national development, ensuring that Nigerian ideas are not only imagined locally—but built, owned, and scaled globally.
+                            </div>
                         </div>
                     </div>
                 </motion.div>
 
-                {/* Main Content - Full Width */}
+                {/* Partner With Us Section */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="mb-12"
+                    className="mb-16"
                 >
-                    <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm mb-8">
-                        <h2 className="text-3xl font-black text-gray-900 mb-6">About the Initiative</h2>
-                        <div className="space-y-4 text-gray-700 leading-relaxed">
-                            <p>
-                                The <strong>Future Made in Nigeria Initiative (FMNI)</strong> offers partners a unique opportunity to engage directly with Nigeria's emerging innovators while advancing solutions aligned with the UN Sustainable Development Goals. Our focus areas include AgriTech, Clean Energy & Climate Solutions, Health & Bio-Safety Innovation, Digital Transformation, and Artificial Intelligence.
+                    <div className="text-center mb-12">
+                        <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">Partner With Us</h2>
+                        <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                            The Future Made in Nigeria Initiative (FMNI) offers sponsors a unique opportunity to engage directly with Nigeria’s emerging innovators while shaping solutions in AgriTech, Clean Energy & Climate Solutions, Health & Bio-Safety Innovation, Digital Transformation, and Artificial Intelligence.
+                        </p>
+                    </div>
+
+                    <div className="bg-gradient-to-br from-primary via-primary/90 to-secondary p-12 md:p-16 rounded-[3rem] text-white shadow-2xl relative overflow-hidden mb-16">
+                        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                        <div className="relative z-10">
+                            <p className="text-2xl font-medium leading-relaxed mb-8">
+                                By partnering with TEFMIN, sponsors gain early access to high-potential inventions, research-driven innovations, and young talent emerging from universities and research institutions across Nigeria.
                             </p>
-                            <p>
-                                By partnering with TEFMIN, organizations gain early access to high-potential inventions, research-driven innovations, and young talent emerging from universities and research institutions across Nigeria. Our platform enables partners to identify, adopt, invest in, license, or incubate innovations aligned with their strategic, commercial, CSR, ESG, and SDG objectives.
+                            <p className="text-xl text-white/80 leading-relaxed">
+                                Our platform enables partners to identify, adopt, invest in, license, or incubate innovations aligned with their strategic, commercial, CSR, ESG, and sustainability objectives.
                             </p>
                         </div>
                     </div>
 
-                    {/* Benefits Grid */}
-                    <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl p-8 md:p-10 mb-8">
-                        <h3 className="text-2xl font-black text-gray-900 mb-6">Why Partner with TEFMIN?</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* Why Partner Grid */}
+                    <div className="mb-20">
+                        <h3 className="text-3xl font-black text-gray-900 mb-10 text-center uppercase tracking-tighter">Why Partner with TEFMIN?</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {benefits.map((benefit, index) => (
                                 <motion.div
                                     key={index}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.3 + index * 0.1 }}
-                                    className="flex items-start gap-4 p-4 bg-white rounded-2xl"
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group"
                                 >
-                                    <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                    <div className="h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
                                         {benefit.icon}
                                     </div>
-                                    <div>
-                                        <h4 className="font-bold text-gray-900 mb-1">{benefit.title}</h4>
-                                        <p className="text-sm text-gray-600">{benefit.description}</p>
-                                    </div>
+                                    <h4 className="text-xl font-black mb-3 text-gray-900">{benefit.title}</h4>
+                                    <p className="text-gray-500 leading-relaxed">{benefit.description}</p>
                                 </motion.div>
                             ))}
                         </div>
                     </div>
 
-                    {/* Partnership Models */}
-                    <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm">
-                        <h3 className="text-2xl font-black text-gray-900 mb-6">Partnership Models</h3>
-                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-700">
-                            <li className="flex items-start gap-3">
-                                <CheckCircle2 className="text-primary shrink-0 mt-1" size={20} />
-                                <span>Innovation sponsorship and challenge funding</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <CheckCircle2 className="text-primary shrink-0 mt-1" size={20} />
-                                <span>Prototype and pilot project support</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <CheckCircle2 className="text-primary shrink-0 mt-1" size={20} />
-                                <span>Corporate adoption and commercialization partnerships</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <CheckCircle2 className="text-primary shrink-0 mt-1" size={20} />
-                                <span>Research-to-market and university-industry collaboration</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <CheckCircle2 className="text-primary shrink-0 mt-1" size={20} />
-                                <span>CSR, ESG, and SDG-aligned development partnerships</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <CheckCircle2 className="text-primary shrink-0 mt-1" size={20} />
-                                <span>Sustainable technology transfer and capacity building</span>
-                            </li>
-                        </ul>
-                        <p className="text-sm text-gray-600 mt-6 italic">
-                            TEFMIN serves as the neutral convener and commercialization bridge, ensuring value creation for innovators while delivering strategic, measurable impact aligned with global sustainability goals.
-                        </p>
+                    {/* Models & Neutral Convener */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-20">
+                        <div className="bg-white p-10 md:p-14 rounded-[3rem] shadow-sm border border-gray-100">
+                            <h3 className="text-3xl font-black text-gray-900 mb-8">Partnership Models</h3>
+                            <ul className="space-y-4">
+                                {models.map((model, index) => (
+                                    <li key={index} className="flex items-start gap-4">
+                                        <div className="mt-1.5 h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                                            <Check size={12} className="text-primary" />
+                                        </div>
+                                        <span className="text-gray-700 font-medium">{model}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="bg-secondary rounded-[3rem] p-10 md:p-14 flex flex-col justify-center text-primary">
+                            <Quote className="h-12 w-12 mb-6 opacity-50" />
+                            <p className="text-2xl font-black leading-tight mb-6">
+                                TEFMIN serves as the neutral convener and commercialization bridge, ensuring value creation for innovators while delivering strategic and measurable impact for partners.
+                            </p>
+                            <div className="h-1 w-20 bg-primary/20 rounded-full" />
+                        </div>
                     </div>
                 </motion.div>
 
-                {/* Partnership Form - Full Width Below */}
+                {/* Partnership Form Section */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="max-w-3xl mx-auto"
+                    id="partner-form"
+                    className="max-w-4xl mx-auto"
                 >
-                    <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
-                        <div className="text-center mb-10">
-                            <h3 className="text-4xl font-black text-gray-900 mb-3">Start Your Partnership Journey</h3>
-                            <p className="text-gray-600 text-lg">Fill out the form below and we'll connect with you via WhatsApp to discuss how we can be of service to your business and community.</p>
+                    <div className="bg-white rounded-[4rem] p-10 md:p-16 shadow-2xl border border-gray-100 relative overflow-hidden">
+                        {/* Decorative element for form */}
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+
+                        <div className="text-center mb-12">
+                            <span className="text-primary font-black tracking-widest uppercase text-xs mb-4 inline-block bg-primary/5 px-4 py-2 rounded-full">
+                                Get Started
+                            </span>
+                            <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">Express Your Interest</h3>
+                            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+                                Join us in shaping the future of Nigerian innovation. Fill out the form below and we'll connect with you to discuss our partnership potential.
+                            </p>
                         </div>
 
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
+                        <form onSubmit={handleSubmit} className="space-y-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div className="space-y-2">
+                                    <label className="text-sm font-black uppercase tracking-widest text-gray-400 ml-2">
                                         Full Name *
                                     </label>
                                     <input
@@ -297,13 +302,12 @@ ${formData.message || 'No additional message provided.'}`;
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
-                                        placeholder="John Doe"
-                                        className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all font-bold text-gray-900 placeholder-gray-400"
+                                        placeholder="Enter your name"
+                                        className="w-full bg-gray-50 border-2 border-transparent focus:border-primary/20 rounded-3xl py-5 px-8 focus:outline-none focus:bg-white transition-all font-bold text-gray-900"
                                     />
                                 </div>
-
-                                <div>
-                                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
+                                <div className="space-y-2">
+                                    <label className="text-sm font-black uppercase tracking-widest text-gray-400 ml-2">
                                         Email Address *
                                     </label>
                                     <input
@@ -312,16 +316,16 @@ ${formData.message || 'No additional message provided.'}`;
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
-                                        placeholder="john@company.com"
-                                        className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all font-bold text-gray-900 placeholder-gray-400"
+                                        placeholder="email@example.com"
+                                        className="w-full bg-gray-50 border-2 border-transparent focus:border-primary/20 rounded-3xl py-5 px-8 focus:outline-none focus:bg-white transition-all font-bold text-gray-900"
                                     />
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
-                                        Company/Organization *
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div className="space-y-2">
+                                    <label className="text-sm font-black uppercase tracking-widest text-gray-400 ml-2">
+                                        Organization *
                                     </label>
                                     <input
                                         required
@@ -330,12 +334,11 @@ ${formData.message || 'No additional message provided.'}`;
                                         value={formData.company}
                                         onChange={handleChange}
                                         placeholder="Your Company Name"
-                                        className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all font-bold text-gray-900 placeholder-gray-400"
+                                        className="w-full bg-gray-50 border-2 border-transparent focus:border-primary/20 rounded-3xl py-5 px-8 focus:outline-none focus:bg-white transition-all font-bold text-gray-900"
                                     />
                                 </div>
-
-                                <div>
-                                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
+                                <div className="space-y-2">
+                                    <label className="text-sm font-black uppercase tracking-widest text-gray-400 ml-2">
                                         Phone Number *
                                     </label>
                                     <input
@@ -344,50 +347,55 @@ ${formData.message || 'No additional message provided.'}`;
                                         name="phone"
                                         value={formData.phone}
                                         onChange={handleChange}
-                                        placeholder="+234 800 000 0000"
-                                        className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all font-bold text-gray-900 placeholder-gray-400"
+                                        placeholder="+234 ..."
+                                        className="w-full bg-gray-50 border-2 border-transparent focus:border-primary/20 rounded-3xl py-5 px-8 focus:outline-none focus:bg-white transition-all font-bold text-gray-900"
                                     />
                                 </div>
                             </div>
 
-                            <div>
-                                <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
+                            <div className="space-y-2">
+                                <label className="text-sm font-black uppercase tracking-widest text-gray-400 ml-2">
                                     Partnership Interest *
                                 </label>
-                                <select
-                                    required
-                                    name="interest"
-                                    value={formData.interest}
-                                    onChange={handleChange}
-                                    className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all appearance-none font-bold text-gray-900"
-                                >
-                                    <option value="">Select an option</option>
-                                    {partnershipInterests.map((interest) => (
-                                        <option key={interest} value={interest}>{interest}</option>
-                                    ))}
-                                </select>
+                                <div className="relative">
+                                    <select
+                                        required
+                                        name="interest"
+                                        value={formData.interest}
+                                        onChange={handleChange}
+                                        className="w-full bg-gray-50 border-2 border-transparent focus:border-primary/20 rounded-3xl py-5 px-8 focus:outline-none focus:bg-white transition-all appearance-none font-bold text-gray-900"
+                                    >
+                                        <option value="">Select interest type</option>
+                                        {partnershipInterests.map((interest) => (
+                                            <option key={interest} value={interest}>{interest}</option>
+                                        ))}
+                                    </select>
+                                    <div className="absolute right-8 top-1/2 -translate-y-1/2 pointer-events-none opacity-50">
+                                        <Target size={20} />
+                                    </div>
+                                </div>
                             </div>
 
-                            <div>
-                                <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
-                                    Message (Optional)
+                            <div className="space-y-2">
+                                <label className="text-sm font-black uppercase tracking-widest text-gray-400 ml-2">
+                                    Additional Message
                                 </label>
                                 <textarea
                                     rows="5"
                                     name="message"
                                     value={formData.message}
                                     onChange={handleChange}
-                                    placeholder="Tell us more about your SDG priorities and partnership goals..."
-                                    className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all resize-none font-bold text-gray-900 placeholder-gray-400"
+                                    placeholder="Tell us more about your partnership goals..."
+                                    className="w-full bg-gray-50 border-2 border-transparent focus:border-primary/20 rounded-3xl py-6 px-8 focus:outline-none focus:bg-white transition-all resize-none font-bold text-gray-900"
                                 ></textarea>
                             </div>
 
-                            <Button type="submit" className="w-full py-5 text-lg shadow-2xl flex items-center justify-center gap-3">
-                                Send <Send size={20} />
+                            <Button type="submit" className="w-full py-6 text-xl shadow-2xl shadow-primary/30 flex items-center justify-center gap-4 group">
+                                Submit Inquiry <Send size={24} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                             </Button>
 
-                            <p className="text-xs text-gray-500 text-center">
-                                Your inquiry will be sent to our WhatsApp for immediate response
+                            <p className="text-sm text-gray-400 text-center font-medium">
+                                We'll reach out via WhatsApp and Email to discuss next steps.
                             </p>
                         </form>
                     </div>

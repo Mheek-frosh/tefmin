@@ -6,6 +6,7 @@ import { Newsletter } from "../components/Newsletter";
 import { siteConfig, founderBio } from "../data/siteData";
 import logO from "../assets/logow.png";
 import workersImage from "../assets/nigerian_workers_happy.png";
+import sdgLogo from "../assets/sdg.jpeg";
 import { Biography } from "../components/Biography";
 
 const coreValues = [
@@ -182,6 +183,62 @@ export default function About() {
                             </motion.div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* SDG Alignment Section */}
+            <section className="py-24 bg-primary/5 dark:bg-primary/10 transition-colors duration-300">
+                <div className="max-w-7xl mx-auto px-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="bg-white dark:bg-gray-800 rounded-[3rem] p-8 md:p-16 shadow-2xl border border-primary/10 dark:border-white/5"
+                    >
+                        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                            <div className="flex-shrink-0 w-full lg:w-1/3">
+                                <motion.div
+                                    whileHover={{ scale: 1.02 }}
+                                    className="relative group outline-none"
+                                >
+                                    <img
+                                        src={sdgLogo}
+                                        alt="UN Sustainable Development Goals"
+                                        className="w-full h-auto rounded-3xl shadow-xl transition-transform duration-500"
+                                    />
+                                    <div className="absolute inset-0 rounded-3xl bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                                </motion.div>
+                            </div>
+                            <div className="flex-1">
+                                <div className="flex items-center gap-3 mb-6">
+                                    <div className="h-1 w-12 bg-primary dark:bg-secondary rounded-full" />
+                                    <span className="text-primary dark:text-secondary font-black tracking-widest uppercase text-xs">Global Impact</span>
+                                </div>
+                                <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-6">
+                                    Aligned with the <span className="text-primary dark:text-secondary">UN SDGs</span>
+                                </h2>
+                                <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+                                    TEFMIN is deeply committed to advancing the United Nations Sustainable Development Goals. Our framework is designed to drive measurable impact across multiple global targets, ensuring that our industrial and social initiatives contribute to a fairer, more sustainable future for Nigeria.
+                                </p>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-600 dark:text-gray-400">
+                                    {[
+                                        { id: 4, name: "Quality Education" },
+                                        { id: 8, name: "Decent Work & Growth" },
+                                        { id: 9, name: "Industry & Innovation" },
+                                        { id: 12, name: "Responsible Production" },
+                                        { id: 17, name: "Partnerships for Goals" }
+                                    ].map((sdg) => (
+                                        <div key={sdg.id} className="flex items-center gap-3 bg-gray-50 dark:bg-gray-900/50 p-4 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                            <div className="h-8 w-8 rounded-lg bg-primary text-white flex items-center justify-center font-bold text-sm">
+                                                {sdg.id}
+                                            </div>
+                                            <span className="font-bold text-sm uppercase tracking-wider">{sdg.name}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
                 </div>
             </section>
 
