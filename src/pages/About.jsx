@@ -174,17 +174,23 @@ export default function About() {
                                         <h4 className="text-xs font-black uppercase tracking-widest text-primary dark:text-secondary mb-4">Primary SDGs</h4>
                                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                                             {[
-                                                { id: 4, name: "Education", color: "bg-[#c3132c]" },
-                                                { id: 8, name: "Growth", color: "bg-[#a21942]" },
-                                                { id: 9, name: "Innovation", color: "bg-[#f36d25]" },
-                                                { id: 1, name: "No Poverty", color: "bg-[#e5243b]" }
+                                                { id: 4, name: "Education", color: "bg-[#c3132c]", url: "https://sdgs.un.org/goals/goal4" },
+                                                { id: 8, name: "Growth", color: "bg-[#a21942]", url: "https://sdgs.un.org/goals/goal8" },
+                                                { id: 9, name: "Innovation", color: "bg-[#f36d25]", url: "https://sdgs.un.org/goals/goal9" },
+                                                { id: 1, name: "No Poverty", color: "bg-[#e5243b]", url: "https://sdgs.un.org/goals/goal1" }
                                             ].map((sdg) => (
-                                                <div key={sdg.id} className="flex flex-col items-center gap-2 bg-gray-50 dark:bg-gray-900/50 p-4 rounded-2xl border border-gray-100 dark:border-gray-700 group hover:border-primary/20 transition-all">
+                                                <a
+                                                    key={sdg.id}
+                                                    href={sdg.url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex flex-col items-center gap-2 bg-gray-50 dark:bg-gray-900/50 p-4 rounded-2xl border border-gray-100 dark:border-gray-700 group hover:border-primary/40 hover:bg-white dark:hover:bg-gray-800 transition-all cursor-pointer shadow-sm hover:shadow-md"
+                                                >
                                                     <div className={`h-10 w-10 rounded-xl ${sdg.color} text-white flex items-center justify-center font-black text-lg shadow-lg group-hover:scale-110 transition-transform`}>
                                                         {sdg.id}
                                                     </div>
                                                     <span className="font-bold text-[10px] uppercase tracking-tighter text-center">{sdg.name}</span>
-                                                </div>
+                                                </a>
                                             ))}
                                         </div>
                                     </div>
