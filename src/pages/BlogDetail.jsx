@@ -3,7 +3,10 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Share2, Heart, MessageCircle, Twitter, ArrowRight, ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Newsletter } from "../components/Newsletter";
+import { Button } from "../components/ui/Button";
+import { projectItems } from "../data/projectsData";
 import blog1 from "../assets/blog1.jpeg";
 import cultural from "../assets/cultural.png";
 import spain from "../assets/spain.jpeg";
@@ -306,6 +309,13 @@ const BlogDetailPage = () => {
         .filter(p => p.category === post.category && p.id !== post.id)
         .slice(0, 3);
 
+    // Get first 3 projects for Related Projects section
+    const relatedProjects = projectItems.slice(0, 3);
+
+    const handleProjectClick = (projectId) => {
+        navigate(`/projects/${projectId}`);
+    };
+
     return (
         <div className="pt-32 pb-24 bg-white dark:bg-gray-900 min-h-screen transition-colors duration-300 font-sans">
             <section className="max-w-7xl mx-auto px-6 mb-12 text-center md:text-left">
@@ -430,6 +440,59 @@ const BlogDetailPage = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Related Projects Section */}
+            <section className="max-w-7xl mx-auto px-6 mt-32 mb-24">
+                <h2 className="text-3xl sm:text-4xl font-black text-black dark:text-white mb-12 text-center">
+                    Related Projects
+                </h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {relatedProjects.map((project, index) => (
+                        <motion.div
+                            key={project.id}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                            whileHover={{ y: -10 }}
+                            className="group cursor-pointer"
+                            onClick={() => handleProjectClick(project.id)}
+                        >
+                            <div className="bg-white dark:bg-gray-800 rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 dark:border-gray-700 h-full flex flex-col transition-all hover:shadow-2xl">
+                                <div className="relative h-[240px] overflow-hidden">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                    <div className="absolute top-6 left-6">
+                                        <span className="glass px-4 py-2 rounded-full text-xs font-bold text-primary dark:text-secondary">
+                                            {project.category}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="p-8 flex flex-col flex-grow">
+                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{project.title}</h3>
+                                    <p className="text-gray-500 dark:text-gray-400 text-sm mb-6 line-clamp-2 leading-relaxed">
+                                        {project.description}
+                                    </p>
+                                    <div className="mt-auto flex items-center justify-between">
+                                        <div className="flex gap-2">
+                                            {project.tags.slice(0, 2).map(tag => (
+                                                <span key={tag} className="text-[10px] font-black uppercase text-gray-400 dark:text-gray-500">#{tag}</span>
+                                            ))}
+                                        </div>
+                                        <Button variant="ghost" className="p-0 flex items-center gap-2 group-hover:text-primary text-xs">
+                                            Read More <ArrowRight size={14} />
+                                        </Button>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </section>
 
             {/* Newsletter */}
             <div className="mt-24">
