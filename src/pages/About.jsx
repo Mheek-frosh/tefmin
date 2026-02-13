@@ -41,8 +41,8 @@ export default function About() {
                         Founded 2011
                     </span>
                     <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 dark:text-white mb-6 md:mb-10 leading-[1.1] md:leading-[0.9] tracking-tighter">
-                        The <span className="text-primary dark:text-secondary italic">Future</span>,<br className="hidden md:block" />
-                        Made in Nigeria.
+                        Building the <br className="hidden md:block" />
+                        <span className="text-primary dark:text-secondary italic">Future</span> from Nigeria.
                     </h1>
                     <p className="text-2xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">
                         {siteConfig.fullName} (TEFMIN) is more than an organization; it's a movement focused on {siteConfig.tagline.toLowerCase()} through industrial excellence.
