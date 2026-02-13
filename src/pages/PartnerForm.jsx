@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Send, CheckCircle2, Handshake, TrendingUp, Users, Target, Lightbulb, Award } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Send, CheckCircle2, Handshake, TrendingUp, Users, Target, Lightbulb, Award, Sparkles, Check } from "lucide-react";
 import { Button } from "../components/ui/Button";
 import sdgLogo from "../assets/sdg.jpeg";
 
@@ -13,7 +13,7 @@ export default function PartnerForm() {
         interest: "",
         message: ""
     });
-    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [showToast, setShowToast] = useState(false);
 
     const handleChange = (e) => {
         setFormData({
@@ -35,21 +35,22 @@ export default function PartnerForm() {
 *Partnership Interest:* ${formData.interest}
 
 *Message:*
-${formData.message}`;
+${formData.message || 'No additional message provided.'}`;
 
         // Encode message for URL
         const encodedMessage = encodeURIComponent(whatsappMessage);
 
-        // WhatsApp URL
-        const whatsappURL = `https://wa.me/2348072222291?text=${encodedMessage}`;
+        // WhatsApp URL - New number provided by user
+        const whatsappURL = `https://wa.me/2349034448700?text=${encodedMessage}`;
 
         // Open WhatsApp in new tab
         window.open(whatsappURL, '_blank');
 
-        // Show success message
-        setIsSubmitted(true);
+        // Show custom toast notification
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 4000);
 
-        // Reset form after 3 seconds
+        // Reset form after showing toast
         setTimeout(() => {
             setFormData({
                 name: "",
@@ -59,8 +60,7 @@ ${formData.message}`;
                 interest: "",
                 message: ""
             });
-            setIsSubmitted(false);
-        }, 3000);
+        }, 500);
     };
 
     const partnershipInterests = [
@@ -110,19 +110,60 @@ ${formData.message}`;
 
     return (
         <div className="pt-32 pb-24 bg-gray-50/50 min-h-screen">
+            {/* Custom Toast Notification */}
+            <AnimatePresence>
+                {showToast && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -100 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        className="fixed top-24 left-1/2 -translate-x-1/2 z-[9999] w-full max-w-sm px-4"
+                    >
+                        <div className="bg-[#10b981] text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-4 border border-white/20 backdrop-blur-sm">
+                            <div className="bg-white/20 p-2 rounded-full">
+                                <Check size={20} className="text-white" />
+                            </div>
+                            <span className="font-bold">Your Information has been sent!</span>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
             <div className="max-w-7xl mx-auto px-6">
                 {/* Header Section */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-center mb-16"
+                    className="text-center mb-16 relative"
                 >
-                    <div className="flex items-center justify-center gap-3 mb-6">
-                        <Handshake className="text-primary" size={40} />
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900">
-                            Partner <span className="text-primary">With Us</span>
-                        </h1>
+                    {/* Decorative Background Elements */}
+                    <div className="absolute inset-0 -z-10 overflow-hidden">
+                        <div className="absolute top-0 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+                        <div className="absolute top-0 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
                     </div>
+
+                    <motion.div
+                        className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 px-6 py-3 rounded-full mb-6"
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ delay: 0.2 }}
+                    >
+                        <Sparkles className="text-primary" size={20} />
+                        <span className="text-sm font-black uppercase tracking-wider text-gray-700">Build the Future Together</span>
+                    </motion.div>
+
+                    <h1 className="text-5xl md:text-6xl lg:text-8xl font-black mb-6 leading-[0.95]">
+                        <span className="block text-gray-900">Partner With</span>
+                        <span className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient">
+                            TEFMIN
+                        </span>
+                    </h1>
+
+                    <div className="flex items-center justify-center gap-3 mb-6">
+                        <div className="h-1 w-16 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full"></div>
+                        <Handshake className="text-primary" size={32} />
+                        <div className="h-1 w-16 bg-gradient-to-r from-transparent via-secondary to-transparent rounded-full"></div>
+                    </div>
+
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                         Join TEFMIN in advancing the UN Sustainable Development Goals through innovation, empowerment, and sustainable industrial transformation in Nigeria
                     </p>
@@ -239,134 +280,116 @@ ${formData.message}`;
                     className="max-w-3xl mx-auto"
                 >
                     <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
-                        {!isSubmitted ? (
-                            <>
-                                <div className="text-center mb-10">
-                                    <h3 className="text-4xl font-black text-gray-900 mb-3">Start Your Partnership Journey</h3>
-                                    <p className="text-gray-600 text-lg">Fill out the form below and we'll connect with you via WhatsApp to discuss how we can collaborate on advancing the SDGs together</p>
+                        <div className="text-center mb-10">
+                            <h3 className="text-4xl font-black text-gray-900 mb-3">Start Your Partnership Journey</h3>
+                            <p className="text-gray-600 text-lg">Fill out the form below and we'll connect with you via WhatsApp to discuss how we can collaborate on advancing the SDGs together</p>
+                        </div>
+
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
+                                        Full Name *
+                                    </label>
+                                    <input
+                                        required
+                                        type="text"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        placeholder="John Doe"
+                                        className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all font-bold text-gray-900 placeholder-gray-400"
+                                    />
                                 </div>
 
-                                <form onSubmit={handleSubmit} className="space-y-6">
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div>
-                                            <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
-                                                Full Name *
-                                            </label>
-                                            <input
-                                                required
-                                                type="text"
-                                                name="name"
-                                                value={formData.name}
-                                                onChange={handleChange}
-                                                placeholder="John Doe"
-                                                className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all font-bold text-gray-900 placeholder-gray-400"
-                                            />
-                                        </div>
-
-                                        <div>
-                                            <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
-                                                Email Address *
-                                            </label>
-                                            <input
-                                                required
-                                                type="email"
-                                                name="email"
-                                                value={formData.email}
-                                                onChange={handleChange}
-                                                placeholder="john@company.com"
-                                                className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all font-bold text-gray-900 placeholder-gray-400"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div>
-                                            <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
-                                                Company/Organization *
-                                            </label>
-                                            <input
-                                                required
-                                                type="text"
-                                                name="company"
-                                                value={formData.company}
-                                                onChange={handleChange}
-                                                placeholder="Your Company Name"
-                                                className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all font-bold text-gray-900 placeholder-gray-400"
-                                            />
-                                        </div>
-
-                                        <div>
-                                            <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
-                                                Phone Number *
-                                            </label>
-                                            <input
-                                                required
-                                                type="tel"
-                                                name="phone"
-                                                value={formData.phone}
-                                                onChange={handleChange}
-                                                placeholder="+234 800 000 0000"
-                                                className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all font-bold text-gray-900 placeholder-gray-400"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
-                                            Partnership Interest *
-                                        </label>
-                                        <select
-                                            required
-                                            name="interest"
-                                            value={formData.interest}
-                                            onChange={handleChange}
-                                            className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all appearance-none font-bold text-gray-900"
-                                        >
-                                            <option value="">Select an option</option>
-                                            {partnershipInterests.map((interest) => (
-                                                <option key={interest} value={interest}>{interest}</option>
-                                            ))}
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
-                                            Message (Optional)
-                                        </label>
-                                        <textarea
-                                            rows="5"
-                                            name="message"
-                                            value={formData.message}
-                                            onChange={handleChange}
-                                            placeholder="Tell us more about your SDG priorities and partnership goals..."
-                                            className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all resize-none font-bold text-gray-900 placeholder-gray-400"
-                                        ></textarea>
-                                    </div>
-
-                                    <Button type="submit" className="w-full py-5 text-lg shadow-2xl flex items-center justify-center gap-3">
-                                        Send via WhatsApp <Send size={20} />
-                                    </Button>
-
-                                    <p className="text-xs text-gray-500 text-center">
-                                        By submitting this form, you'll be redirected to WhatsApp to complete your inquiry
-                                    </p>
-                                </form>
-                            </>
-                        ) : (
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                className="text-center py-12"
-                            >
-                                <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                    <CheckCircle2 className="text-green-600" size={48} />
+                                <div>
+                                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
+                                        Email Address *
+                                    </label>
+                                    <input
+                                        required
+                                        type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        placeholder="john@company.com"
+                                        className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all font-bold text-gray-900 placeholder-gray-400"
+                                    />
                                 </div>
-                                <h3 className="text-3xl font-black text-gray-900 mb-4">Redirecting to WhatsApp!</h3>
-                                <p className="text-gray-600 leading-relaxed">
-                                    Your partnership inquiry is being sent via WhatsApp. Please complete the message there.
-                                </p>
-                            </motion.div>
-                        )}
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
+                                        Company/Organization *
+                                    </label>
+                                    <input
+                                        required
+                                        type="text"
+                                        name="company"
+                                        value={formData.company}
+                                        onChange={handleChange}
+                                        placeholder="Your Company Name"
+                                        className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all font-bold text-gray-900 placeholder-gray-400"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
+                                        Phone Number *
+                                    </label>
+                                    <input
+                                        required
+                                        type="tel"
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        placeholder="+234 800 000 0000"
+                                        className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all font-bold text-gray-900 placeholder-gray-400"
+                                    />
+                                </div>
+                            </div>
+
+                            <div>
+                                <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
+                                    Partnership Interest *
+                                </label>
+                                <select
+                                    required
+                                    name="interest"
+                                    value={formData.interest}
+                                    onChange={handleChange}
+                                    className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all appearance-none font-bold text-gray-900"
+                                >
+                                    <option value="">Select an option</option>
+                                    {partnershipInterests.map((interest) => (
+                                        <option key={interest} value={interest}>{interest}</option>
+                                    ))}
+                                </select>
+                            </div>
+
+                            <div>
+                                <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-2 block mb-2">
+                                    Message (Optional)
+                                </label>
+                                <textarea
+                                    rows="5"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    placeholder="Tell us more about your SDG priorities and partnership goals..."
+                                    className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-primary focus:bg-white transition-all resize-none font-bold text-gray-900 placeholder-gray-400"
+                                ></textarea>
+                            </div>
+
+                            <Button type="submit" className="w-full py-5 text-lg shadow-2xl flex items-center justify-center gap-3">
+                                Send <Send size={20} />
+                            </Button>
+
+                            <p className="text-xs text-gray-500 text-center">
+                                Your inquiry will be sent to our WhatsApp for immediate response
+                            </p>
+                        </form>
                     </div>
                 </motion.div>
             </div>

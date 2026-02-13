@@ -50,3 +50,20 @@ html.dark body {
     @apply bg-black/50 backdrop-blur-md border border-white/10 shadow-xl;
   }
 }
+
+@keyframes gradient {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
