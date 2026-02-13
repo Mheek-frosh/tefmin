@@ -41,8 +41,8 @@ export default function About() {
                         Founded 2011
                     </span>
                     <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 dark:text-white mb-6 md:mb-10 leading-[1.1] md:leading-[0.9] tracking-tighter">
-                        Building the <br className="hidden md:block" />
-                        <span className="text-primary dark:text-secondary italic">Future</span> Made in Nigeria.
+                        The <span className="text-primary dark:text-secondary italic">Future</span>,<br className="hidden md:block" />
+                        Made in Nigeria.
                     </h1>
                     <p className="text-2xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">
                         {siteConfig.fullName} (TEFMIN) is more than an organization; it's a movement focused on {siteConfig.tagline.toLowerCase()} through industrial excellence.
@@ -153,7 +153,7 @@ export default function About() {
                                     <span className="text-primary dark:text-secondary font-black tracking-widest uppercase text-xs">Sustainability Commitment</span>
                                 </div>
                                 <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-8">
-                                    Advancing the <span className="text-primary dark:text-secondary">Global Goals</span>
+                                    Advancing the <span className="text-primary dark:text-secondary">UN SDG Goals</span>
                                 </h2>
 
                                 <div className="space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed text-lg mb-10">
@@ -169,7 +169,7 @@ export default function About() {
                                 </div>
 
                                 {/* Structured Goal Groups */}
-                                <div className="space-y-8">
+                                <div className="space-y-8 mb-12">
                                     <div>
                                         <h4 className="text-xs font-black uppercase tracking-widest text-primary dark:text-secondary mb-4">Primary SDGs</h4>
                                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -205,6 +205,54 @@ export default function About() {
                                                 </div>
                                             ))}
                                         </div>
+                                    </div>
+                                </div>
+
+                                {/* Impact Ecosystem: Clients & Beneficiaries */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-gray-100 dark:border-gray-700 mb-12">
+                                    <div>
+                                        <h4 className="text-base font-black text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                            <Building2 size={18} className="text-primary" />
+                                            Primary Clients
+                                        </h4>
+                                        <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 font-medium">
+                                            <li>• Corporate organizations</li>
+                                            <li>• Multinational companies</li>
+                                            <li>• NGOs and development agencies</li>
+                                            <li>• Government institutions and MDAs</li>
+                                            <li>• SMEs and startups</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 className="text-base font-black text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                            <Users size={18} className="text-secondary" />
+                                            Direct Beneficiaries
+                                        </h4>
+                                        <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 font-medium">
+                                            <li>• Youth and young professionals</li>
+                                            <li>• Entrepreneurs and SMEs</li>
+                                            <li>• Communities and vulnerable groups</li>
+                                            <li>• Corporate and institutional staff</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                {/* TEFMIN Differentiators */}
+                                <div className="bg-primary/5 dark:bg-primary/20 p-8 rounded-[2rem] border border-primary/10">
+                                    <h4 className="text-lg font-black text-primary dark:text-secondary mb-6 italic">TEFMIN differentiates itself by offering:</h4>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        {[
+                                            "Integrated solutions (consulting + CSR + training + empowerment)",
+                                            "Deep understanding of the Nigerian and African context",
+                                            "Data-driven and impact-focused program design",
+                                            "Strong alignment with global development goals (SDGs & ESG)",
+                                            "Scalable models suitable for local and international application"
+                                        ].map((diff, i) => (
+                                            <div key={i} className="flex items-start gap-3">
+                                                <div className="h-2 w-2 rounded-full bg-secondary mt-2 shrink-0" />
+                                                <p className="text-sm font-bold text-gray-700 dark:text-gray-300 leading-tight">{diff}</p>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
