@@ -156,7 +156,7 @@ ${formData.message || 'No additional message provided.'}`;
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
                         <span className="block text-gray-900">TEFMIN Flagship Program:</span>
                         <span className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient">
-                            The Future Made in Nigeria Initiative (FMNI)
+                            The Future, Made in Nigeria Initiative (FMNI)
                         </span>
                     </h1>
                 </motion.div>
@@ -171,7 +171,7 @@ ${formData.message || 'No additional message provided.'}`;
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                         <div className="space-y-6">
                             <p className="text-xl text-primary font-bold leading-relaxed">
-                                The Future Made in Nigeria Initiative (FMNI) is TEFMIN’s flagship science, technology, and innovation program designed to unlock Nigeria’s next generation of inventors, researchers, and technology entrepreneurs.
+                                The Future, Made in Nigeria Initiative (FMNI) is TEFMIN’s flagship science, technology, and innovation program designed to unlock Nigeria’s next generation of inventors, researchers, and technology entrepreneurs.
                             </p>
                             <p className="text-gray-600 leading-relaxed text-lg">
                                 The initiative partners with universities, polytechnics, research institutions, and innovation hubs to provide a structured platform for young people in science, technology, engineering, and related disciplines to conceive, design, and develop ideas into practical, market-ready solutions.
@@ -182,13 +182,13 @@ ${formData.message || 'No additional message provided.'}`;
                         </div>
                         <div className="space-y-6">
                             <p className="text-gray-600 leading-relaxed text-lg">
-                                Selected projects receive financial support, technical assistance, and entrepreneurial development, including business modeling, intellectual property guidance, and go-to-market support. High-potential inventions are then showcased at the <strong>Future Made in Nigeria Science & Tech Innovation Fair</strong>, a national platform that connects innovators with investors, corporates, government agencies, and development partners.
+                                Selected projects receive financial support, technical assistance, and entrepreneurial development, including business modeling, intellectual property guidance, and go-to-market support. High-potential inventions are then showcased at the <strong>Future, Made in Nigeria Science & Tech Innovation Fair</strong>, a national platform that connects innovators with investors, corporates, government agencies, and development partners.
                             </p>
                             <p className="text-gray-600 leading-relaxed text-lg">
                                 At the Innovation Fair, sponsors and partners can adopt, license, incubate, or invest in selected inventions, accelerating commercialization, job creation, and indigenous technology development.
                             </p>
                             <div className="bg-primary/5 p-6 rounded-2xl border-l-4 border-primary italic text-gray-700">
-                                The Future Made in Nigeria Initiative positions innovation as a pathway to youth empowerment, economic diversification, and national development, ensuring that Nigerian ideas are not only imagined locally—but built, owned, and scaled globally.
+                                The Future, Made in Nigeria Initiative positions innovation as a pathway to youth empowerment, economic diversification, and national development, ensuring that Nigerian ideas are not only imagined locally—but built, owned, and scaled globally.
                             </div>
                         </div>
                     </div>
@@ -204,7 +204,7 @@ ${formData.message || 'No additional message provided.'}`;
                     <div className="text-center mb-12">
                         <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">Partner With Us</h2>
                         <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                            The Future Made in Nigeria Initiative (FMNI) offers sponsors a unique opportunity to engage directly with Nigeria’s emerging innovators while shaping solutions in AgriTech, Clean Energy & Climate Solutions, Health & Bio-Safety Innovation, Digital Transformation, and Artificial Intelligence.
+                            The Future, Made in Nigeria Initiative (FMNI) offers sponsors a unique opportunity to engage directly with Nigeria’s emerging innovators while shaping solutions in AgriTech, Clean Energy & Climate Solutions, Health & Bio-Safety Innovation, Digital Transformation, and Artificial Intelligence.
                         </p>
                     </div>
 
@@ -259,7 +259,7 @@ ${formData.message || 'No additional message provided.'}`;
                             </ul>
                         </div>
                         <div className="bg-secondary rounded-[3rem] p-10 md:p-14 flex flex-col justify-center text-primary">
-                            <Quote className="h-12 w-12 mb-6 opacity-50" />
+                            <Quote size={48} className="mb-6 opacity-50" />
                             <p className="text-2xl font-black leading-tight mb-6">
                                 TEFMIN serves as the neutral convener and commercialization bridge, ensuring value creation for innovators while delivering strategic and measurable impact for partners.
                             </p>
@@ -284,7 +284,7 @@ ${formData.message || 'No additional message provided.'}`;
                             <span className="text-primary font-black tracking-widest uppercase text-xs mb-4 inline-block bg-primary/5 px-4 py-2 rounded-full">
                                 Get Started
                             </span>
-                            <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">Express Your Interest</h3>
+                            <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 px-4">Lets Create the future together</h3>
                             <p className="text-gray-500 text-lg max-w-2xl mx-auto">
                                 Join us in shaping the future of Nigerian innovation. Fill out the form below and we'll connect with you to discuss our partnership potential.
                             </p>

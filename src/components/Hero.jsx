@@ -95,8 +95,8 @@ export const Hero = () => {
                             key={index}
                             onClick={() => setCurrentSlide(index)}
                             className={`transition-all ${index === currentSlide
-                                    ? "w-12 bg-secondary"
-                                    : "w-3 bg-white/40 hover:bg-white/60"
+                                ? "w-12 bg-secondary"
+                                : "w-3 bg-white/40 hover:bg-white/60"
                                 } h-3 rounded-full`}
                         />
                     ))}
@@ -110,6 +110,16 @@ export const Hero = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                         >
+                            {/* Founding Badge */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.2 }}
+                                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full mb-8"
+                            >
+                                <span className="text-xs font-black uppercase tracking-widest text-secondary">Founded 2011</span>
+                            </motion.div>
+
                             {/* Main Heading */}
                             <AnimatePresence mode="wait">
                                 <motion.div
@@ -121,7 +131,7 @@ export const Hero = () => {
                                     className="mb-8"
                                 >
                                     <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] mb-4 tracking-tighter">
-                                        The Future Is Made in Nigeria
+                                        The Future, Made in Nigeria
                                     </h1>
                                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-secondary italic leading-tight">
                                         {slide.title}, {slide.subtitle}

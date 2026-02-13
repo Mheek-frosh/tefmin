@@ -112,81 +112,7 @@ export default function About() {
                 </div>
             </section>
 
-            {/* Core Values */}
-            <section className="bg-gray-50 dark:bg-gray-800 py-24 transition-colors duration-300">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center mb-16">
-                        <span className="text-primary dark:text-secondary font-black tracking-widest uppercase text-xs mb-4 inline-block bg-primary/5 dark:bg-secondary/10 px-4 py-2 rounded-full">
-                            Our Foundation
-                        </span>
-                        <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white">
-                            Core <span className="text-secondary italic">Values</span>
-                        </h2>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {coreValues.map((value, index) => {
-                            const Icon = value.icon;
-                            return (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    className="bg-white dark:bg-gray-900 rounded-3xl p-8 text-center shadow-lg"
-                                >
-                                    <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary dark:text-secondary">
-                                        <Icon size={32} />
-                                    </div>
-                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{value.title}</h3>
-                                    <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{value.desc}</p>
-                                </motion.div>
-                            );
-                        })}
-                    </div>
-                </div>
-            </section>
-
-            {/* Timeline / Milestones */}
-            <section className="max-w-7xl mx-auto px-6 py-24">
-                <div className="text-center mb-16">
-                    <span className="text-primary dark:text-secondary font-black tracking-widest uppercase text-xs mb-4 inline-block bg-primary/5 dark:bg-secondary/10 px-4 py-2 rounded-full">
-                        Our Journey
-                    </span>
-                    <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white">
-                        Key <span className="text-secondary italic">Milestones</span>
-                    </h2>
-                </div>
-
-                <div className="relative">
-                    <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700 hidden md:block" />
-
-                    <div className="space-y-12">
-                        {milestones.map((milestone, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
-                            >
-                                <div className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
-                                    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
-                                        <span className="text-4xl font-black text-primary dark:text-secondary">{milestone.year}</span>
-                                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-2 mb-2">{milestone.title}</h3>
-                                        <p className="text-gray-500 dark:text-gray-400 text-sm">{milestone.desc}</p>
-                                    </div>
-                                </div>
-                                <div className="w-4 h-4 bg-secondary rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10 hidden md:block" />
-                                <div className="flex-1 hidden md:block" />
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* SDG Alignment Section */}
+            {/* SDG Alignment Section - Relocated and Overhauled */}
             <section className="py-24 bg-primary/5 dark:bg-primary/10 transition-colors duration-300">
                 <div className="max-w-7xl mx-auto px-6">
                     <motion.div
@@ -196,7 +122,8 @@ export default function About() {
                         className="bg-white dark:bg-gray-800 rounded-[3rem] p-8 md:p-16 shadow-2xl border border-primary/10 dark:border-white/5"
                     >
                         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-                            <div className="flex-shrink-0 w-full lg:w-1/3">
+                            {/* Logo on the Left */}
+                            <div className="flex-shrink-0 w-full lg:w-2/5 order-2 lg:order-1">
                                 <motion.div
                                     whileHover={{ scale: 1.02 }}
                                     className="relative group outline-none"
@@ -206,41 +133,76 @@ export default function About() {
                                         alt="UN Sustainable Development Goals"
                                         className="w-full h-auto rounded-3xl shadow-xl transition-transform duration-500"
                                     />
-                                    <div className="absolute inset-0 rounded-3xl bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                                    <div className="absolute inset-0 rounded-3xl bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                                 </motion.div>
                             </div>
-                            <div className="flex-1">
+
+                            <div className="flex-1 order-1 lg:order-2">
                                 <div className="flex items-center gap-3 mb-6">
                                     <div className="h-1 w-12 bg-primary dark:bg-secondary rounded-full" />
-                                    <span className="text-primary dark:text-secondary font-black tracking-widest uppercase text-xs">Global Impact</span>
+                                    <span className="text-primary dark:text-secondary font-black tracking-widest uppercase text-xs">Sustainability Commitment</span>
                                 </div>
-                                <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-6">
-                                    Aligned with the <span className="text-primary dark:text-secondary">UN SDGs</span>
+                                <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-8">
+                                    Advancing the <span className="text-primary dark:text-secondary">Global Goals</span>
                                 </h2>
-                                <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-                                    TEFMIN is deeply committed to advancing the United Nations Sustainable Development Goals. Our framework is designed to drive measurable impact across multiple global targets, ensuring that our industrial and social initiatives contribute to a fairer, more sustainable future for Nigeria.
-                                </p>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-600 dark:text-gray-400">
-                                    {[
-                                        { id: 4, name: "Quality Education" },
-                                        { id: 8, name: "Decent Work & Growth" },
-                                        { id: 9, name: "Industry & Innovation" },
-                                        { id: 12, name: "Responsible Production" },
-                                        { id: 17, name: "Partnerships for Goals" }
-                                    ].map((sdg) => (
-                                        <div key={sdg.id} className="flex items-center gap-3 bg-gray-50 dark:bg-gray-900/50 p-4 rounded-2xl border border-gray-100 dark:border-gray-700">
-                                            <div className="h-8 w-8 rounded-lg bg-primary text-white flex items-center justify-center font-bold text-sm">
-                                                {sdg.id}
-                                            </div>
-                                            <span className="font-bold text-sm uppercase tracking-wider">{sdg.name}</span>
+
+                                <div className="space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed text-lg mb-10">
+                                    <p>
+                                        The Future Made in Nigeria Project Ltd (TEFMIN) is a consulting and social impact development organization committed to advancing sustainable development in Nigeria and across Africa. Our work is intentionally aligned with the United Nations Sustainable Development Goals (SDGs), with a focus on human capital development, economic empowerment, institutional strengthening, and inclusive growth.
+                                    </p>
+                                    <p>
+                                        Through our integrated approach to consulting, CSR advisory, empowerment, and training, TEFMIN directly supports the achievement of <strong>SDG 4 (Quality Education)</strong>, <strong>SDG 8 (Decent Work and Economic Growth)</strong>, and <strong>SDG 9 (Industry, Innovation and Infrastructure)</strong>, while contributing meaningfully to <strong>SDGs 1, 5, 10, and 17.</strong>
+                                    </p>
+                                    <p className="border-l-4 border-secondary pl-6 italic font-medium text-gray-600 dark:text-gray-400">
+                                        TEFMIN works collaboratively with governments, corporations, development partners, and communities to design and implement sustainable, measurable, and scalable solutions that address Africa’s development challenges while strengthening institutions and economic systems.
+                                    </p>
+                                </div>
+
+                                {/* Structured Goal Groups */}
+                                <div className="space-y-8">
+                                    <div>
+                                        <h4 className="text-xs font-black uppercase tracking-widest text-primary dark:text-secondary mb-4">Primary SDGs</h4>
+                                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                            {[
+                                                { id: 4, name: "Education", color: "bg-[#c3132c]" },
+                                                { id: 8, name: "Growth", color: "bg-[#a21942]" },
+                                                { id: 9, name: "Innovation", color: "bg-[#f36d25]" },
+                                                { id: 1, name: "No Poverty", color: "bg-[#e5243b]" }
+                                            ].map((sdg) => (
+                                                <div key={sdg.id} className="flex flex-col items-center gap-2 bg-gray-50 dark:bg-gray-900/50 p-4 rounded-2xl border border-gray-100 dark:border-gray-700 group hover:border-primary/20 transition-all">
+                                                    <div className={`h-10 w-10 rounded-xl ${sdg.color} text-white flex items-center justify-center font-black text-lg shadow-lg group-hover:scale-110 transition-transform`}>
+                                                        {sdg.id}
+                                                    </div>
+                                                    <span className="font-bold text-[10px] uppercase tracking-tighter text-center">{sdg.name}</span>
+                                                </div>
+                                            ))}
                                         </div>
-                                    ))}
+                                    </div>
+
+                                    <div>
+                                        <h4 className="text-xs font-black uppercase tracking-widest text-primary dark:text-secondary mb-4">Supporting SDGs</h4>
+                                        <div className="flex flex-wrap gap-3">
+                                            {[
+                                                { id: 5, name: "Equality" },
+                                                { id: 10, name: "Reduced Inequalities" },
+                                                { id: 17, name: "Partnerships" }
+                                            ].map((sdg) => (
+                                                <div key={sdg.id} className="flex items-center gap-3 bg-gray-50/50 dark:bg-gray-900/30 px-5 py-3 rounded-xl border border-dashed border-gray-200 dark:border-gray-700">
+                                                    <div className="h-6 w-6 rounded-full bg-secondary text-primary flex items-center justify-center font-black text-[10px]">
+                                                        {sdg.id}
+                                                    </div>
+                                                    <span className="font-bold text-[10px] uppercase tracking-widest opacity-70">{sdg.name}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </motion.div>
                 </div>
             </section>
+
 
             {/* Philosophy */}
             <section className="max-w-7xl mx-auto px-6 py-24">
