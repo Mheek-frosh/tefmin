@@ -4,7 +4,7 @@ import ceoImage from "../assets/ceo.jpeg";
 export const siteConfig = {
     name: "TEFMIN",
     fullName: "The Future Made in Nigeria Project Ltd",
-    tagline: "Empowering People, Building the Future",
+    tagline: "Empowering People Building the Future",
     description: "Driving sustainable growth, human capital development, and industrial pride across Nigeria and Africa."
 };
 
