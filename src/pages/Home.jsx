@@ -1,7 +1,6 @@
 import { Hero } from "../components/Hero";
 import { TrustedPartners } from "../components/TrustedPartners";
 import { Services } from "../components/Services";
-import { ProgramFlow } from "../components/ProgramFlow";
 import { VideoSection } from "../components/VideoSection";
 import { Gallery } from "../components/Gallery";
 import { Projects } from "../components/Projects";
@@ -14,7 +13,6 @@ export default function Home() {
             <Hero />
             <TrustedPartners />
             <Services />
-            <ProgramFlow />
             <VideoSection />
             <Gallery />
             <Projects />
@@ -23,4 +21,3 @@ export default function Home() {
         </>
     );
 }
-

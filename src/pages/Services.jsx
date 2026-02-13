@@ -6,6 +6,7 @@ import {
     ArrowRight, Zap
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { ProgramFlow } from "../components/ProgramFlow";
 import logO from "../assets/logow.png";
 
 const services = [
@@ -242,6 +243,9 @@ export default function ServicesPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Detailed Program Flow */}
+            <ProgramFlow />
 
             {/* CTA Section */}
             <section className="max-w-7xl mx-auto px-6 py-24">
